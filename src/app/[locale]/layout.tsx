@@ -3,6 +3,7 @@ import { Athiti } from 'next/font/google';
 import './globals.css';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
+import Header from '@/components/global/header/header';
 
 const athiti = Athiti({
   variable: '--font-athiti',
@@ -24,7 +25,10 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <NextIntlClientProvider messages={messages}>
-        <body className={athiti.variable}>{children}</body>
+        <body className={athiti.variable}>
+          <Header />
+          <main>{children}</main>
+        </body>
       </NextIntlClientProvider>
     </html>
   );

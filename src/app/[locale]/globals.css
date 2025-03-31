@@ -1,12 +1,31 @@
 :root {
-    --primary: white;
-    --text-primary: black
+    --primary: #F9F5F2;
+    --primary-vibrant: white;
+    --secondary: #2c2c2c;
+    --secondary-vibrant: black;
+    --tertiary: #f6cb3a;
+    --tertiary-light: #fdf5c8;
+
+    --text-primary: black;
+
+    --header-height: 4rem;
+}
+
+@font-face {
+    font-family: 'Mixal';
+    src: url('/fonts/mixal/mixal-fontfamily/Mixal-UltraBold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 html,
 body {
     max-width: 100vw;
+    height: 100vh;
     overflow-x: hidden;
+    font-family: var(--font-athiti);
+    font-size: 1rem;
+    overflow-y: hidden;
 }
 
 body {
@@ -20,5 +39,34 @@ body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    color: var(--text-primary);
+    font-family: var(--font-athiti);
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: calc(100% - var(--header-height));
+
+    margin-top: var(--header-height);
+    overflow-y: auto;
+}
+
+.nbShadow {
+    box-shadow: 1px 1px 0 0 var(--secondary-vibrant);
+    transition: transform .25s cubic-bezier(.645, .045, .355, 1), box-shadow .25s cubic-bezier(.645, .045, .355, 1);
+    transform: translate(0px);
+    border: 1px solid var(--secondary-vibrant);
+    background-color: var(--primary);
+
+    &:hover {
+        box-shadow: 2px 2px 0 0 var(--secondary-vibrant);
+        transform: translate(-2px, -2px);
+    }
+}
+
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,43 @@
+
+.nav {
+    display: flex;
+
+    & ul {
+        display: flex;
+        gap: 2.5rem;
+
+        & li {
+            list-style-type: none;
+            transition: transform 0.3s ease;
+
+            & a {
+                display: inline-block;
+                position: relative;
+            }
+
+            .activeLink {
+                & span {
+                    text-decoration: underline;
+                }
+            }
+
+            & a::before {
+                content: "→";
+                position: relative;
+                left: 0;
+                opacity: 0;
+                transition: left 0.3s ease, opacity 0.3s ease;
+            }
+
+            &:hover {
+                transform: translateX(0.5rem);
+
+                & a::before {
+                    left: -0.8rem;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+}

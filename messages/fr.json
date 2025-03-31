@@ -1,5 +1,7 @@
 {
   "header": {
-    "main-title": "ACCUEIL"
+    "main-title": "ACCUEIL",
+    "books": "Livres",
+    "user": "Mon profil"
   }
 }
