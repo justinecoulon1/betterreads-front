@@ -12,8 +12,8 @@ const athiti = Athiti({
 });
 
 export const metadata: Metadata = {
-  title: 'Portfolio',
-  description: 'My portfolio',
+  title: 'BetterReads',
+  description: 'BetterReads: Your reading companion!',
 };
 
 export default async function RootLayout({
