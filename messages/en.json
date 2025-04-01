@@ -1,5 +1,9 @@
 {
   "header": {
-    "main-title": "HOME"
+    "main-title": "ACCUEIL",
+    "books": "BOOKS",
+    "user": "PROFILE",
+    "connexion": "Login",
+    "register": "Register"
   }
 }
