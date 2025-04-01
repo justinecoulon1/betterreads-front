@@ -1,0 +1,29 @@
+.lastAddedBookSectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 80%;
+    min-width: fit-content;
+
+    gap: 1rem;
+    padding: 1rem;
+
+    background-color: var(--primary-vibrant);
+    border: 1px solid var(--secondary-vibrant);
+
+    .lastAddedBookSectionHeader {
+        display: flex;
+        justify-content: space-between;
+
+        width: 100%;
+
+    }
+
+    .lastAddedBookSectionContent {
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 1rem;
+    }
+}
