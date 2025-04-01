@@ -26,8 +26,20 @@
     "invalid-password-lowercase": "Password must contain at least one lowercase letter",
     "invalid-password-number": "Password must contain at least one number",
     "submitting": "...",
-    "submit-button": "Submit",
+    "submit-button": "Login",
     "email": "Email",
     "password": "Password"
+  },
+  "register-form": {
+    "name-input-placeholder": "Enter your name",
+    "email-input-placeholder": "Enter your email",
+    "password-input-placeholder": "Enter your password",
+    "confirm-password-input-placeholder": "Enter password confirmation",
+    "submitting": "...",
+    "submit-button": "Register",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "confirm-password": "Password confirmation"
   }
 }
