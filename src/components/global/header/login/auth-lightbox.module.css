@@ -1,0 +1,55 @@
+.lightboxContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: absolute;
+    overflow-y: auto;
+
+    height: 57vh;
+    width: 25rem;
+
+    border-radius: 1.3rem;
+    border: 2px solid var(--secondary-vibrant);
+    background-color: var(--primary);
+
+    .titleDiv {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+
+        .loginTab,
+        .registerTab {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 50%;
+
+            padding: 0.7rem;
+
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+
+            color: var(--tertiary);
+            border-bottom: 2px solid var(--secondary-vibrant);
+
+            &:hover {
+                background-color: var(--primary);
+                color: var(--secondary-vibrant);
+            }
+
+            &.selected {
+                box-shadow: none;
+                background-color: var(--tertiary);
+            }
+        }
+
+        .registerTab {
+            border-left: 2px solid var(--secondary-vibrant);
+        }
+    }
+}

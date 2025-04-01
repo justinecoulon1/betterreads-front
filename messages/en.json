@@ -11,5 +11,9 @@
   },
   "last-added-books": {
     "last-added-books-title": "Last added books:"
+  },
+  "auth-lightbox": {
+    "register": "Register",
+    "login": "Login"
   }
 }
