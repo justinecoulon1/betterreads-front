@@ -4,6 +4,7 @@ import './globals.css';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import Header from '@/components/global/header/header';
+import { getSession } from '@/utils/sessions/login-action';
 
 const athiti = Athiti({
   variable: '--font-athiti',
@@ -22,11 +23,13 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const messages = await getMessages();
+  const session = await getSession();
+  const sessionJson = JSON.parse(JSON.stringify(session));
   return (
     <html lang="en">
       <NextIntlClientProvider messages={messages}>
         <body className={athiti.variable}>
-          <Header />
+          <Header session={sessionJson} />
           <main>{children}</main>
         </body>
       </NextIntlClientProvider>

@@ -19,7 +19,12 @@ export default function AuthLightbox({
 }) {
   return (
     <GenericLightbox isLightboxOpened={isLightboxOpened} onLightboxClosed={onLightboxClosed}>
-      <AuthLightboxContent loginTab={loginTab} onSetLoginTab={onSetLoginTab} onSetRegisterTab={onSetRegisterTab} />
+      <AuthLightboxContent
+        loginTab={loginTab}
+        onSetLoginTab={onSetLoginTab}
+        onSetRegisterTab={onSetRegisterTab}
+        onLightboxClosed={onLightboxClosed}
+      />
     </GenericLightbox>
   );
 }

@@ -3,7 +3,8 @@
     "main-title": "Home",
     "books": "Books",
     "user": "Profile",
-    "connexion": "Login",
+    "login": "Login",
+    "logout": "Logout",
     "register": "Register"
   },
   "see-more": {
@@ -15,5 +16,18 @@
   "auth-lightbox": {
     "register": "Register",
     "login": "Login"
+  },
+  "login-form": {
+    "email-input-placeholder": "Enter your email",
+    "password-input-placeholder": "Enter your password",
+    "invalid-email": "Please enter a valid email",
+    "invalid-password-length": "Password must be 8 to 100 characters long",
+    "invalid-password-uppercase": "Password must contain at least one uppercase letter",
+    "invalid-password-lowercase": "Password must contain at least one lowercase letter",
+    "invalid-password-number": "Password must contain at least one number",
+    "submitting": "...",
+    "submit-button": "Submit",
+    "email": "Email",
+    "password": "Password"
   }
 }

@@ -10,10 +10,12 @@ export default function AuthLightboxContent({
   loginTab,
   onSetLoginTab,
   onSetRegisterTab,
+  onLightboxClosed,
 }: {
   loginTab: LoginTabs;
   onSetLoginTab: (e: React.MouseEvent | React.KeyboardEvent) => void;
   onSetRegisterTab: (e: React.MouseEvent | React.KeyboardEvent) => void;
+  onLightboxClosed: (e: React.MouseEvent | React.KeyboardEvent) => void;
 }) {
   const t = useTranslations('auth-lightbox');
   return (
@@ -36,7 +38,7 @@ export default function AuthLightboxContent({
           <p>{t('register')}</p>
         </div>
       </div>
-      {loginTab === LoginTabs.LOGIN && <LoginTab />}
+      {loginTab === LoginTabs.LOGIN && <LoginTab onLightboxClosed={onLightboxClosed} />}
       {loginTab === LoginTabs.REGISTER && <RegisterTab />}
     </div>
   );

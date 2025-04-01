@@ -8,14 +8,18 @@ import AuthButton from '@/components/global/header/login/auth-button';
 import React, { useState } from 'react';
 import AuthLightbox from '@/components/global/header/login/auth-lightbox';
 import { LoginTabs } from '@/components/global/header/login/login-tabs';
+import { IronSession } from 'iron-session';
+import { SessionData } from '@/utils/sessions/lib';
 
-export default function Header() {
+export default function Header({ session }: { session: IronSession<SessionData> }) {
   const [isLightboxOpened, setLightboxOpened] = useState(false);
   const [loginTab, setLoginTab] = useState(LoginTabs.LOGIN);
 
-  const onLightboxClosed: (e: React.MouseEvent | React.KeyboardEvent) => void = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const onLightboxClosed: (e?: React.MouseEvent | React.KeyboardEvent) => void = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     setLightboxOpened(false);
   };
 
@@ -52,6 +56,7 @@ export default function Header() {
           onLightboxOpened={onLightboxOpened}
           onLightboxClosed={onLightboxClosed}
           onSetLoginTab={onSetLoginTab}
+          session={session}
         />
       </div>
     </header>
