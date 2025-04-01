@@ -1,9 +1,15 @@
 {
   "header": {
-    "main-title": "ACCUEIL",
-    "books": "BOOKS",
-    "user": "PROFILE",
+    "main-title": "Home",
+    "books": "Books",
+    "user": "Profile",
     "connexion": "Login",
     "register": "Register"
+  },
+  "see-more": {
+    "see-more": "See more"
+  },
+  "last-added-books": {
+    "last-added-books-title": "Last added books:"
   }
 }

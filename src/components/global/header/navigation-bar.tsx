@@ -23,7 +23,7 @@ export default function NavigationBar() {
         {navLinks.map((navLink) => (
           <li key={navLink.key}>
             <Link className={classNames(activePage === navLink.path && styles.activeLink)} href={navLink.path}>
-              <span>{t(navLink.key)}</span>
+              <span>{t(navLink.key).toUpperCase()}</span>
             </Link>
           </li>
         ))}
