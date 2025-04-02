@@ -1,24 +1,11 @@
 'use server';
 
 import { getIronSession } from 'iron-session';
-import { SessionData, sessionOptions } from '@/utils/sessions/lib';
+import { SessionData, sessionOptions } from '@/utils/session/lib';
 import { cookies } from 'next/headers';
 import { LoginResponseDto } from '@/utils/dto/user.dto';
 import UserService from '@/utils/api/user.service';
-import { z } from 'zod';
 import { redirect } from 'next/navigation';
-
-const passwordSchema = z
-  .string()
-  .min(8, { message: 'invalid-password-length' })
-  .max(100, { message: 'invalid-password-length' })
-  .regex(/[A-Z]/, { message: 'invalid-password-uppercase' })
-  .regex(/[a-z]/, { message: 'invalid-password-lowercase' })
-  .regex(/[0-9]/, { message: 'invalid-password-number' });
-
-const loginFormSchema = z.object({
-  email: z.string().email({ message: 'invalid-email' }).trim(),
-});
 
 export type LoginStateForm = {
   error: {
@@ -33,21 +20,41 @@ export async function getSession() {
 }
 
 export async function login(loginStateForm: LoginStateForm, data: FormData): Promise<LoginStateForm> {
-  const result = loginFormSchema.safeParse(Object.fromEntries(data.entries()));
-  if (result.error) {
-    return {
-      error: result.error.flatten().fieldErrors,
-    };
-  }
   const session = await getSession();
 
   const formEmail = data.get('email') as string;
   const formPassword = data.get('password') as string;
 
+  if (formEmail.length === 0 || formPassword.length === 0) {
+    let errors = { error: {} };
+
+    if (formEmail.length === 0) {
+      errors = {
+        ...errors,
+        error: {
+          ...errors.error,
+          email: ['email-required'],
+        },
+      };
+    }
+
+    if (formPassword.length === 0) {
+      errors = {
+        ...errors,
+        error: {
+          ...errors.error,
+          password: ['password-required'],
+        },
+      };
+    }
+
+    return errors;
+  }
+
   const { user, accessToken }: LoginResponseDto = await UserService.login(formEmail, formPassword);
 
   if (!user) {
-    return { error: { credentials: 'Wrong Credentials!' } };
+    return { error: { credentials: 'wrong-credentials' } };
   }
 
   session.user = user;

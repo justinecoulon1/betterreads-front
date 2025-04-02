@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
-import { logout } from '@/utils/sessions/login-action';
+import { logout } from '@/utils/action/login-action';
 import React from 'react';
 import styles from './auth-button.module.css';
 

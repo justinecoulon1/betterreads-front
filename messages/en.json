@@ -20,15 +20,13 @@
   "login-form": {
     "email-input-placeholder": "Enter your email",
     "password-input-placeholder": "Enter your password",
-    "invalid-email": "Please enter a valid email",
-    "invalid-password-length": "Password must be 8 to 100 characters long",
-    "invalid-password-uppercase": "Password must contain at least one uppercase letter",
-    "invalid-password-lowercase": "Password must contain at least one lowercase letter",
-    "invalid-password-number": "Password must contain at least one number",
     "submitting": "...",
     "submit-button": "Login",
     "email": "Email",
-    "password": "Password"
+    "password": "Password",
+    "wrong-credentials": "Wrong credentials",
+    "email-required": "Email address is required",
+    "password-required": "Password is required"
   },
   "register-form": {
     "name-input-placeholder": "Enter your name",
@@ -40,6 +38,11 @@
     "name": "Name",
     "email": "Email",
     "password": "Password",
-    "confirm-password": "Password confirmation"
+    "confirm-password": "Password confirmation",
+    "invalid-password-length": "Must be 8 to 100 characters long",
+    "invalid-email": "Please enter a valid email",
+    "invalid-email-length": "Email must be less than 100 characters long",
+    "invalid-password-no-match": "Password and confirmation do not match",
+    "invalid-name-length": "Must be 2 to 50 characters long"
   }
 }

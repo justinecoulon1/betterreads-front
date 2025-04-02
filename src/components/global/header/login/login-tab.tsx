@@ -2,7 +2,7 @@ import styles from './login-tab.module.css';
 import React, { useActionState, useId } from 'react';
 import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
-import { login, LoginStateForm } from '@/utils/sessions/login-action';
+import { login, LoginStateForm } from '@/utils/action/login-action';
 
 export function LoginTab({ closeLightbox }: { closeLightbox: () => void }) {
   const t = useTranslations('login-form');
@@ -31,8 +31,11 @@ export function LoginTab({ closeLightbox }: { closeLightbox: () => void }) {
             type="text"
             placeholder={t('email-input-placeholder')}
           />
-          {formState.error?.email && <span>{formState.error?.email.map((code) => t(code)).join(', ')}</span>}
+          <div className={styles.loginFormErrorDiv}>
+            {formState.error?.email && <span>{formState.error?.email.map((code) => t(code)).join(', ')}</span>}
+          </div>
         </div>
+
         <div className={styles.loginFormInputDiv}>
           <label htmlFor={inputId + '-password'}>{t('password')}</label>
           <input
@@ -42,8 +45,12 @@ export function LoginTab({ closeLightbox }: { closeLightbox: () => void }) {
             type="password"
             placeholder={t('password-input-placeholder')}
           />
+          <div className={styles.loginFormErrorDiv}>
+            {formState.error?.password && <span>{formState.error?.password.map((code) => t(code)).join(', ')}</span>}
+          </div>
         </div>
       </div>
+
       <button type="submit" disabled={isPending} className={classNames(styles.submitLoginButton, 'nbShadow')}>
         {isPending ? t('submitting') : t('submit-button')}
       </button>
