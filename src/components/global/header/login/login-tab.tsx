@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
 import { login, LoginStateForm } from '@/utils/sessions/login-action';
 
-export function LoginTab({ onLightboxClosed }: { onLightboxClosed: () => void }) {
+export function LoginTab({ closeLightbox }: { closeLightbox: () => void }) {
   const t = useTranslations('login-form');
   const inputId = useId();
 
@@ -14,7 +14,7 @@ export function LoginTab({ onLightboxClosed }: { onLightboxClosed: () => void })
       return { error: loginResult.error };
     }
 
-    onLightboxClosed();
+    closeLightbox();
     return { error: null };
   };
 

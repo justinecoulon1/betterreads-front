@@ -13,12 +13,12 @@ export type RegisterStateForm = {
   } | null;
 };
 
-export function RegisterTab({ onLightboxClosed }: { onLightboxClosed: () => void }) {
+export function RegisterTab({ closeLightbox }: { closeLightbox: () => void }) {
   const t = useTranslations('register-form');
   const inputId = useId();
 
   const handleSend = async (state: RegisterStateForm, data: FormData): Promise<RegisterStateForm> => {
-    onLightboxClosed();
+    closeLightbox();
     return { error: null };
   };
 

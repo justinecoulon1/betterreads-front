@@ -1,4 +1,4 @@
-export enum LoginTabs {
+export enum LightboxTabs {
   LOGIN = 'LOGIN',
   REGISTER = 'REGISTER',
 }

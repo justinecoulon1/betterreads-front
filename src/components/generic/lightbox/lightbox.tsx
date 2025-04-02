@@ -4,20 +4,20 @@ import styles from './lightbox.module.css';
 
 export default function GenericLightbox({
   isLightboxOpened,
-  onLightboxClosed = () => {},
+  closeLightbox = () => {},
   children,
 }: {
   isLightboxOpened: boolean;
-  onLightboxClosed: (e: React.MouseEvent | React.KeyboardEvent) => void;
+  closeLightbox: (e: React.MouseEvent | React.KeyboardEvent) => void;
   children: ReactNode;
 }) {
   return (
     <div
       className={classNames(styles.loginLightBoxContainer, { [styles.hidden]: !isLightboxOpened })}
-      onMouseDown={(e) => onLightboxClosed(e)}
+      onMouseDown={(e) => closeLightbox(e)}
       onKeyDown={(e) => {
         if (e.key === 'Escape') {
-          onLightboxClosed(e);
+          closeLightbox(e);
         }
       }}
     >

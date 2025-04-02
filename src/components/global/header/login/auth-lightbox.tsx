@@ -1,28 +1,28 @@
 import AuthLightboxContent from '@/components/global/header/login/auth-lightbox-content';
 import GenericLightbox from '@/components/generic/lightbox/lightbox';
 import React from 'react';
-import { LoginTabs } from '@/components/global/header/login/login-tabs';
+import { LightboxTabs } from '@/components/global/header/login/lightbox-tabs';
 
 export default function AuthLightbox({
   isLightboxOpened,
-  onLightboxClosed,
+  closeLightbox,
   loginTab,
-  onSetLoginTab,
-  onSetRegisterTab,
+  setLoginTab,
+  setRegisterTab,
 }: {
   isLightboxOpened: boolean;
-  onLightboxClosed: () => void;
-  loginTab: LoginTabs;
-  onSetLoginTab: () => void;
-  onSetRegisterTab: () => void;
+  closeLightbox: () => void;
+  loginTab: LightboxTabs;
+  setLoginTab: () => void;
+  setRegisterTab: () => void;
 }) {
   return (
-    <GenericLightbox isLightboxOpened={isLightboxOpened} onLightboxClosed={onLightboxClosed}>
+    <GenericLightbox isLightboxOpened={isLightboxOpened} closeLightbox={closeLightbox}>
       <AuthLightboxContent
         loginTab={loginTab}
-        onSetLoginTab={onSetLoginTab}
-        onSetRegisterTab={onSetRegisterTab}
-        onLightboxClosed={onLightboxClosed}
+        setLoginTab={setLoginTab}
+        setRegisterTab={setRegisterTab}
+        closeLightbox={closeLightbox}
       />
     </GenericLightbox>
   );

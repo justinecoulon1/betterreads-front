@@ -4,18 +4,18 @@ import { LoginTab } from '@/components/global/header/login/login-tab';
 import { RegisterTab } from '@/components/global/header/login/register-tab';
 import styles from './auth-lightbox.module.css';
 import React from 'react';
-import { LoginTabs } from '@/components/global/header/login/login-tabs';
+import { LightboxTabs } from '@/components/global/header/login/lightbox-tabs';
 
 export default function AuthLightboxContent({
   loginTab,
-  onSetLoginTab,
-  onSetRegisterTab,
-  onLightboxClosed,
+  setLoginTab,
+  setRegisterTab,
+  closeLightbox,
 }: {
-  loginTab: LoginTabs;
-  onSetLoginTab: () => void;
-  onSetRegisterTab: () => void;
-  onLightboxClosed: () => void;
+  loginTab: LightboxTabs;
+  setLoginTab: () => void;
+  setRegisterTab: () => void;
+  closeLightbox: () => void;
 }) {
   const t = useTranslations('auth-lightbox');
   return (
@@ -23,23 +23,23 @@ export default function AuthLightboxContent({
       <div className={styles.titleDiv}>
         <div
           className={classNames(styles.loginTab, styles.loginButtons, {
-            [styles.selected]: loginTab === LoginTabs.LOGIN,
+            [styles.selected]: loginTab === LightboxTabs.LOGIN,
           })}
-          onClick={onSetLoginTab}
+          onClick={setLoginTab}
         >
           <p>{t('login')}</p>
         </div>
         <div
           className={classNames(styles.registerTab, styles.loginButtons, {
-            [styles.selected]: loginTab === LoginTabs.REGISTER,
+            [styles.selected]: loginTab === LightboxTabs.REGISTER,
           })}
-          onClick={onSetRegisterTab}
+          onClick={setRegisterTab}
         >
           <p>{t('register')}</p>
         </div>
       </div>
-      {loginTab === LoginTabs.LOGIN && <LoginTab onLightboxClosed={onLightboxClosed} />}
-      {loginTab === LoginTabs.REGISTER && <RegisterTab onLightboxClosed={onLightboxClosed} />}
+      {loginTab === LightboxTabs.LOGIN && <LoginTab closeLightbox={closeLightbox} />}
+      {loginTab === LightboxTabs.REGISTER && <RegisterTab closeLightbox={closeLightbox} />}
     </div>
   );
 }

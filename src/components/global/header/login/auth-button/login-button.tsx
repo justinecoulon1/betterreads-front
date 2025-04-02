@@ -4,43 +4,43 @@ import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
 import React, { useState } from 'react';
 import styles from './auth-button.module.css';
-import { LoginTabs } from '@/components/global/header/login/login-tabs';
+import { LightboxTabs } from '@/components/global/header/login/lightbox-tabs';
 import AuthLightbox from '@/components/global/header/login/auth-lightbox';
 
 export default function LoginButton() {
   const t = useTranslations('header');
   const [isLightboxOpened, setLightboxOpened] = useState(false);
-  const [loginTab, setLoginTab] = useState(LoginTabs.LOGIN);
+  const [lightboxTab, setLightboxTab] = useState(LightboxTabs.LOGIN);
 
-  const onLightboxClosed = () => {
+  const handleCloseLightbox = () => {
     setLightboxOpened(false);
   };
 
-  const onLightboxOpened = () => {
+  const handleOpenLightbox = () => {
     setLightboxOpened(true);
   };
 
-  const onSetLoginTab = () => {
-    setLoginTab(LoginTabs.LOGIN);
+  const handleSetLoginTab = () => {
+    setLightboxTab(LightboxTabs.LOGIN);
   };
-  const onSetRegisterTab = () => {
-    setLoginTab(LoginTabs.REGISTER);
+  const handleSetRegisterTab = () => {
+    setLightboxTab(LightboxTabs.REGISTER);
   };
   return (
     <>
       <AuthLightbox
         isLightboxOpened={isLightboxOpened}
-        onLightboxClosed={onLightboxClosed}
-        loginTab={loginTab}
-        onSetLoginTab={onSetLoginTab}
-        onSetRegisterTab={onSetRegisterTab}
+        closeLightbox={handleCloseLightbox}
+        loginTab={lightboxTab}
+        setLoginTab={handleSetLoginTab}
+        setRegisterTab={handleSetRegisterTab}
       />
       <button
         className={classNames(styles.authButton, 'nbShadow')}
-        onClick={onLightboxOpened}
+        onClick={handleOpenLightbox}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
-            onLightboxClosed();
+            handleCloseLightbox();
           }
         }}
       >
