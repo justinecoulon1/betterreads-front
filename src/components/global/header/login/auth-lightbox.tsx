@@ -11,11 +11,10 @@ export default function AuthLightbox({
   onSetRegisterTab,
 }: {
   isLightboxOpened: boolean;
-  onLightboxOpened: (e: React.MouseEvent | React.KeyboardEvent) => void;
-  onLightboxClosed: (e: React.MouseEvent | React.KeyboardEvent) => void;
+  onLightboxClosed: () => void;
   loginTab: LoginTabs;
-  onSetLoginTab: (e: React.MouseEvent | React.KeyboardEvent) => void;
-  onSetRegisterTab: (e: React.MouseEvent | React.KeyboardEvent) => void;
+  onSetLoginTab: () => void;
+  onSetRegisterTab: () => void;
 }) {
   return (
     <GenericLightbox isLightboxOpened={isLightboxOpened} onLightboxClosed={onLightboxClosed}>

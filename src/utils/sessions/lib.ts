@@ -3,12 +3,8 @@ import { UserDto } from '@/utils/dto/user.dto';
 
 export interface SessionData {
   user?: UserDto;
-  accessToken: string | null;
+  accessToken?: string;
 }
-
-export const defaultSession: SessionData = {
-  accessToken: null,
-};
 
 export const sessionOptions: SessionOptions = {
   password: process.env.SESSION_SECRET!,

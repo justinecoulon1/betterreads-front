@@ -1,3 +1,4 @@
+'use client';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/routing';
 import classNames from 'classnames';

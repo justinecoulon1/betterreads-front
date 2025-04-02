@@ -1,7 +1,7 @@
 'use server';
 
 import { getIronSession } from 'iron-session';
-import { defaultSession, SessionData, sessionOptions } from '@/utils/sessions/lib';
+import { SessionData, sessionOptions } from '@/utils/sessions/lib';
 import { cookies } from 'next/headers';
 import { LoginResponseDto } from '@/utils/dto/user.dto';
 import UserService from '@/utils/api/user.service';
@@ -18,7 +18,6 @@ const passwordSchema = z
 
 const loginFormSchema = z.object({
   email: z.string().email({ message: 'invalid-email' }).trim(),
-  password: passwordSchema,
 });
 
 export type LoginStateForm = {
@@ -30,13 +29,7 @@ export type LoginStateForm = {
 };
 
 export async function getSession() {
-  const session = await getIronSession<SessionData>(await cookies(), sessionOptions);
-
-  if (!session.accessToken) {
-    session.accessToken = defaultSession.accessToken;
-  }
-
-  return session;
+  return getIronSession<SessionData>(await cookies(), sessionOptions);
 }
 
 export async function login(loginStateForm: LoginStateForm, data: FormData): Promise<LoginStateForm> {
@@ -61,7 +54,7 @@ export async function login(loginStateForm: LoginStateForm, data: FormData): Pro
   session.accessToken = accessToken;
 
   await session.save();
-  redirect('/');
+  return { error: null };
 }
 
 export async function logout() {

@@ -13,11 +13,7 @@ export type RegisterStateForm = {
   } | null;
 };
 
-export function RegisterTab({
-  onLightboxClosed,
-}: {
-  onLightboxClosed: (e?: React.MouseEvent | React.KeyboardEvent) => void;
-}) {
+export function RegisterTab({ onLightboxClosed }: { onLightboxClosed: () => void }) {
   const t = useTranslations('register-form');
   const inputId = useId();
 

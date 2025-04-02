@@ -4,11 +4,7 @@ import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
 import { login, LoginStateForm } from '@/utils/sessions/login-action';
 
-export function LoginTab({
-  onLightboxClosed,
-}: {
-  onLightboxClosed: (e?: React.MouseEvent | React.KeyboardEvent) => void;
-}) {
+export function LoginTab({ onLightboxClosed }: { onLightboxClosed: () => void }) {
   const t = useTranslations('login-form');
   const inputId = useId();
 
@@ -46,7 +42,6 @@ export function LoginTab({
             type="password"
             placeholder={t('password-input-placeholder')}
           />
-          {formState.error?.password && <span>{formState.error?.password.map((code) => t(code)).join(', ')}</span>}
         </div>
       </div>
       <button type="submit" disabled={isPending} className={classNames(styles.submitLoginButton, 'nbShadow')}>
