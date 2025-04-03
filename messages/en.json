@@ -3,7 +3,8 @@
     "main-title": "Home",
     "books": "Books",
     "user": "Profile",
-    "connexion": "Login",
+    "login": "Login",
+    "logout": "Logout",
     "register": "Register"
   },
   "see-more": {
@@ -11,5 +12,37 @@
   },
   "last-added-books": {
     "last-added-books-title": "Last added books:"
+  },
+  "auth-lightbox": {
+    "register": "Register",
+    "login": "Login"
+  },
+  "login-form": {
+    "email-input-placeholder": "Enter your email",
+    "password-input-placeholder": "Enter your password",
+    "submitting": "...",
+    "submit-button": "Login",
+    "email": "Email",
+    "password": "Password",
+    "wrong-credentials": "Wrong credentials",
+    "email-required": "Email address is required",
+    "password-required": "Password is required"
+  },
+  "register-form": {
+    "name-input-placeholder": "Enter your name",
+    "email-input-placeholder": "Enter your email",
+    "password-input-placeholder": "Enter your password",
+    "confirm-password-input-placeholder": "Enter password confirmation",
+    "submitting": "...",
+    "submit-button": "Register",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "confirm-password": "Password confirmation",
+    "invalid-password-length": "Must be 8 to 100 characters long",
+    "invalid-email": "Please enter a valid email",
+    "invalid-email-length": "Email must be less than 100 characters long",
+    "invalid-password-no-match": "Password and confirmation do not match",
+    "invalid-name-length": "Must be 2 to 50 characters long"
   }
 }

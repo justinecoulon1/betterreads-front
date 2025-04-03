@@ -2,7 +2,7 @@ import { BookListDto } from '@/utils/dto/book.dto';
 import BookListCard from '@/components/global/books/book-list-card';
 import styles from './last-added-books-section.module.css';
 import { useTranslations } from 'next-intl';
-import SeeMoreLink from '@/components/global/see-more-button/see-more-link';
+import SeeMoreLink from '@/components/generic/see-more-button/see-more-link';
 
 export default function LastAddedBooksSection({ lastAddedBooks }: { lastAddedBooks: BookListDto[] }) {
   const t = useTranslations('last-added-books');

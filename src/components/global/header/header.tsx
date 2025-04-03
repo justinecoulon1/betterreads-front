@@ -1,21 +1,22 @@
-'use client';
+'use server';
 
 import styles from './header.module.css';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import NavigationBar from '@/components/global/header/navigation-bar';
-import AuthButtons from '@/components/global/header/auth-buttons';
+import AuthButton from '@/components/global/header/login/auth-button/auth-button';
+import React from 'react';
 
-export default function Header() {
+export default async function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.headerDiv}>
-        <Link href={'/public'} className={styles.logoDiv}>
+        <Link href={'/'} className={styles.logoDiv}>
           <Image className={styles.logo} src={'/icons/logo.png'} width={512} height={512} alt={'logo'} />
           SITE
         </Link>
         <NavigationBar />
-        <AuthButtons />
+        <AuthButton />
       </div>
     </header>
   );
