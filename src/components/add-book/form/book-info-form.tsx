@@ -5,11 +5,11 @@ import { useTranslations } from 'next-intl';
 import AddBookInput from '@/components/add-book/form/book-form-input';
 import { addBook } from '@/utils/action/books-action';
 
-export default function BookInfoForm() {
+export default function BookInfoForm({ isbn }: { isbn: string }) {
   const t = useTranslations('book-info-form');
 
   const [formState, formAction, isPending] = useActionState(addBook, {});
-
+  formState.isbn = isbn;
   return (
     <form action={formAction} className={styles.bookInfoForm}>
       <AddBookInput

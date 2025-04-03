@@ -1,7 +1,9 @@
+import { AuthorDto } from './author.dto';
+
 export type BookListDto = {
   id: number;
   title: string;
-  createdAt: Date;
+  authors: AuthorDto[];
 };
 
 export type BookDto = {
@@ -9,5 +11,15 @@ export type BookDto = {
   title: string;
   createdAt: Date;
   genres: string[];
-  //author
+  authors: AuthorDto[];
+  isbn10: string;
+  isbn13: string;
+  releaseDate: Date;
+};
+
+export type CreateBookRequestDto = {
+  title: string;
+  releaseDate: Date;
+  genres: string[];
+  isbn: string;
 };

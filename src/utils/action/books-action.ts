@@ -20,6 +20,7 @@ export type BookAddStateForm = {
   title?: string;
   releaseDate?: string;
   genres?: string;
+  isbn?: string;
 };
 
 export async function checkBookIsbn(state: BookIsbnStateForm, data: FormData): Promise<BookIsbnStateForm> {
@@ -35,6 +36,13 @@ export async function checkBookIsbn(state: BookIsbnStateForm, data: FormData): P
 }
 
 export async function addBook(state: BookAddStateForm, data: FormData): Promise<BookAddStateForm> {
+  const title = data.get('title') as string;
+  const releaseDate = data.get('releaseDate') as string;
+  const genres = data.get('genres') as string;
+  const isbn = data.get('isbn') as string;
+
+  const createdBook = await BookService.createBook(title, releaseDate, genres, isbn);
+
   console.log('add book');
 
   return {};

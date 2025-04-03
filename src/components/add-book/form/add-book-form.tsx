@@ -43,7 +43,7 @@ export default function AddBookForm() {
         </div>
       </form>
       {/*{formState.step === BookFormStep.BOOK_INFO && <BookInfoForm  />}*/}
-      {!!formState.isbn && <BookInfoForm />}
+      {!!formState.isbn && <BookInfoForm isbn={formState.isbn} />}
     </>
   );
 }
