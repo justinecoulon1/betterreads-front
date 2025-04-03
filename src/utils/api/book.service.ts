@@ -6,6 +6,11 @@ class BookService {
     const response = await betterreadsAxios.get<BookListDto[]>(`/books/latest`);
     return response.data;
   }
+
+  async checkIsbn(isbn: string) {
+    const response = await betterreadsAxios.get<boolean>(`/books/isbn/${isbn}`);
+    return response.data;
+  }
 }
 
 export default new BookService();

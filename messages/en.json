@@ -44,5 +44,27 @@
     "invalid-email-length": "Email must be less than 100 characters long",
     "invalid-password-no-match": "Password and confirmation do not match",
     "invalid-name-length": "Must be 2 to 50 characters long"
+  },
+  "books": {
+    "add-book-link": "Add a book"
+  },
+  "books-add": {
+    "title": "Add a book",
+    "isbn": "ISBN:",
+    "submitting": "...",
+    "submit-button": "Search",
+    "isbn-input-placeholder": "Please enter a valid ISBN",
+    "book-exists": "Book already exists"
+  },
+  "book-info-form": {
+    "title": "Title:",
+    "title-input-placeholder": "Title",
+    "isbn": "ISBN:",
+    "isbn-input-placeholder": "ISBN",
+    "release-date": "Release date:",
+    "release-date-input-placeholder": "Release date",
+    "genres": "Genres:",
+    "genres-input-placeholder": "Genres",
+    "submit-button": "Save"
   }
 }
