@@ -4,13 +4,13 @@
     justify-content: center;
 
     gap: 0.2rem;
+    width: 80%;
 
 
     .genericInput {
         background-color: var(--primary-vibrant);
         outline: none;
         padding: 0.3rem;
-        width: 20rem;
         font-size: 1rem;
     }
 

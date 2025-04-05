@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useActionState, useId } from 'react';
+import React, { useActionState } from 'react';
 import styles from './add-book-form.module.css';
 import classNames from 'classnames';
 import { useTranslations } from 'next-intl';
@@ -10,7 +10,6 @@ import { BookFormStep } from '@/utils/enums/book-enum';
 import { checkBookIsbn } from '@/utils/action/books-action';
 
 export default function AddBookForm() {
-  const inputId = useId();
   const t = useTranslations('books-add');
 
   const [formState, formAction, isPending] = useActionState(checkBookIsbn, {
@@ -19,11 +18,11 @@ export default function AddBookForm() {
   return (
     <>
       <form action={formAction} className={styles.isbnForm}>
-        <div className={classNames(styles.bookIsbnInput, 'nbShadow')}>
+        <div className={classNames(styles.bookIsbnInput, !!formState.isbn ? 'nbShadowDisabled' : 'nbShadow')}>
           <input
             className={classNames(styles.isbnInput, !!formState.isbn && styles.inputDisabled)}
             disabled={!!formState.isbn}
-            id={inputId + '-isbn'}
+            id={'isbn-book-input' + '-isbn'}
             name={'isbn'}
             type="text"
             placeholder={t('isbn-input-placeholder')}

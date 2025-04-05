@@ -62,9 +62,16 @@
     "isbn": "ISBN:",
     "isbn-input-placeholder": "ISBN",
     "release-date": "Release date:",
-    "release-date-input-placeholder": "Release date",
+    "release-date-input-placeholder": "DD-MM-YYYY",
     "genres": "Genres:",
-    "genres-input-placeholder": "Genres",
-    "submit-button": "Save"
+    "genres-input-placeholder": "Action, Drama, Horror",
+    "editor": "Editor:",
+    "editor-input-placeholder": "Editor",
+    "edition-language": "Edition Language:",
+    "edition-language-input-placeholder": "Edition Language",
+    "authors-name": "Author name:",
+    "authors-name-input-placeholder": "Author name, author name, author name",
+    "submit-button": "Save",
+    "necessary-field": "This field is mandatory"
   }
 }

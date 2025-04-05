@@ -3,40 +3,44 @@ import classNames from 'classnames';
 import React, { useActionState } from 'react';
 import { useTranslations } from 'next-intl';
 import AddBookInput from '@/components/add-book/form/book-form-input';
-import { addBook } from '@/utils/action/books-action';
+import { addBook, BookAddFormFields } from '@/utils/action/books-action';
+
+type InputInfo = {
+  fieldName: keyof BookAddFormFields;
+  translationKey: string;
+  type: string;
+};
 
 export default function BookInfoForm({ isbn }: { isbn: string }) {
   const t = useTranslations('book-info-form');
 
-  const [formState, formAction, isPending] = useActionState(addBook, {});
-  formState.isbn = isbn;
+  const [formState, formAction, isPending] = useActionState(addBook, { isbn });
+  const inputInfos: InputInfo[] = [];
+  inputInfos.push(
+    { fieldName: 'title', translationKey: 'title', type: 'text' },
+    { fieldName: 'releaseDate', translationKey: 'release-date', type: 'date' },
+    { fieldName: 'genres', translationKey: 'genres', type: 'text' },
+    { fieldName: 'editor', translationKey: 'editor', type: 'text' },
+    { fieldName: 'editionLanguage', translationKey: 'edition-language', type: 'text' },
+    { fieldName: 'authorsName', translationKey: 'authors-name', type: 'text' },
+  );
   return (
     <form action={formAction} className={styles.bookInfoForm}>
-      <AddBookInput
-        name={'title'}
-        type={'text'}
-        placeholder={t('title-input-placeholder')}
-        label={true}
-        labelText={t('title')}
-        errors={formState?.errors?.title && formState?.errors?.title.map((code) => t(code)).join(', ')}
-      />
-      <AddBookInput
-        name={'release-date'}
-        type={'text'}
-        placeholder={t('release-date-input-placeholder')}
-        label={true}
-        labelText={t('release-date')}
-        errors={formState?.errors?.releaseDate && formState?.errors?.releaseDate.map((code) => t(code)).join(', ')}
-      />
-      <AddBookInput
-        name={'genres'}
-        type={'text'}
-        placeholder={t('genres-input-placeholder')}
-        label={true}
-        labelText={t('genres')}
-        errors={formState?.errors?.genres && formState?.errors?.genres.map((code) => t(code)).join(', ')}
-      />
-
+      {inputInfos.map((inputInfo) => {
+        const errors = formState?.errors?.[inputInfo.fieldName];
+        return (
+          <AddBookInput
+            key={`add-book-input-${inputInfo.fieldName}`}
+            name={inputInfo.fieldName}
+            type={inputInfo.type}
+            placeholder={t(`${inputInfo.translationKey}-input-placeholder`)}
+            label={true}
+            labelText={t(inputInfo.translationKey)}
+            errors={errors && t(errors)}
+            defaultValue={formState.title}
+          />
+        );
+      })}
       <button disabled={isPending} type="submit" className={classNames(styles.submitSaveBookButton, 'nbShadow')}>
         {t('submit-button').toUpperCase()}
       </button>

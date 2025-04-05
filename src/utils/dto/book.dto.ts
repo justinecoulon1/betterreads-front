@@ -15,6 +15,9 @@ export type BookDto = {
   isbn10: string;
   isbn13: string;
   releaseDate: Date;
+  editor: string;
+  editionLanguage: string;
+  description: string;
 };
 
 export type CreateBookRequestDto = {
@@ -22,4 +25,8 @@ export type CreateBookRequestDto = {
   releaseDate: Date;
   genres: string[];
   isbn: string;
+  editor: string;
+  editionLanguage: string;
+  description?: string;
+  authorsName: string[];
 };

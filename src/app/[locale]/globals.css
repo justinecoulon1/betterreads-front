@@ -69,6 +69,14 @@ main {
     }
 }
 
+.nbShadowDisabled {
+    box-shadow: 1px 1px 0 0 var(--secondary-vibrant);
+    transition: transform .25s cubic-bezier(.645, .045, .355, 1), box-shadow .25s cubic-bezier(.645, .045, .355, 1);
+    transform: translate(0px);
+    border: 1px solid var(--secondary-vibrant);
+    background-color: var(--primary);
+}
+
 a {
     text-decoration: none;
 }

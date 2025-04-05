@@ -1,6 +1,5 @@
-import { BookListDto, CreateBookRequestDto } from '@/utils/dto/book.dto';
+import { BookDto, BookListDto, CreateBookRequestDto } from '@/utils/dto/book.dto';
 import { betterreadsAxios } from '@/utils/api/betterreads-axios';
-import { UserDto } from '@/utils/dto/user.dto';
 
 class BookService {
   async getLastAddedBooks() {
@@ -13,15 +12,26 @@ class BookService {
     return response.data;
   }
 
-  async createBook(title: string, releaseDate: Date, genres: string[], isbn: string) {
+  async createBook(
+    title: string,
+    releaseDate: Date,
+    genres: string[],
+    isbn: string,
+    editor: string,
+    editionLanguage: string,
+    authorsName: string[],
+  ) {
     const body: CreateBookRequestDto = {
       title,
       releaseDate,
       genres,
       isbn,
+      editor,
+      editionLanguage,
+      authorsName,
     };
 
-    const response = await betterreadsAxios.post<UserDto>(`/users`, body);
+    const response = await betterreadsAxios.post<BookDto>(`/books`, body);
     return response.data;
   }
 }

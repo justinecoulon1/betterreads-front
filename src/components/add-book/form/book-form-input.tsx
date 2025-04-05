@@ -9,6 +9,7 @@ export default function AddBookInput({
   labelText,
   placeholder,
   errors,
+  defaultValue,
 }: {
   name: string;
   type: string;
@@ -16,6 +17,7 @@ export default function AddBookInput({
   labelText?: string;
   placeholder: string;
   errors?: string;
+  defaultValue?: string;
 }) {
   const inputId = useId();
   return (
@@ -27,6 +29,7 @@ export default function AddBookInput({
         name={`${name}`}
         type={type}
         placeholder={`${placeholder}`}
+        defaultValue={defaultValue}
       />
       <div className={styles.inputErrorDiv}>
         <span>{errors}</span>
