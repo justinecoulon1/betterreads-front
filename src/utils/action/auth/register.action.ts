@@ -1,14 +1,9 @@
+'use server';
+
 import UserService from '@/utils/api/user.service';
 import { UserDto } from '@/utils/dto/user.dto';
 import { registerFormSchema } from '@/utils/validation/auth';
-
-export type RegisterStateForm = {
-  error: {
-    name?: string[];
-    email?: string[];
-    password?: string[];
-  } | null;
-};
+import { RegisterStateForm } from '@/utils/action/auth/types';
 
 export async function register(registerStateForm: RegisterStateForm, data: FormData): Promise<RegisterStateForm> {
   const formattedData = {
@@ -17,18 +12,20 @@ export async function register(registerStateForm: RegisterStateForm, data: FormD
     passwordForm: { password: data.get('password'), confirm: data.get('confirm-password') },
   };
 
-  const result = registerFormSchema.safeParse(formattedData);
-  if (result.error) {
-    return {
-      error: result.error.flatten().fieldErrors,
-    };
-  }
-
   const name = data.get('name') as string;
   const email = data.get('email') as string;
   const password = data.get('password') as string;
 
+  const result = registerFormSchema.safeParse(formattedData);
+  if (result.error) {
+    return {
+      name: name,
+      email: email,
+      error: result.error.flatten().fieldErrors,
+    };
+  }
+
   const user: UserDto = await UserService.register(name, email, password);
 
-  return { error: null };
+  return {};
 }

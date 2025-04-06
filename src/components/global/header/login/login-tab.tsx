@@ -1,12 +1,13 @@
 import styles from './login-tab.module.css';
-import React, { useActionState, useId } from 'react';
+import React, { useActionState } from 'react';
 import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
-import { login, LoginStateForm } from '@/utils/action/login-action';
+import InputField from '@/components/global/inputs/input-field';
+import { LoginStateForm } from '@/utils/action/auth/types';
+import { login } from '@/utils/action/auth/login.action';
 
 export function LoginTab({ closeLightbox }: { closeLightbox: () => void }) {
   const t = useTranslations('login-form');
-  const inputId = useId();
 
   const handleSend = async (state: LoginStateForm, data: FormData): Promise<LoginStateForm> => {
     const loginResult = await login(state, data);
@@ -15,40 +16,31 @@ export function LoginTab({ closeLightbox }: { closeLightbox: () => void }) {
     }
 
     closeLightbox();
-    return { error: null };
+    return {};
   };
 
-  const [formState, formAction, isPending] = useActionState(handleSend, { error: null });
+  const [formState, formAction, isPending] = useActionState(handleSend, {});
   return (
     <form action={formAction} className={styles.form}>
       <div className={styles.loginFormInputsDiv}>
-        <div className={styles.loginFormInputDiv}>
-          <label htmlFor={inputId + '-email'}>{t('email')}</label>
-          <input
-            className={classNames(styles.loginFormInput, 'nbShadow')}
-            id={inputId + '-email'}
-            name={'email'}
-            type="text"
-            placeholder={t('email-input-placeholder')}
-          />
-          <div className={styles.loginFormErrorDiv}>
-            {formState.error?.email && <span>{formState.error?.email.map((code) => t(code)).join(', ')}</span>}
-          </div>
-        </div>
+        <InputField
+          name={'email'}
+          type={'text'}
+          label={true}
+          labelText={t('email')}
+          placeholder={t('email-input-placeholder')}
+          defaultValue={formState.email}
+          errors={formState.error?.email && t(formState.error?.email)}
+        />
 
-        <div className={styles.loginFormInputDiv}>
-          <label htmlFor={inputId + '-password'}>{t('password')}</label>
-          <input
-            className={classNames(styles.loginFormInput, 'nbShadow')}
-            id={inputId + '-password'}
-            name={'password'}
-            type="password"
-            placeholder={t('password-input-placeholder')}
-          />
-          <div className={styles.loginFormErrorDiv}>
-            {formState.error?.password && <span>{formState.error?.password.map((code) => t(code)).join(', ')}</span>}
-          </div>
-        </div>
+        <InputField
+          name={'password'}
+          type={'password'}
+          label={true}
+          labelText={t('password')}
+          placeholder={t('password-input-placeholder')}
+          errors={formState.error?.password && t(formState.error?.password)}
+        />
       </div>
 
       <button type="submit" disabled={isPending} className={classNames(styles.submitLoginButton, 'nbShadow')}>
