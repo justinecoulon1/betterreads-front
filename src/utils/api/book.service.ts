@@ -14,7 +14,7 @@ class BookService {
     isbn: string,
     editor: string,
     editionLanguage: string,
-    authorsName: string[],
+    authorNames: string[],
   ) {
     const body: CreateBookRequestDto = {
       title,
@@ -23,7 +23,7 @@ class BookService {
       isbn,
       editor,
       editionLanguage,
-      authorsName,
+      authorNames,
     };
 
     const response = await betterreadsAxios.post<BookDto>(`/books`, body);

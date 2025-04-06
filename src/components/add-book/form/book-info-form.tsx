@@ -7,6 +7,7 @@ import { addBook } from '@/utils/action/book/add-book.action';
 import { BookAddFormFields } from '@/utils/action/book/types';
 import { PreloadedBookInfoDto } from '@/utils/dto/book.dto';
 import TextArea from '@/components/global/inputs/text-area';
+import CoverImage from '@/components/global/books/cover-image/cover-image';
 
 type AddBookInputInfo = {
   fieldName: keyof BookAddFormFields;
@@ -55,11 +56,7 @@ export default function BookInfoForm({
         <div className={styles.coverImageInputContainer}>
           <label>{t('cover-image')}</label>
           <div className={classNames(styles.coverImageContainer, 'nbShadowDisabled')}>
-            <img
-              className={styles.coverImage}
-              src={`data:image/jpeg;base64,${preloadedBookInfo?.coverImage}`}
-              alt={'Book cover'}
-            />
+            <CoverImage isbn={isbn} className={styles.coverImage} />
           </div>
         </div>
         <TextArea
