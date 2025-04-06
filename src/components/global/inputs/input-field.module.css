@@ -1,0 +1,32 @@
+.genericInputDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 0.2rem;
+    width: 80%;
+
+
+    .genericInput {
+        background-color: var(--primary-vibrant);
+        outline: none;
+        padding: 0.3rem;
+        font-size: 1rem;
+        text-align: justify;
+        resize: none;
+    }
+
+    .inputErrorDiv {
+        display: flex;
+        flex-direction: column;
+        height: 1.3rem;
+        width: 100%;
+
+        & span {
+            width: 100%;
+            color: red;
+            text-align: start;
+            font-size: 1rem;
+        }
+    }
+}

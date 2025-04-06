@@ -2,9 +2,9 @@
 
 import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
-import { logout } from '@/utils/action/login-action';
 import React from 'react';
 import styles from './auth-button.module.css';
+import { logout } from '@/utils/action/auth/logout.action';
 
 export default function LogoutButton() {
   const t = useTranslations('header');

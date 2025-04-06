@@ -1,0 +1,67 @@
+.isbnForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+
+    .bookIsbnInput {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+
+
+        .isbnInput {
+            background-color: var(--primary-vibrant);
+            border: none;
+            outline: none;
+            padding: 0.3rem;
+            width: 85%;
+            font-size: 1rem;
+        }
+
+        .submitBookIsbnButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--tertiary);
+            border: none;
+            border-left: 1px var(--secondary-vibrant) solid;
+            padding: 0.3rem;
+            width: 15%;
+
+            .searchIcon {
+                min-width: 1rem;
+            }
+
+            &:hover:not(.buttonDisabled) {
+                cursor: pointer;
+                transition: ease 0.5s;
+                background-color: var(--tertiary-light);
+            }
+        }
+
+        .inputDisabled {
+            background-color: var(--primary-grayed);
+            pointer-events: none;
+        }
+
+        .buttonDisabled {
+            background-color: var(--tertiary-grayed);
+        }
+    }
+
+
+    .isbnErrorDiv {
+        display: flex;
+        flex-direction: column;
+        height: 1.3rem;
+        width: 50%;
+
+        & span {
+            width: 100%;
+            color: red;
+            text-align: start;
+            font-size: 0.8rem;
+        }
+    }
+}
