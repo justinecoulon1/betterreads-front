@@ -1,8 +1,8 @@
 import React, { useId } from 'react';
 import classNames from 'classnames';
-import styles from './book-form-input.module.css';
+import styles from './input-field.module.css';
 
-export default function AddBookInput({
+export default function InputField({
   name,
   type,
   label,

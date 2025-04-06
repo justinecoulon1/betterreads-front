@@ -1,47 +1,14 @@
 'use server';
 
 import BookService from '@/utils/api/book.service';
-import { BookFormStep } from '@/utils/enums/book-enum';
+import { getServerErrorCode } from '@/utils/errors/error-utils';
 import { redirect } from 'next/navigation';
-
-export type BookIsbnStateForm = {
-  step: BookFormStep;
-  error?: {
-    isbn?: string[];
-  };
-  isbn?: string;
-};
-
-export type BookAddFormFields = {
-  title?: string;
-  releaseDate?: string;
-  genres?: string;
-  editor?: string;
-  editionLanguage?: string;
-  authorsName?: string;
-};
-
-export type BookAddStateForm = BookAddFormFields & {
-  isbn?: string;
-  errors?: BookAddFormFields;
-};
-
-export async function checkBookIsbn(state: BookIsbnStateForm, data: FormData): Promise<BookIsbnStateForm> {
-  const isbn = data.get('isbn') as string;
-
-  const isbnExists: boolean = await BookService.checkIsbn(isbn);
-
-  if (isbnExists) {
-    return { error: { isbn: ['book-exists'] }, step: BookFormStep.CHECK_ISBN };
-  }
-
-  return { isbn, step: BookFormStep.BOOK_INFO };
-}
+import { BookAddStateForm } from '@/utils/action/book/types';
 
 export async function addBook(state: BookAddStateForm, data: FormData): Promise<BookAddStateForm> {
   const isbn = state.isbn as string;
   const title = data.get('title') as string;
-  const releaseDateStr = data.get('release-date') as string;
+  const releaseDateStr = data.get('releaseDate') as string;
   const releaseDate = new Date(releaseDateStr);
   const genresStr = data.get('genres') as string;
   const genres = genresStr
@@ -49,8 +16,8 @@ export async function addBook(state: BookAddStateForm, data: FormData): Promise<
     .map((genre) => genre.trim())
     .filter((genre) => !!genre);
   const editor = data.get('editor') as string;
-  const editionLanguage = data.get('edition-language') as string;
-  const authorsNameStr = data.get('author-name') as string;
+  const editionLanguage = data.get('editionLanguage') as string;
+  const authorsNameStr = data.get('authorsName') as string;
   const authorsName = authorsNameStr
     .split(', ')
     .map((authorName) => authorName.trim())
@@ -90,14 +57,29 @@ export async function addBook(state: BookAddStateForm, data: FormData): Promise<
     };
   }
 
-  const createdBook = await BookService.createBook(
-    title,
-    releaseDate,
-    genres,
-    isbn,
-    editor,
-    editionLanguage,
-    authorsName,
-  );
+  try {
+    const createdBook = await BookService.createBook(
+      title,
+      releaseDate,
+      genres,
+      isbn,
+      editor,
+      editionLanguage,
+      authorsName,
+    );
+  } catch (err) {
+    const errorCode = getServerErrorCode(err);
+    return {
+      isbn,
+      authorsName: authorsNameStr,
+      title,
+      releaseDate: releaseDateStr,
+      genres: genresStr,
+      editionLanguage,
+      editor,
+      errors: { createBookError: errorCode },
+    };
+  }
+
   redirect('/');
 }

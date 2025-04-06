@@ -42,7 +42,7 @@
     "invalid-password-length": "Must be 8 to 100 characters long",
     "invalid-email": "Please enter a valid email",
     "invalid-email-length": "Email must be less than 100 characters long",
-    "invalid-password-no-match": "Password and confirmation do not match",
+    "invalid-password-no-match": "Password must match confirmation",
     "invalid-name-length": "Must be 2 to 50 characters long"
   },
   "books": {
@@ -53,8 +53,7 @@
     "isbn": "ISBN:",
     "submitting": "...",
     "submit-button": "Search",
-    "isbn-input-placeholder": "Please enter a valid ISBN",
-    "book-exists": "Book already exists"
+    "isbn-input-placeholder": "Please enter a valid ISBN"
   },
   "book-info-form": {
     "title": "Title:",
@@ -72,6 +71,13 @@
     "authors-name": "Author name:",
     "authors-name-input-placeholder": "Author name, author name, author name",
     "submit-button": "Save",
-    "necessary-field": "This field is mandatory"
+    "necessary-field": "This field is mandatory",
+    "description": "Description:",
+    "description-input-placeholder": "Book description",
+    "cover-image": "Cover image:"
+  },
+  "book-errors": {
+    "invalid-isbn": "Invalid ISBN",
+    "book-exists": "Book already exists"
   }
 }

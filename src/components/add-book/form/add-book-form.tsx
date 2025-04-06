@@ -1,48 +1,32 @@
 'use client';
 
-import React, { useActionState } from 'react';
-import styles from './add-book-form.module.css';
-import classNames from 'classnames';
-import { useTranslations } from 'next-intl';
-import { Search } from 'lucide-react';
+import React, { useState } from 'react';
 import BookInfoForm from '@/components/add-book/form/book-info-form';
 import { BookFormStep } from '@/utils/enums/book-enum';
-import { checkBookIsbn } from '@/utils/action/books-action';
+import IsbnForm from '@/components/add-book/form/isbn-form';
+import { PreloadedBookInfoDto } from '@/utils/dto/book.dto';
 
 export default function AddBookForm() {
-  const t = useTranslations('books-add');
-
-  const [formState, formAction, isPending] = useActionState(checkBookIsbn, {
-    step: BookFormStep.CHECK_ISBN,
-  });
+  const [step, setStep] = useState(BookFormStep.CHECK_ISBN);
+  const [isbn, setIsbn] = useState<string>('');
+  const [preloadedBookInfo, setPreloadedBookInfo] = useState<PreloadedBookInfoDto | undefined>(undefined);
   return (
     <>
-      <form action={formAction} className={styles.isbnForm}>
-        <div className={classNames(styles.bookIsbnInput, !!formState.isbn ? 'nbShadowDisabled' : 'nbShadow')}>
-          <input
-            className={classNames(styles.isbnInput, !!formState.isbn && styles.inputDisabled)}
-            disabled={!!formState.isbn}
-            id={'isbn-book-input' + '-isbn'}
-            name={'isbn'}
-            type="text"
-            placeholder={t('isbn-input-placeholder')}
-            defaultValue={formState.isbn ?? ''}
-          />
-          <button
-            type="submit"
-            disabled={isPending || !!formState.isbn}
-            className={classNames(styles.submitBookIsbnButton, !!formState.isbn && styles.buttonDisabled)}
-          >
-            {isPending ? t('submitting') : <Search />}
-          </button>
-        </div>
-
-        <div className={styles.isbnErrorDiv}>
-          {formState.error?.isbn && <span>{formState.error?.isbn.map((code) => t(code)).join(', ')}</span>}
-        </div>
-      </form>
-      {/*{formState.step === BookFormStep.BOOK_INFO && <BookInfoForm  />}*/}
-      {!!formState.isbn && <BookInfoForm isbn={formState.isbn} />}
+      {step === BookFormStep.CHECK_ISBN && (
+        <IsbnForm
+          onBookInfoPreloaded={(newIsbn, newPreloadedBookInfo) => {
+            setIsbn(newIsbn);
+            setPreloadedBookInfo(newPreloadedBookInfo);
+            setStep(BookFormStep.BOOK_INFO);
+          }}
+        />
+      )}
+      {step === BookFormStep.BOOK_INFO && (
+        <>
+          <IsbnForm isbn={isbn} isDisabled={true} />
+          <BookInfoForm isbn={isbn} preloadedBookInfo={preloadedBookInfo} />
+        </>
+      )}
     </>
   );
 }

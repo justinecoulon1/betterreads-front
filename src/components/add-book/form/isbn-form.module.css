@@ -29,6 +29,10 @@
             padding: 0.3rem;
             width: 15%;
 
+            .searchIcon {
+                min-width: 1rem;
+            }
+
             &:hover:not(.buttonDisabled) {
                 cursor: pointer;
                 transition: ease 0.5s;
@@ -54,7 +58,7 @@
         width: 50%;
 
         & span {
-            width: 50%;
+            width: 100%;
             color: red;
             text-align: start;
             font-size: 0.8rem;
