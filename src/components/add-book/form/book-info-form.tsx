@@ -56,7 +56,7 @@ export default function BookInfoForm({
         <div className={styles.coverImageInputContainer}>
           <label>{t('cover-image')}</label>
           <div className={classNames(styles.coverImageContainer, 'nbShadowDisabled')}>
-            <CoverImage isbn={isbn} className={styles.coverImage} />
+            <CoverImage isbn={preloadedBookInfo?.isbn13 ?? isbn} className={styles.coverImage} />
           </div>
         </div>
         <TextArea
@@ -82,7 +82,7 @@ export default function BookInfoForm({
               label={true}
               labelText={t(inputInfo.translationKey)}
               errors={errors && t(errors)}
-              defaultValue={inputInfo.prefilledValue ?? formState[inputInfo.fieldName]}
+              defaultValue={formState[inputInfo.fieldName] ?? inputInfo.prefilledValue}
             />
           );
         })}
