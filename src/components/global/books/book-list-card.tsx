@@ -1,14 +1,26 @@
-import { BookListDto } from '@/utils/dto/book.dto';
 import styles from './book-list-card.module.css';
 import classNames from 'classnames';
 import React from 'react';
 import CoverImage from '@/components/global/books/cover-image/cover-image';
+import { BookListDto } from '@/utils/dto/book.dto';
+import { Link } from '@/i18n/routing';
 
 export default function BookListCard({ book }: { book: BookListDto }) {
   return (
-    <div className={classNames(styles.bookListCardContainer)}>
-      {book.title}
-      <CoverImage isbn={book.isbn} />
-    </div>
+    <Link href={`/books/${book.isbn13}`} className={classNames(styles.bookListCardContainer, 'nbShadow')}>
+      <div className={styles.coverImageContainer}>
+        <CoverImage isbn={book.isbn13} className={styles.bookCover} />
+      </div>
+
+      <div className={styles.bookInfoContainer}>
+        <div className={styles.bookTitleContainer}>
+          <h3 className={styles.bookTitle}>{book.title}</h3>
+        </div>
+
+        <div className={styles.bookAuthorsContainer}>
+          <p className={styles.bookAuthors}>{book.authors.map((author) => author.name).join(', ')}</p>
+        </div>
+      </div>
+    </Link>
   );
 }

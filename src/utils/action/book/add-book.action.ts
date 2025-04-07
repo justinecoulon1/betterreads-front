@@ -22,6 +22,7 @@ export async function addBook(state: BookAddStateForm, data: FormData): Promise<
     .split(', ')
     .map((authorName) => authorName.trim())
     .filter((authorName) => !!authorName);
+  const description = data.get('description') as string;
 
   const errors: BookAddStateForm['errors'] = {};
 
@@ -66,6 +67,7 @@ export async function addBook(state: BookAddStateForm, data: FormData): Promise<
       editor,
       editionLanguage,
       authorsName,
+      description,
     );
   } catch (err) {
     const errorCode = getServerErrorCode(err);

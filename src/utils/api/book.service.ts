@@ -15,6 +15,7 @@ class BookService {
     editor: string,
     editionLanguage: string,
     authorNames: string[],
+    description?: string,
   ) {
     const body: CreateBookRequestDto = {
       title,
@@ -24,6 +25,7 @@ class BookService {
       editor,
       editionLanguage,
       authorNames,
+      description,
     };
 
     const response = await betterreadsAxios.post<BookDto>(`/books`, body);
@@ -32,6 +34,11 @@ class BookService {
 
   async getPreloadedBookInfo(isbn: string): Promise<PreloadedBookInfoDto> {
     const response = await betterreadsAxios.get<PreloadedBookInfoDto>(`/books/preload/${isbn}`);
+    return response.data;
+  }
+
+  async getBookByIsbn(isbn: string): Promise<BookDto> {
+    const response = await betterreadsAxios.get<BookDto>(`/books/isbn/${isbn}`);
     return response.data;
   }
 }
