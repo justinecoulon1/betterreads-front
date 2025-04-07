@@ -1,33 +1,33 @@
-'use client';
-import { useTranslations } from 'next-intl';
-import { Link, usePathname } from '@/i18n/routing';
-import classNames from 'classnames';
+'use server';
 import styles from './navigation-bar.module.css';
+import NavigationBarLink from '@/components/global/header/navigation-bar-link';
+import { getSession } from '@/utils/action/auth/get-session.action';
 
 type NavLink = {
   key: string;
   path: string;
+  requiresAuth?: boolean;
 };
 
 const navLinks: NavLink[] = [
   { key: 'main-title', path: '/' },
   { key: 'books', path: '/books' },
-  { key: 'user', path: '/user' },
+  { key: 'profile', path: '/profile', requiresAuth: true },
 ];
 
-export default function NavigationBar() {
-  const t = useTranslations('header');
-  const activePage = usePathname();
+export default async function NavigationBar() {
+  const session = await getSession();
+  const isLoggedIn = !!session.accessToken;
   return (
     <nav className={styles.nav}>
       <ul>
-        {navLinks.map((navLink) => (
-          <li key={navLink.key}>
-            <Link className={classNames(activePage === navLink.path && styles.activeLink)} href={navLink.path}>
-              <span>{t(navLink.key).toUpperCase()}</span>
-            </Link>
-          </li>
-        ))}
+        {navLinks
+          .filter((navLink) => !navLink.requiresAuth || isLoggedIn)
+          .map((navLink) => (
+            <li key={navLink.key}>
+              <NavigationBarLink path={navLink.path} translationKey={navLink.key} />
+            </li>
+          ))}
       </ul>
     </nav>
   );

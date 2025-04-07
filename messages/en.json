@@ -2,7 +2,7 @@
   "header": {
     "main-title": "Home",
     "books": "Books",
-    "user": "Profile",
+    "profile": "Profile",
     "login": "Login",
     "logout": "Logout",
     "register": "Register"
