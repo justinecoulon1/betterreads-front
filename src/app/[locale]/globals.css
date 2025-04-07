@@ -1,11 +1,14 @@
 :root {
     --primary: #F9F5F2;
+    --primary-transparent: rgba(249, 245, 242, 0.6);
     --primary-vibrant: white;
     --primary-grayed: #e1dbda;
     --secondary: #2c2c2c;
+    --secondary-transparent: rgba(44, 44, 44, 0.7);
     --secondary-vibrant: black;
     --tertiary: #f6cb3a;
     --tertiary-light: #f4d35d;
+    --tertiary-lighter: #ecd481;
     --tertiary-grayed: #b8972c;
 
     --text-primary: black;

@@ -79,5 +79,16 @@
   "book-errors": {
     "invalid-isbn": "Invalid ISBN",
     "book-exists": "Book already exists"
+  },
+  "book-details": {
+    "description": "description",
+    "add-to-shelve": "Add to shelve",
+    "book-info": "Book Information",
+    "editor": "Editor: ",
+    "edition-language": "Edition language: ",
+    "release-date": "Publication date: ",
+    "ISBN13": "ISBN13: ",
+    "ISBN10": "ISBN10: ",
+    "genres": "Genres: "
   }
 }
