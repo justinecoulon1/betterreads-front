@@ -3,9 +3,9 @@
 import BookService from '@/utils/api/book.service';
 import { getServerErrorCode } from '@/utils/errors/error-utils';
 import { BookAddStateForm } from '@/utils/action/book/types';
-import { redirect } from '@/i18n/routing';
 import { getLocale } from 'next-intl/server';
 import { BookDto } from '@/utils/dto/book.dto';
+import { redirect } from 'next/navigation';
 
 export async function addBook(state: BookAddStateForm, data: FormData): Promise<BookAddStateForm> {
   const isbn = state.isbn as string;
@@ -90,10 +90,8 @@ export async function addBook(state: BookAddStateForm, data: FormData): Promise<
     };
   }
   if (createdBook) {
-    redirect({
-      href: `/books/${createdBook.isbn13}`,
-      locale: await getLocale(),
-    });
+    const locale = await getLocale();
+    redirect(`/${locale}/books/${createdBook.isbn13}`);
   }
   return {
     errors: { createBookError: getServerErrorCode(null) },

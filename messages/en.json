@@ -94,5 +94,9 @@
   },
   "search-bar": {
     "search-book-input-placeholder": "Look up a book!"
+  },
+  "profile-page": {
+    "profile": "Profile",
+    "account": "Account"
   }
 }
