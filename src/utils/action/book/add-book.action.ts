@@ -31,6 +31,9 @@ export async function addBook(state: BookAddStateForm, data: FormData): Promise<
   if (!title) {
     errors.title = 'necessary-field';
   }
+  if (title.length > 200) {
+    errors.title = 'title-too-long';
+  }
   if (!releaseDateStr || !releaseDate || isNaN(releaseDate.getFullYear())) {
     errors.releaseDate = 'necessary-field';
   }

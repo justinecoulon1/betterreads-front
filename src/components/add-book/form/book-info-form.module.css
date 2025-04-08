@@ -3,7 +3,7 @@
 
     width: 100%;
     padding: 0 3rem 0 3rem;
-    
+
     .leftPart {
         display: flex;
         flex-direction: column;
@@ -61,6 +61,12 @@
             background-color: var(--primary-vibrant);
             color: var(--secondary-vibrant);
             outline: none;
+        }
+
+        .bookInfoErrorDiv {
+            & span {
+                color: red;
+            }
         }
     }
 }

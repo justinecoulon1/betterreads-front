@@ -72,6 +72,7 @@
     "authors-name-input-placeholder": "Author name, author name, author name",
     "submit-button": "Save",
     "necessary-field": "This field is mandatory",
+    "title-too-long": "Must be max. 200 character long",
     "description": "Description:",
     "description-input-placeholder": "Book description",
     "cover-image": "Cover image:"
