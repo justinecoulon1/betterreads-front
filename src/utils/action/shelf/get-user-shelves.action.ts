@@ -1,12 +1,14 @@
+'use server';
+
 import { getServerErrorCode } from '@/utils/errors/error-utils';
 import shelfService from '@/utils/api/shelf.service';
-import { ShelfDto } from '@/utils/dto/shelf.dto';
+import { ShelfByUser } from '@/utils/action/shelf/types';
 
-export async function getUserShelves(userId: number): Promise<ShelfDto[] | null> {
+export async function getUserShelves(userId: number): Promise<ShelfByUser> {
   try {
-    return await shelfService.getByUserId(userId);
+    return { shelves: await shelfService.getByUserId(userId) };
   } catch (err) {
     const errorCode = getServerErrorCode(err);
-    return null;
+    return { error: errorCode };
   }
 }
