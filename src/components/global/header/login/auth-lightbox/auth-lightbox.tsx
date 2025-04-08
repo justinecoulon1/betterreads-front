@@ -1,7 +1,7 @@
-import AuthLightboxContent from '@/components/global/header/login/auth-lightbox-content';
+import AuthLightboxContent from '@/components/global/header/login/auth-lightbox/auth-lightbox-content';
 import GenericLightbox from '@/components/generic/lightbox/lightbox';
 import React from 'react';
-import { LightboxTabs } from '@/components/global/header/login/lightbox-tabs';
+import { LightboxTabs } from '@/components/global/header/login/auth-lightbox/lightbox-tabs';
 
 export default function AuthLightbox({
   isLightboxOpened,

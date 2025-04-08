@@ -1,10 +1,10 @@
 import classNames from 'classnames';
 import { useTranslations } from 'next-intl';
-import { LoginTab } from '@/components/global/header/login/login-tab';
-import { RegisterTab } from '@/components/global/header/login/register-tab';
+import { LoginTab } from '@/components/global/header/login/auth-lightbox/login-tab';
+import { RegisterTab } from '@/components/global/header/login/auth-lightbox/register-tab';
 import styles from './auth-lightbox.module.css';
 import React from 'react';
-import { LightboxTabs } from '@/components/global/header/login/lightbox-tabs';
+import { LightboxTabs } from '@/components/global/header/login/auth-lightbox/lightbox-tabs';
 
 export default function AuthLightboxContent({
   loginTab,

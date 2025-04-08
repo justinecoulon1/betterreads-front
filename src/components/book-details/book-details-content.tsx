@@ -40,7 +40,7 @@ function BookDetailsLeftPart({ book }: { book: BookDto }) {
 
 function BookDetailsRightPart({ book }: { book: BookDto }) {
   const descriptionLength = book?.description?.length ?? 0;
-  const [descriptionCropped, setDescriptionCropped] = useState(descriptionLength > 1000);
+  const [descriptionCropped, setDescriptionCropped] = useState(descriptionLength > 1230);
   return (
     <div className={styles.bookDetailsRightPart}>
       <div className={styles.bookTitleAndAuthorContainer}>

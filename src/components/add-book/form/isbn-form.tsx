@@ -21,8 +21,8 @@ export default function IsbnForm({
 
   const handleSubmit = async (state: BookIsbnStateForm, data: FormData) => {
     const stateForm = await getPreloadedBookInfo(state, data);
-    if (!stateForm.error) {
-      onBookInfoPreloaded(stateForm.isbn ?? '', stateForm.preloadedBookInfo ?? {});
+    if (!stateForm.error && stateForm.preloadedBookInfo) {
+      onBookInfoPreloaded(stateForm.isbn ?? '', stateForm.preloadedBookInfo);
     }
     return stateForm;
   };

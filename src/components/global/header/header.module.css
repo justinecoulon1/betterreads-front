@@ -23,6 +23,19 @@
         width: 100%;
         height: 100%;
         border-bottom: 1px solid var(--text-primary);
+
+        .searchBarAndAuthButtonContainer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+
+            width: 30%;
+
+            .headerSearchBar {
+                width: 70%;
+                min-width: 10rem;
+            }
+        }
     }
 
     .logoDiv {
@@ -37,4 +50,5 @@
             height: 3rem;
         }
     }
+
 }

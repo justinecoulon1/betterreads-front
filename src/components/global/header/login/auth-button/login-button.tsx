@@ -4,8 +4,8 @@ import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
 import React, { useState } from 'react';
 import styles from './auth-button.module.css';
-import { LightboxTabs } from '@/components/global/header/login/lightbox-tabs';
-import AuthLightbox from '@/components/global/header/login/auth-lightbox';
+import { LightboxTabs } from '@/components/global/header/login/auth-lightbox/lightbox-tabs';
+import AuthLightbox from '@/components/global/header/login/auth-lightbox/auth-lightbox';
 
 export default function LoginButton() {
   const t = useTranslations('header');
