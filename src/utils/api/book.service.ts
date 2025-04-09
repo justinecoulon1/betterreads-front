@@ -41,6 +41,11 @@ class BookService {
     const response = await betterreadsAxios.get<BookDto>(`/books/isbn/${isbn}`);
     return response.data;
   }
+
+  async addBookToShelf(userId: number, isbn: string, shelfId: number) {
+    const response = await betterreadsAxios.get<BookDto>(`/books/add/${userId}/${isbn}/${shelfId}`);
+    return response.data;
+  }
 }
 
 export default new BookService();

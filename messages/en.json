@@ -90,7 +90,11 @@
     "release-date": "Publication date: ",
     "ISBN13": "ISBN13: ",
     "ISBN10": "ISBN10: ",
-    "genres": "Genres: "
+    "genres": "Genres: ",
+    "READ": "read",
+    "READING": "reading",
+    "TO_READ": "to read",
+    "add-to-shelf": "Add to a shelf"
   },
   "search-bar": {
     "search-book-input-placeholder": "Look up a book!"
@@ -103,5 +107,8 @@
     "title": "My shelves",
     "add-shelf": "Add new",
     "create-shelf-name-input-placeholder": "Please enter a name"
+  },
+  "add-to-shelf-lightbox": {
+    "add-to-shelf-lightbox-title": "Select one or more shelves:"
   }
 }

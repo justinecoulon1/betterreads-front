@@ -6,8 +6,10 @@ import { BookDto } from '@/utils/dto/book.dto';
 import classNames from 'classnames';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
+import { ShelfType, SmallShelfDto } from '@/utils/dto/smallShelfDto';
+import AddToShelfLightbox from '@/components/book-details/add-to-shelf-lightbox/add-to-shelf-lightbox';
 
-export default function BookDetailsContent({ book }: { book: BookDto }) {
+export default function BookDetailsContent({ book, shelves }: { book: BookDto; shelves: SmallShelfDto[] }) {
   return (
     <div className={styles.bookDetailsContentContainer}>
       <div className={styles.bannerContainer}>
@@ -16,7 +18,7 @@ export default function BookDetailsContent({ book }: { book: BookDto }) {
       <div className={styles.bookDetailsContentInnerContainer}>
         <div className={styles.bookDetailsHeaderContainer} />
         <div className={styles.bookDetailsContainer}>
-          <BookDetailsLeftPart book={book} />
+          <BookDetailsLeftPart book={book} shelves={shelves} />
           <BookDetailsRightPart book={book} />
         </div>
       </div>
@@ -24,17 +26,44 @@ export default function BookDetailsContent({ book }: { book: BookDto }) {
   );
 }
 
-function BookDetailsLeftPart({ book }: { book: BookDto }) {
+function BookDetailsLeftPart({ book, shelves }: { book: BookDto; shelves: SmallShelfDto[] }) {
+  const t = useTranslations('book-details');
   return (
     <div className={styles.bookDetailsLeftPart}>
       <div className={styles.bookDetailsCoverImageContainer}>
         <CoverImage isbn={book.isbn13} className={styles.bookDetailsCoverImage} />
       </div>
       <div className={styles.buttonsContainer}>
-        <button className={classNames(styles.addToShelveButton, 'nbShadow')}>Add to Read</button>
-        <button className={classNames(styles.addToShelveButton, 'nbShadow')}>Add to Shelf</button>
+        <div className={classNames(styles.readingStatusButtonsContainer, 'nbShadow')}>
+          <button className={styles.readingStatusButton}>{t(ShelfType.READ).toUpperCase()}</button>
+          <button className={styles.readingStatusButton}>{t(ShelfType.READING).toUpperCase()}</button>
+          <button className={styles.readingStatusButton}>{t(ShelfType.TO_READ).toUpperCase()}</button>
+        </div>
+        <AddToShelveButton shelves={shelves} />
       </div>
     </div>
+  );
+}
+
+function AddToShelveButton({ shelves }: { shelves: SmallShelfDto[] }) {
+  const t = useTranslations('book-details');
+  const [isLightboxOpened, setLightboxOpened] = useState(false);
+
+  const handleCloseLightbox = () => {
+    setLightboxOpened(false);
+  };
+
+  const handleOpenLightbox = () => {
+    setLightboxOpened(true);
+  };
+
+  return (
+    <>
+      <AddToShelfLightbox closeLightbox={handleCloseLightbox} isLightboxOpened={isLightboxOpened} shelves={shelves} />
+      <button onClick={() => handleOpenLightbox()} className={classNames(styles.addToShelveButton, 'nbShadow')}>
+        {t('add-to-shelf')}
+      </button>
+    </>
   );
 }
 
