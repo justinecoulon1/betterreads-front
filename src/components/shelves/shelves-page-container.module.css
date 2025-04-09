@@ -4,8 +4,73 @@
 
     width: 80%;
 
+    gap: 2rem;
+
+    .shelvePageHeader {
+        display: flex;
+        align-items: center;
+        height: 3rem;
+        gap: 5rem;
+
+        .addShelfButton {
+            background-color: var(--tertiary);
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+
+            &.disabled {
+                background-color: var(--tertiary-grayed);
+                cursor: default;
+            }
+        }
+
+        .shelfCreationInputContainer {
+            display: flex;
+            height: 1.8rem;
+            width: 15rem;
+
+            opacity: 0;
+
+            .shelfCreationInput {
+                padding: 0.2rem;
+                border: none;
+                width: 85%;
+                outline: none;
+            }
+
+            .validateShelfCreationButton {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                background-color: var(--tertiary);
+                border: none;
+                border-left: 1px solid var(--secondary-vibrant);
+
+                width: 15%;
+
+                cursor: pointer;
+
+                .validateShelfCreationImage {
+
+                }
+            }
+        }
+
+        .opacityAnimation {
+            transition: opacity 0.2s ease-out;
+            opacity: 1;
+
+            & * {
+                transition: opacity 0.2s ease-out;
+                opacity: 1;
+            }
+        }
+    }
+
     .shelvesCardContainer {
         display: flex;
+        flex-wrap: wrap;
         width: 100%;
         gap: 2rem;
     }

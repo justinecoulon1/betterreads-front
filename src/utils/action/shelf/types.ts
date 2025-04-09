@@ -1,6 +1,6 @@
-import { ShelfDto } from '@/utils/dto/shelf.dto';
+import { SmallShelfDto } from '@/utils/dto/smallShelfDto';
 
 export type ShelfByUser = {
-  shelves?: ShelfDto[];
+  shelves?: SmallShelfDto[];
   error?: string;
 };

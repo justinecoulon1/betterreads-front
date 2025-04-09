@@ -5,6 +5,7 @@ import shelfService from '@/utils/api/shelf.service';
 import { getSession } from '@/utils/action/auth/get-session.action';
 import { getLocale } from 'next-intl/server';
 import { redirect } from 'next/navigation';
+import ShelfDetailsContainer from '@/components/shelf-details/shelf-details-container';
 
 export default async function ShelfDetailsPage({ params }: { params: Promise<{ id: string }> }) {
   const session = await getSession();
@@ -15,5 +16,9 @@ export default async function ShelfDetailsPage({ params }: { params: Promise<{ i
   }
   const shelfId = parseInt((await params).id);
   const shelf = await shelfService.getShelfById(shelfId, user.id);
-  return <div className={styles.shelfDetailsPage}>Shelf: {shelf.name}</div>;
+  return (
+    <div className={styles.shelfDetailsPage}>
+      <ShelfDetailsContainer shelf={shelf} />
+    </div>
+  );
 }

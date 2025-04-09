@@ -17,7 +17,7 @@ export default async function ShelvesPage() {
   const shelves = await ShelfService.getByUserId(user.id);
   return (
     <div className={styles.shelvesPage}>
-      <ShelvesPageContainer shelves={shelves} />
+      <ShelvesPageContainer shelves={shelves} user={user} />
     </div>
   );
 }

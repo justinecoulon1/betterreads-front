@@ -98,5 +98,10 @@
   "profile-page": {
     "profile": "Profile",
     "account": "Account"
+  },
+  "my-shelves": {
+    "title": "My shelves",
+    "add-shelf": "Add new",
+    "create-shelf-name-input-placeholder": "Please enter a name"
   }
 }

@@ -1,8 +1,85 @@
 .shelfCardContainer {
+    --shelf-image-height: 6rem;
+    --card-height: 10rem;
+
     display: flex;
     flex-direction: column;
+    align-items: center;
+
+    width: 12rem;
+    height: var(--card-height);
 
     padding: 0.5rem;
 
     cursor: pointer;
+
+    transition: all 0.3s ease;
+    overflow: hidden;
+
+    &:hover {
+        background-color: var(--secondary);
+
+        .shelfImageContainer {
+            border-bottom: none;
+            height: 100%;
+
+            .shelfImage {
+                filter: blur(0.3rem);
+                opacity: 0.5;
+            }
+        }
+
+        .shelfNameContainer {
+            top: 0;
+            height: var(--card-height);
+            justify-content: space-around;
+
+            .shelfName {
+                color: var(--primary-vibrant);
+                -webkit-line-clamp: 6;
+            }
+        }
+    }
+
+    .shelfImageContainer {
+        display: flex;
+        justify-content: center;
+
+        height: var(--shelf-image-height);
+        width: 90%;
+
+        padding-bottom: 0.5rem;
+
+        border-bottom: 1px solid var(--secondary-vibrant);
+
+        transition: all 0.3s ease;
+
+        .shelfImage {
+            height: 100%;
+            width: auto;
+        }
+
+    }
+
+    .shelfNameContainer {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        justify-content: space-between;
+        left: 0;
+        top: var(--shelf-image-height);
+        width: 100%;
+        height: calc(var(--card-height) - var(--cover-image-height));
+        padding: 0.5rem;
+        transition: all 0.5s ease;
+
+        .shelfName {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            font-size: 1rem;
+        }
+    }
 }

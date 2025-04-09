@@ -4,6 +4,8 @@
     align-items: center;
     width: 100%;
 
+    gap: 3rem;
+
     .profilePageTabButtons {
         display: flex;
         gap: 2rem;
