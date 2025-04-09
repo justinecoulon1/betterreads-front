@@ -1,3 +1,5 @@
+'use client';
+
 import { UserDto } from '@/utils/dto/user.dto';
 import styles from './account-section.module.css';
 import AccountInfo from '@/components/profile/account-section/account-info/account-info';
