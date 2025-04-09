@@ -10,11 +10,11 @@ export default function ShelvesContainer({ shelves }: { shelves: ShelfDto[] }) {
     <div className={styles.shelvesContainer}>
       <div className={styles.shelvesHeaderContainer}>
         <h2>My shelves</h2>
-        <SeeMoreLink path={'/books'} />
+        <SeeMoreLink path={'/profile/shelves'} />
       </div>
       <div className={styles.shelveCardsListContainer}>
-        {shelves.map((lastShelf) => (
-          <ShelfCard key={`shelf-card-${lastShelf.id}`} shelf={lastShelf} />
+        {shelves.map((shelf) => (
+          <ShelfCard key={`shelf-card-${shelf.id}`} shelf={shelf} />
         ))}
       </div>
     </div>

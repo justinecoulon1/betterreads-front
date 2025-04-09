@@ -1,0 +1,12 @@
+.shelvesPageContainer {
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+
+    .shelvesCardContainer {
+        display: flex;
+        width: 100%;
+        gap: 2rem;
+    }
+}

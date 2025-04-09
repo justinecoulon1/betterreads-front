@@ -3,10 +3,10 @@ import '../../globals.css';
 
 export const metadata: Metadata = {
   title: 'BetterReads',
-  description: 'Profile - Account',
+  description: 'Profile - Shelves',
 };
 
-export default async function ProfileAccountLayout({
+export default async function ShelvesLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

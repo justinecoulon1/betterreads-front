@@ -6,6 +6,11 @@ class ShelfService {
     const response = await betterreadsAxios.get<ShelfDto[]>(`/shelves/${userId}`);
     return response.data;
   }
+
+  async getShelfById(shelfId: number, userId: number) {
+    const response = await betterreadsAxios.get<ShelfDto>(`/shelves/${userId}/${shelfId}`);
+    return response.data;
+  }
 }
 
 export default new ShelfService();
