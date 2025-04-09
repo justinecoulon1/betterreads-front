@@ -42,3 +42,8 @@ export type PreloadedBookInfoDto = {
   editionLanguage?: string;
   editor?: string;
 };
+
+export type AddBookToShelvesRequestDto = {
+  isbn: string;
+  shelvesId: number[];
+};

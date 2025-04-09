@@ -1,4 +1,10 @@
-import { BookDto, BookListDto, CreateBookRequestDto, PreloadedBookInfoDto } from '@/utils/dto/book.dto';
+import {
+  AddBookToShelvesRequestDto,
+  BookDto,
+  BookListDto,
+  CreateBookRequestDto,
+  PreloadedBookInfoDto,
+} from '@/utils/dto/book.dto';
 import { betterreadsAxios } from '@/utils/api/betterreads-axios';
 
 class BookService {
@@ -42,8 +48,12 @@ class BookService {
     return response.data;
   }
 
-  async addBookToShelf(userId: number, isbn: string, shelfId: number) {
-    const response = await betterreadsAxios.get<BookDto>(`/books/add/${userId}/${isbn}/${shelfId}`);
+  async addBookToShelves(userId: number, isbn: string, shelvesId: number[]) {
+    const body: AddBookToShelvesRequestDto = {
+      isbn,
+      shelvesId,
+    };
+    const response = await betterreadsAxios.post<BookDto>(`/books/add/${userId}`, body);
     return response.data;
   }
 }

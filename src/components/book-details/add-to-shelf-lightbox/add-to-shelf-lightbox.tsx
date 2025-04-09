@@ -7,14 +7,16 @@ export default function AddToShelfLightbox({
   isLightboxOpened,
   closeLightbox,
   shelves,
+  isbn,
 }: {
   isLightboxOpened: boolean;
   closeLightbox: () => void;
   shelves: SmallShelfDto[];
+  isbn: string;
 }) {
   return (
     <GenericLightbox isLightboxOpened={isLightboxOpened} closeLightbox={closeLightbox}>
-      <AddToShelfLightboxContent shelves={shelves} closeLightbox={closeLightbox} />
+      <AddToShelfLightboxContent shelves={shelves} closeLightbox={closeLightbox} isbn={isbn} />
     </GenericLightbox>
   );
 }

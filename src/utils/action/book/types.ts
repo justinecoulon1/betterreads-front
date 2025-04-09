@@ -22,3 +22,8 @@ export type BookIsbnStateForm = {
   isbn?: string;
   preloadedBookInfo?: PreloadedBookInfoDto;
 };
+
+export type AddBookToShelvesStateForm = {
+  isbn?: string;
+  error?: {};
+};

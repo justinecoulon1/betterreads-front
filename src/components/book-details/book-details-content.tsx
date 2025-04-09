@@ -39,13 +39,13 @@ function BookDetailsLeftPart({ book, shelves }: { book: BookDto; shelves: SmallS
           <button className={styles.readingStatusButton}>{t(ShelfType.READING).toUpperCase()}</button>
           <button className={styles.readingStatusButton}>{t(ShelfType.TO_READ).toUpperCase()}</button>
         </div>
-        <AddToShelveButton shelves={shelves} />
+        <AddToShelveButton shelves={shelves} isbn={book.isbn13} />
       </div>
     </div>
   );
 }
 
-function AddToShelveButton({ shelves }: { shelves: SmallShelfDto[] }) {
+function AddToShelveButton({ shelves, isbn }: { shelves: SmallShelfDto[]; isbn: string }) {
   const t = useTranslations('book-details');
   const [isLightboxOpened, setLightboxOpened] = useState(false);
 
@@ -59,7 +59,12 @@ function AddToShelveButton({ shelves }: { shelves: SmallShelfDto[] }) {
 
   return (
     <>
-      <AddToShelfLightbox closeLightbox={handleCloseLightbox} isLightboxOpened={isLightboxOpened} shelves={shelves} />
+      <AddToShelfLightbox
+        closeLightbox={handleCloseLightbox}
+        isLightboxOpened={isLightboxOpened}
+        shelves={shelves}
+        isbn={isbn}
+      />
       <button onClick={() => handleOpenLightbox()} className={classNames(styles.addToShelveButton, 'nbShadow')}>
         {t('add-to-shelf')}
       </button>
