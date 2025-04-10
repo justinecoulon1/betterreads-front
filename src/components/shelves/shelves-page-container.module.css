@@ -12,58 +12,54 @@
         height: 3rem;
         gap: 5rem;
 
-        .addShelfButton {
-            background-color: var(--tertiary);
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            cursor: pointer;
-
-            &.disabled {
-                background-color: var(--tertiary-grayed);
-                cursor: default;
-            }
-        }
-
-        .shelfCreationInputContainer {
+        .addShelfButtonGlobalContainer {
             display: flex;
-            height: 1.8rem;
-            width: 15rem;
+            align-items: center;
+            height: 3rem;
 
-            opacity: 0;
-
-            .shelfCreationInput {
-                padding: 0.2rem;
-                border: none;
-                width: 85%;
-                outline: none;
-            }
-
-            .validateShelfCreationButton {
+            .animatedContainer {
                 display: flex;
-                justify-content: center;
-                align-items: center;
+                height: 100%;
+                transition: all 0.3s ease;
+                overflow: hidden;
 
-                background-color: var(--tertiary);
-                border: none;
-                border-left: 1px solid var(--secondary-vibrant);
-
-                width: 15%;
-
-                cursor: pointer;
-
-                .validateShelfCreationImage {
-
+                .addShelfButton {
+                    padding: 0 1rem;
+                    height: 100%;
+                    white-space: nowrap;
+                    background-color: var(--tertiary);
+                    font-size: 1rem;
+                    cursor: pointer;
+                    border: none;
+                    transition: all 0.3s ease;
                 }
-            }
-        }
 
-        .opacityAnimation {
-            transition: opacity 0.2s ease-out;
-            opacity: 1;
+                .validateShelfCreationButton {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
 
-            & * {
-                transition: opacity 0.2s ease-out;
-                opacity: 1;
+                    background-color: var(--tertiary);
+                    border: none;
+                    border-left: 1px solid var(--secondary-vibrant);
+
+
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+
+                .shelfCreationInput {
+                    border: none;
+                    height: 100%;
+                    outline: none;
+                    transition: all 0.3s ease;
+                    width: 0;
+
+                    &.visible {
+                        padding: 0.3rem;
+                        width: 10rem;
+                    }
+                }
             }
         }
     }

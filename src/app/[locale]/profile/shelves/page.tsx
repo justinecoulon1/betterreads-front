@@ -2,18 +2,11 @@
 
 import styles from './shelves-page.module.css';
 import ShelvesPageContainer from '@/components/shelves/shelves-page-container';
-import { getSession } from '@/utils/action/auth/get-session.action';
-import { getLocale } from 'next-intl/server';
-import { redirect } from 'next/navigation';
 import ShelfService from '@/utils/api/shelf.service';
+import { getSessionUser } from '@/utils/action/auth/get-session-user.action';
 
 export default async function ShelvesPage() {
-  const session = await getSession();
-  const user = session.user;
-  if (!user) {
-    const locale = await getLocale();
-    redirect(`/${locale}/login`);
-  }
+  const user = await getSessionUser();
   const shelves = await ShelfService.getByUserId(user.id);
   return (
     <div className={styles.shelvesPage}>

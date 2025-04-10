@@ -2,18 +2,11 @@
 
 import styles from './shelf-details-page.module.css';
 import shelfService from '@/utils/api/shelf.service';
-import { getSession } from '@/utils/action/auth/get-session.action';
-import { getLocale } from 'next-intl/server';
-import { redirect } from 'next/navigation';
 import ShelfDetailsContainer from '@/components/shelf-details/shelf-details-container';
+import { getSessionUser } from '@/utils/action/auth/get-session-user.action';
 
 export default async function ShelfDetailsPage({ params }: { params: Promise<{ id: string }> }) {
-  const session = await getSession();
-  const user = session.user;
-  if (!user) {
-    const locale = await getLocale();
-    redirect(`/${locale}/login`);
-  }
+  const user = await getSessionUser();
   const shelfId = parseInt((await params).id);
   const shelf = await shelfService.getShelfById(shelfId, user.id);
   return (
