@@ -91,10 +91,8 @@
     "ISBN13": "ISBN13: ",
     "ISBN10": "ISBN10: ",
     "genres": "Genres: ",
-    "READ": "read",
-    "READING": "reading",
-    "TO_READ": "to read",
-    "add-to-shelf": "Add to a shelf"
+    "add-to-shelf": "Add to a shelf",
+    "show-more": "Show more"
   },
   "search-bar": {
     "search-book-input-placeholder": "Look up a book!"

@@ -2,10 +2,12 @@ import {
   AddBookToShelvesRequestDto,
   BookDto,
   BookListDto,
+  ChangeBookReadingStatusRequestDto,
   CreateBookRequestDto,
   PreloadedBookInfoDto,
 } from '@/utils/dto/book.dto';
 import { betterreadsAxios } from '@/utils/api/betterreads-axios';
+import { ShelfType } from '@/utils/dto/smallShelfDto';
 
 class BookService {
   async getLastAddedBooks() {
@@ -54,6 +56,20 @@ class BookService {
       shelvesId,
     };
     const response = await betterreadsAxios.post<BookDto>(`/books/add/${userId}`, body);
+    return response.data;
+  }
+
+  async getBookReadingStatus(userId: number, bookId: number) {
+    const response = await betterreadsAxios.get<ShelfType | undefined>(`/books/status/${userId}/${bookId}`);
+    return response.data;
+  }
+
+  async changeBookReadingStatus(userId: number, bookId: number, shelfType: ShelfType) {
+    const body: ChangeBookReadingStatusRequestDto = {
+      bookId,
+      statusType: shelfType,
+    };
+    const response = await betterreadsAxios.post<ShelfType | undefined>(`/books/change-reading-status/${userId}`, body);
     return response.data;
   }
 }

@@ -85,14 +85,24 @@
 
                     .readingStatusButtonsContainer {
                         display: flex;
+                        justify-content: center;
+                        align-items: center;
 
                         .readingStatusButton {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
                             cursor: pointer;
                             border: none;
 
-                            padding: 0.5rem;
+                            padding: 0.5rem 1rem;
 
                             font-size: 1rem;
+
+                            &.selected {
+                                background-color: var(--tertiary);
+                            }
 
                             &:nth-child(n+2) {
                                 border-left: 1px solid var(--secondary-vibrant);
