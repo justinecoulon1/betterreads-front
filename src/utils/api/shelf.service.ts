@@ -1,5 +1,5 @@
 import { betterreadsAxios } from '@/utils/api/betterreads-axios';
-import { CreateShelfRequestDto, ShelfDto, ShelfWithLastBookDto, SmallShelfDto } from '@/utils/dto/smallShelfDto';
+import { CreateShelfRequestDto, ShelfDto, ShelfWithLastBookDto } from '@/utils/dto/smallShelfDto';
 
 class ShelfService {
   async getByUserId(userId: number) {
@@ -27,7 +27,7 @@ class ShelfService {
   }
 
   async getUserReadingStatusShelves(userId: number) {
-    const response = await betterreadsAxios.get<SmallShelfDto[]>(`/shelves/status-shelves/${userId}`);
+    const response = await betterreadsAxios.get<ShelfWithLastBookDto[]>(`/shelves/status-shelves/${userId}`);
     return response.data;
   }
 }
