@@ -23,12 +23,17 @@
             display: flex;
             border-bottom: none;
             height: 100%;
+            width: 100%;
 
             .shelfBookCoverImage {
-                height: 50%;
                 width: auto;
                 filter: blur(0.3rem);
                 opacity: 0.5;
+            }
+
+            .shelfCoverImagePlaceholder {
+                width: 40%;
+                height: auto;
             }
         }
 
@@ -60,6 +65,11 @@
         .shelfBookCoverImage {
             height: 100%;
             width: auto;
+        }
+
+        .shelfCoverImagePlaceholder {
+            width: 40%;
+            height: auto;
         }
 
     }
