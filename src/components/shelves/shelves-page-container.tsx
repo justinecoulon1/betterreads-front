@@ -1,7 +1,6 @@
 'use client';
 
 import { SmallShelfDto } from '@/utils/dto/smallShelfDto';
-import ShelfCard from '@/components/profile/profile-section/shelves/shelf-card';
 import styles from './shelves-page-container.module.css';
 import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
@@ -9,22 +8,31 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Check, X } from 'lucide-react';
 import { UserDto } from '@/utils/dto/user.dto';
 import shelfService from '@/utils/api/shelf.service';
+import ShelfCard from '@/components/profile/profile-section/shelves/shelf-card';
 
 export default function ShelvesPageContainer({ shelves, user }: { shelves: SmallShelfDto[]; user: UserDto }) {
   const t = useTranslations('my-shelves');
   const [userShelves, setUserShelves] = useState(shelves);
   return (
     <div className={styles.shelvesPageContainer}>
-      <div className={styles.shelvePageHeader}>
-        <h2>{t('title')}</h2>
-        <AddShelfButton
-          onShelfCreation={async (shelfName) => setUserShelves(await shelfService.createShelf(user.id, shelfName))}
-        />
+      <div className={styles.bannerContainer}>
+        <img className={styles.bannerImage} src="/library1.jpg" alt="library banner" />
       </div>
-      <div className={styles.shelvesCardContainer}>
-        {userShelves.map((shelf) => (
-          <ShelfCard key={`shelf-card-${shelf.id}`} shelf={shelf} />
-        ))}
+
+      <div className={styles.shelvesInnerContainer}>
+        <div className={styles.shelvesHeaderContainer}>
+          <h2>{t('title')}</h2>
+          <div className={styles.newShelfButtonContainer}>
+            <AddShelfButton
+              onShelfCreation={async (shelfName) => setUserShelves(await shelfService.createShelf(user.id, shelfName))}
+            />
+          </div>
+        </div>
+        <div className={styles.shelvesContainer}>
+          {userShelves.map((shelf) => (
+            <ShelfCard key={`shelf-card-${shelf.id}`} shelf={shelf} />
+          ))}
+        </div>
       </div>
     </div>
   );
