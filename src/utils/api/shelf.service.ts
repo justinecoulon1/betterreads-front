@@ -25,6 +25,11 @@ class ShelfService {
     const response = await betterreadsAxios.post<SmallShelfDto[]>(`/shelves/${userId}`, body);
     return response.data;
   }
+
+  async getUserReadingStatusShelves(userId: number) {
+    const response = await betterreadsAxios.get<SmallShelfDto[]>(`/shelves/status-shelves/${userId}`);
+    return response.data;
+  }
 }
 
 export default new ShelfService();

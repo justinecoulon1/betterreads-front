@@ -110,5 +110,14 @@
   },
   "add-to-shelf-lightbox": {
     "add-to-shelf-lightbox-title": "Select one or more shelves:"
+  },
+  "left-side-bar": {
+    "books-title": "Books",
+    "books-add-text": "Can't find the book you're looking for? <link>Add it!</link>",
+    "shelf-title": "Profile",
+    "shelf-text": "<link>My shelves</link>",
+    "READ": "<link>Read</link>",
+    "TO_READ": "<link>To read</link>",
+    "READING": "<link>Reading</link>"
   }
 }

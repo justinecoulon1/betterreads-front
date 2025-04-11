@@ -1,9 +1,30 @@
 .homePageContainer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3rem 0 3rem 0;
+    justify-content: space-between;
+
+    overflow-y: hidden;
 
     width: 100%;
 
+    gap: 1rem;
+
+    .homePageLeftSideBarContainer {
+        display: flex;
+        justify-content: flex-end;
+
+        width: 25rem;
+
+        padding: 3rem 0 3rem 0;
+    }
+
+    .homePageContentContainer {
+        display: flex;
+        flex: 1;
+        justify-content: space-evenly;
+        padding: 3rem 0 3rem 0;
+
+        gap: 3rem;
+
+        overflow-x: hidden;
+    }
 }

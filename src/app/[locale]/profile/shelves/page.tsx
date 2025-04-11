@@ -10,7 +10,17 @@ export default async function ShelvesPage() {
   const shelves = await ShelfService.getByUserId(user.id);
   return (
     <div className={styles.shelvesPage}>
-      <ShelvesPageContainer shelves={shelves} user={user} />
+      <div className={styles.bookDetailsContentContainer}>
+        <div className={styles.bannerContainer}>
+          <img className={styles.bannerImage} src="/library1.jpg" alt="library banner" />
+        </div>
+        <div className={styles.bookDetailsContentInnerContainer}>
+          <div className={styles.bookDetailsHeaderContainer} />
+          <div className={styles.bookDetailsContainer}>
+            <ShelvesPageContainer shelves={shelves} user={user} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

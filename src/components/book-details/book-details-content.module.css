@@ -16,7 +16,7 @@
 
         z-index: -1;
 
-        .bannerCoverImage {
+        .bannerImage {
             height: 16rem;
             object-fit: cover;
             filter: blur(0.8rem);
