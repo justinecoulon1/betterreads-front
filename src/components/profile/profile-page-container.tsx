@@ -10,10 +10,14 @@ import { getSessionUser } from '@/utils/action/auth/get-session-user.action';
 export default async function ProfilePageContainer({ profilePageTab }: { profilePageTab: ProfilePageTab }) {
   const user = await getSessionUser();
   return (
-    <div className={styles.profilePageContainer}>
-      <ProfilePageTabLinks />
-      {profilePageTab === ProfilePageTab.PROFILE && <ProfileSection user={user} />}
-      {profilePageTab === ProfilePageTab.ACCOUNT && <AccountSection user={user} />}
-    </div>
+    <>
+      <div className={styles.tabLinksContainer}>
+        <ProfilePageTabLinks />
+      </div>
+      <div className={styles.pageContentContainer}>
+        {profilePageTab === ProfilePageTab.PROFILE && <ProfileSection user={user} />}
+        {profilePageTab === ProfilePageTab.ACCOUNT && <AccountSection user={user} />}
+      </div>
+    </>
   );
 }

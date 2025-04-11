@@ -19,24 +19,27 @@ export default function AddToShelfLightboxContent({
   const handleSubmit = async (state: AddBookToShelvesStateForm, data: FormData): Promise<AddBookToShelvesStateForm> => {
     const result = await addBookToShelves(state, data);
     if (result.error) {
-      return { error: result.error };
+      return { error: result.error, isbn: result.isbn };
     }
     closeLightbox();
-    return {};
+    return { isbn: result.isbn };
   };
 
   const [formState, formAction, isPending] = useActionState(handleSubmit, { isbn });
   return (
     <div className={styles.lightboxContainer} onMouseDown={(e) => e.stopPropagation()}>
       <AddToShelfLightboxHeader closeLightbox={closeLightbox} />
-      <form action={formAction} className={styles.addToShelfLbShelvesContainer}>
-        {shelves.map((shelf) => {
-          if (shelf.type === ShelfType.USER) {
-            return <AddToShelfLightboxShelfNameInput key={`shelf-checkbox-${shelf.name}`} shelf={shelf} />;
-          }
-        })}
-
-        <AddToShelfLightboxSaveButton />
+      <form action={formAction} className={styles.addToShelfLbFormContainer}>
+        <div className={styles.formInnerContainer}>
+          {shelves.map((shelf) => {
+            if (shelf.type === ShelfType.USER) {
+              return <AddToShelfLightboxShelfNameInput key={`shelf-checkbox-${shelf.name}`} shelf={shelf} />;
+            }
+          })}
+        </div>
+        <div className={styles.saveButtonContainer}>
+          <AddToShelfLightboxSaveButton isPending={isPending} />
+        </div>
       </form>
     </div>
   );
@@ -61,18 +64,23 @@ function AddToShelfLightboxHeader({ closeLightbox }: { closeLightbox: () => void
 function AddToShelfLightboxShelfNameInput({ shelf }: { shelf: SmallShelfDto }) {
   return (
     <div className={styles.addToShelfLbShelveNameContainer}>
+      <input
+        id={shelf.id.toString()}
+        className={styles.addToShelfLbShelveNameCheckbox}
+        type="checkbox"
+        name={shelf.id.toString()}
+      />
       <label className={styles.addToShelfLbShelveName} htmlFor={shelf.id.toString()}>
-        <p className={styles.shelfName}>{shelf.name}</p>
+        {shelf.name}
       </label>
-      <input className={styles.addToShelfLbShelveNameCheckbox} type="checkbox" name={shelf.id.toString()} />
     </div>
   );
 }
 
-function AddToShelfLightboxSaveButton() {
+function AddToShelfLightboxSaveButton({ isPending }: { isPending: boolean }) {
   return (
     <button type={'submit'} className={classNames(styles.addToShelfLbSaveButton, 'nbShadow')}>
-      <Save className={styles.addToShelfLbSaveButtonImage} />
+      {isPending ? <p>Loading...</p> : <Save className={styles.addToShelfLbSaveButtonImage} />}
     </button>
   );
 }

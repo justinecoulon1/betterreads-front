@@ -1,10 +1,5 @@
-.profilePageContainer {
+.tabLinksContainer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-
-    gap: 3rem;
 
     .profilePageTabButtons {
         display: flex;
@@ -19,4 +14,13 @@
             cursor: pointer;
         }
     }
+}
+
+.pageContentContainer {
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+
+    gap: 3rem;
 }

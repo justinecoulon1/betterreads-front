@@ -20,7 +20,7 @@ export default function ShelvesContainer({
     <div className={styles.shelvesContainer}>
       <div className={styles.shelvesHeaderContainer}>
         <h2>{containerTitle}</h2>
-        {seeMoreButton && <SeeMoreLink path={seeMoreLink} />}
+        {seeMoreButton && seeMoreLink && <SeeMoreLink path={seeMoreLink} />}
       </div>
       <div className={styles.shelveCardsListContainer}>
         {shelves.map((shelf) => (

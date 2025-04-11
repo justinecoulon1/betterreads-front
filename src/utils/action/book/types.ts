@@ -25,5 +25,5 @@ export type BookIsbnStateForm = {
 
 export type AddBookToShelvesStateForm = {
   isbn?: string;
-  error?: {};
+  error?: object;
 };
