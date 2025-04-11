@@ -8,15 +8,19 @@ import SeeMoreLink from '@/components/generic/see-more-button/see-more-link';
 export default function ShelvesContainer({
   shelves,
   containerTitle,
+  seeMoreButton,
+  seeMoreLink,
 }: {
   shelves: ShelfWithLastBookDto[];
   containerTitle: string;
+  seeMoreButton: boolean;
+  seeMoreLink?: string;
 }) {
   return (
     <div className={styles.shelvesContainer}>
       <div className={styles.shelvesHeaderContainer}>
         <h2>{containerTitle}</h2>
-        <SeeMoreLink path={'/profile/shelves'} />
+        {seeMoreButton && <SeeMoreLink path={seeMoreLink} />}
       </div>
       <div className={styles.shelveCardsListContainer}>
         {shelves.map((shelf) => (

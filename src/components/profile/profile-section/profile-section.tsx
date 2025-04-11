@@ -12,11 +12,24 @@ export default async function ProfileSection({ user }: { user: UserDto }) {
   return (
     <div className={styles.profileSectionContainer}>
       {shelves ? (
-        <ShelvesContainer shelves={readingStatusShelves} containerTitle={'My reading status shelves'} />
+        <ShelvesContainer
+          shelves={readingStatusShelves}
+          containerTitle={'My reading status shelves'}
+          seeMoreButton={false}
+        />
       ) : (
         <p>Loading</p>
       )}
-      {shelves ? <ShelvesContainer shelves={shelves} containerTitle={'My shelves'} /> : <p>Loading</p>}
+      {shelves ? (
+        <ShelvesContainer
+          shelves={shelves}
+          containerTitle={'My shelves'}
+          seeMoreButton={true}
+          seeMoreLink={'/profile/shelves'}
+        />
+      ) : (
+        <p>Loading</p>
+      )}
     </div>
   );
 }
