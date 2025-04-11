@@ -1,11 +1,11 @@
 'use client';
 
-import { SmallShelfDto } from '@/utils/dto/smallShelfDto';
+import { ShelfWithLastBookDto } from '@/utils/dto/smallShelfDto';
 import ShelfCard from '@/components/profile/profile-section/shelves/shelf-card';
 import styles from './shelves-container.module.css';
 import SeeMoreLink from '@/components/generic/see-more-button/see-more-link';
 
-export default function ShelvesContainer({ shelves }: { shelves: SmallShelfDto[] }) {
+export default function ShelvesContainer({ shelves }: { shelves: ShelfWithLastBookDto[] }) {
   return (
     <div className={styles.shelvesContainer}>
       <div className={styles.shelvesHeaderContainer}>

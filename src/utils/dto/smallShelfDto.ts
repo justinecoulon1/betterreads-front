@@ -1,4 +1,4 @@
-import { BookDto } from '@/utils/dto/book.dto';
+import { BookDto, BookListDto } from '@/utils/dto/book.dto';
 
 export enum ShelfType {
   'READ' = 'READ',
@@ -16,6 +16,10 @@ export type SmallShelfDto = {
 
 export type ShelfDto = SmallShelfDto & {
   books: BookDto[];
+};
+
+export type ShelfWithLastBookDto = SmallShelfDto & {
+  books: BookListDto[];
 };
 
 export type CreateShelfRequestDto = {

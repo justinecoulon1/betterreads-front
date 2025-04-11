@@ -4,7 +4,8 @@
 
     width: 15rem;
     min-width: 13rem;
-    height: 40vh;
+    height: fit-content;
+    max-height: 80vh;
 
     padding: 1rem;
     gap: 2rem;

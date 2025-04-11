@@ -20,10 +20,13 @@
         background-color: var(--secondary);
 
         .shelfImageContainer {
+            display: flex;
             border-bottom: none;
             height: 100%;
 
-            .shelfImage {
+            .shelfBookCoverImage {
+                height: 50%;
+                width: auto;
                 filter: blur(0.3rem);
                 opacity: 0.5;
             }
@@ -54,7 +57,7 @@
 
         transition: all 0.3s ease;
 
-        .shelfImage {
+        .shelfBookCoverImage {
             height: 100%;
             width: auto;
         }

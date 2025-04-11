@@ -1,6 +1,6 @@
 'use client';
 
-import { SmallShelfDto } from '@/utils/dto/smallShelfDto';
+import { ShelfWithLastBookDto } from '@/utils/dto/smallShelfDto';
 import styles from './shelves-page-container.module.css';
 import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
@@ -10,7 +10,7 @@ import { UserDto } from '@/utils/dto/user.dto';
 import shelfService from '@/utils/api/shelf.service';
 import ShelfCard from '@/components/profile/profile-section/shelves/shelf-card';
 
-export default function ShelvesPageContainer({ shelves, user }: { shelves: SmallShelfDto[]; user: UserDto }) {
+export default function ShelvesPageContainer({ shelves, user }: { shelves: ShelfWithLastBookDto[]; user: UserDto }) {
   const t = useTranslations('my-shelves');
   const [userShelves, setUserShelves] = useState(shelves);
   return (
