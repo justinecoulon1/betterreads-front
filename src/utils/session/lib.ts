@@ -4,6 +4,7 @@ import { UserDto } from '@/utils/dto/user.dto';
 export interface SessionData {
   user?: UserDto;
   accessToken?: string;
+  refreshToken?: string;
 }
 
 export const sessionOptions: SessionOptions = {

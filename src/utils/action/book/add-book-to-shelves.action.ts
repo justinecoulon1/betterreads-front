@@ -3,7 +3,6 @@
 import { getServerErrorCode } from '@/utils/errors/error-utils';
 import { AddBookToShelvesStateForm } from '@/utils/action/book/types';
 import BookService from '@/utils/api/book.service';
-import { getSessionUser } from '@/utils/action/auth/get-session-user.action';
 
 export async function addBookToShelves(
   state: AddBookToShelvesStateForm,
@@ -11,7 +10,6 @@ export async function addBookToShelves(
 ): Promise<AddBookToShelvesStateForm> {
   const isbn = state.isbn as string;
   const dataEntries = Object.fromEntries(data.entries());
-  const user = await getSessionUser();
 
   if (Object.keys(dataEntries).length === 0) {
     return { error: { message: 'select-one' }, isbn: isbn };
@@ -19,7 +17,6 @@ export async function addBookToShelves(
 
   try {
     await BookService.addBookToShelves(
-      user.id,
       isbn,
       Object.keys(dataEntries).map((key) => parseInt(key)),
     );
