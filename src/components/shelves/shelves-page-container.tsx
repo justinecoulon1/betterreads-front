@@ -1,6 +1,6 @@
 'use client';
 
-import { ShelfWithLastBookDto } from '@/utils/dto/smallShelfDto';
+import { ShelfWithLastBookDto } from '@/utils/dto/shelf.dto';
 import styles from './shelves-page-container.module.css';
 import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
@@ -9,6 +9,7 @@ import { Check, X } from 'lucide-react';
 import { UserDto } from '@/utils/dto/user.dto';
 import shelfService from '@/utils/api/shelf.service';
 import ShelfCard from '@/components/profile/profile-section/shelves/shelf-card';
+import Image from 'next/image';
 
 export default function ShelvesPageContainer({ shelves, user }: { shelves: ShelfWithLastBookDto[]; user: UserDto }) {
   const t = useTranslations('my-shelves');
@@ -16,7 +17,7 @@ export default function ShelvesPageContainer({ shelves, user }: { shelves: Shelf
   return (
     <div className={styles.shelvesPageContainer}>
       <div className={styles.bannerContainer}>
-        <img className={styles.bannerImage} src="/library1.jpg" alt="library banner" />
+        <Image className={styles.bannerImage} src="/library3.png" alt="library banner" width={3024} height={4032} />
       </div>
 
       <div className={styles.shelvesInnerContainer}>
@@ -30,7 +31,15 @@ export default function ShelvesPageContainer({ shelves, user }: { shelves: Shelf
         </div>
         <div className={styles.shelvesContainer}>
           {userShelves.map((shelf) => (
-            <ShelfCard key={`shelf-card-${shelf.id}`} shelf={shelf} />
+            <ShelfCard
+              key={`shelf-card-${shelf.id}`}
+              shelf={shelf}
+              hasButton={true}
+              user={user}
+              onShelfDelete={(deletedShelf) => {
+                setUserShelves((shelves) => shelves.filter((shelf) => shelf.id !== deletedShelf.id));
+              }}
+            />
           ))}
         </div>
       </div>

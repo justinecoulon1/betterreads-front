@@ -1,7 +1,7 @@
 import styles from './left-side-bar.module.css';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { SmallShelfDto } from '@/utils/dto/smallShelfDto';
+import { SmallShelfDto } from '@/utils/dto/shelf.dto';
 
 type LeftSideBarSectionInfo = {
   titleKey: string;

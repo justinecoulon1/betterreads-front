@@ -10,9 +10,9 @@ export default async function ProfileSection({ user }: { user: UserDto }) {
 
   return (
     <>
-      {shelves ? (
+      {readingStatusShelves ? (
         <ShelvesContainer
-          shelves={readingStatusShelves}
+          initialShelves={readingStatusShelves}
           containerTitle={'My reading status shelves'}
           seeMoreButton={false}
         />
@@ -21,10 +21,11 @@ export default async function ProfileSection({ user }: { user: UserDto }) {
       )}
       {shelves ? (
         <ShelvesContainer
-          shelves={shelves}
+          initialShelves={shelves}
           containerTitle={'My shelves'}
           seeMoreButton={true}
           seeMoreLink={'/profile/shelves'}
+          user={user}
         />
       ) : (
         <p>Loading</p>

@@ -1,5 +1,5 @@
 import { AuthorDto } from './author.dto';
-import { ShelfType } from '@/utils/dto/smallShelfDto';
+import { ShelfType } from '@/utils/dto/shelf.dto';
 
 export type BookListDto = {
   id: number;
@@ -49,7 +49,7 @@ export type AddBookToShelvesRequestDto = {
   shelvesId: number[];
 };
 
-export type ChangeBookReadingStatusRequestDto = {
+export type UpdateBookReadingStatusRequestDto = {
   bookId: number;
-  statusType: ShelfType;
+  statusType: ShelfType | undefined;
 };

@@ -5,15 +5,16 @@ import styles from '@/components/book-details/book-details-content.module.css';
 import CoverImage from '@/components/global/books/cover-image/cover-image';
 import classNames from 'classnames';
 import AddToShelveButton from '@/components/book-details/book-details-page-content/add-to-shelves-button';
-import { getSessionUser } from '@/utils/action/auth/get-session-user.action';
 import ShelfService from '@/utils/api/shelf.service';
 import BookService from '@/utils/api/book.service';
 import ChangeBookReadingStatusButtonContainer from '@/components/book-details/book-details-page-content/change-book-reading-status-button-container';
+import { getSession } from '@/utils/action/auth/get-session.action';
 
 export default async function BookDetailsLeftPart({ book }: { book: BookDto }) {
-  const user = await getSessionUser();
-  const shelves = await ShelfService.getByUserId(user.id);
-  const bookStatus = await BookService.getBookReadingStatus(user.id, book.id);
+  const session = await getSession();
+  const user = session?.user;
+  const shelves = user ? await ShelfService.getByUserId(user.id) : [];
+  const bookStatus = user ? await BookService.getBookReadingStatus(user.id, book.id) : undefined;
 
   return (
     <div className={styles.bookDetailsLeftPart}>
@@ -22,10 +23,10 @@ export default async function BookDetailsLeftPart({ book }: { book: BookDto }) {
       </div>
       <div className={styles.buttonsContainer}>
         <div className={classNames(styles.readingStatusButtonsContainer, 'nbShadow')}>
-          <ChangeBookReadingStatusButtonContainer bookStatus={bookStatus} userId={user.id} bookId={book.id} />
+          <ChangeBookReadingStatusButtonContainer bookStatus={bookStatus} userId={user?.id} bookId={book.id} />
         </div>
 
-        <AddToShelveButton shelves={shelves} isbn={book.isbn13} />
+        <AddToShelveButton isLoggedIn={!!user} shelves={shelves} isbn={book.isbn13} />
       </div>
     </div>
   );

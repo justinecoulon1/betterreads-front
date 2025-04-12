@@ -1,5 +1,5 @@
 import BookListCard from '@/components/global/books/book-list-card';
-import { ShelfDto } from '@/utils/dto/smallShelfDto';
+import { ShelfDto } from '@/utils/dto/shelf.dto';
 import styles from './shelf-details-container.module.css';
 
 export default function ShelfDetailsContainer({ shelf }: { shelf: ShelfDto }) {

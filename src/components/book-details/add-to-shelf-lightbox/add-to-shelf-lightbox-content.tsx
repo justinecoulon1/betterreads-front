@@ -1,5 +1,5 @@
 import React, { useActionState } from 'react';
-import { ShelfType, SmallShelfDto } from '@/utils/dto/smallShelfDto';
+import { ShelfType, SmallShelfDto } from '@/utils/dto/shelf.dto';
 import styles from './add-to-shelf-lightbox-content.module.css';
 import { Save, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';

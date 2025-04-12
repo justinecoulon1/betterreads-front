@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import '../../globals.css';
+import { getSessionUser } from '@/utils/action/auth/get-session-user.action';
 
 export const metadata: Metadata = {
   title: 'BetterReads',
@@ -11,5 +12,6 @@ export default async function AddBooksLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  await getSessionUser();
   return children;
 }

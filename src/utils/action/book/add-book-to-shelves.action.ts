@@ -13,9 +13,6 @@ export async function addBookToShelves(
   const dataEntries = Object.fromEntries(data.entries());
   const user = await getSessionUser();
 
-  console.log(dataEntries);
-  console.log(state);
-
   if (Object.keys(dataEntries).length === 0) {
     return { error: { message: 'select-one' }, isbn: isbn };
   }

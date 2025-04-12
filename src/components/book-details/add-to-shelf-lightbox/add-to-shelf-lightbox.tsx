@@ -1,7 +1,7 @@
 import GenericLightbox from '@/components/generic/lightbox/lightbox';
 import React from 'react';
 import AddToShelfLightboxContent from '@/components/book-details/add-to-shelf-lightbox/add-to-shelf-lightbox-content';
-import { SmallShelfDto } from '@/utils/dto/smallShelfDto';
+import { SmallShelfDto } from '@/utils/dto/shelf.dto';
 
 export default function AddToShelfLightbox({
   isLightboxOpened,

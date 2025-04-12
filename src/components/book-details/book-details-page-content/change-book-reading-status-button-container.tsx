@@ -1,7 +1,7 @@
 'use client';
 
 import ChangeBookReadingStatusButton from '@/components/book-details/book-details-page-content/change-book-reading-status-button';
-import { ShelfType } from '@/utils/dto/smallShelfDto';
+import { ShelfType } from '@/utils/dto/shelf.dto';
 import { useState } from 'react';
 
 export default function ChangeBookReadingStatusButtonContainer({
@@ -9,8 +9,8 @@ export default function ChangeBookReadingStatusButtonContainer({
   userId,
   bookId,
 }: {
-  bookStatus: ShelfType | undefined;
-  userId: number;
+  bookStatus?: ShelfType;
+  userId?: number;
   bookId: number;
 }) {
   const [bookReadingStatus, setReadingBookStatus] = useState<ShelfType | undefined>(bookStatus);
