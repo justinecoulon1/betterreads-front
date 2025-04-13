@@ -1,10 +1,10 @@
-import { BookListDto } from '@/utils/dto/book.dto';
+import { SmallBookDto } from '@/utils/dto/book.dto';
 import BookListCard from '@/components/global/books/book-list-card';
 import styles from './last-added-books-section.module.css';
 import { useTranslations } from 'next-intl';
 import SeeMoreLink from '@/components/generic/see-more-button/see-more-link';
 
-export default function LastAddedBooksSection({ lastAddedBooks }: { lastAddedBooks: BookListDto[] }) {
+export default function LastAddedBooksSection({ lastAddedBooks }: { lastAddedBooks: SmallBookDto[] }) {
   const t = useTranslations('last-added-books');
   return (
     <div className={styles.lastAddedBookSectionContainer}>

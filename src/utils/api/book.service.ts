@@ -1,8 +1,8 @@
 import {
   BookDto,
-  BookListDto,
   CreateBookRequestDto,
   PreloadedBookInfoDto,
+  SmallBookDto,
   UpdateBookInShelvesRequestDto,
   UpdateBookInShelvesResponseDto,
   UpdateBookReadingStatusRequestDto,
@@ -12,7 +12,7 @@ import { ShelfType } from '@/utils/dto/shelf.dto';
 
 class BookService {
   async getLastAddedBooks() {
-    const response = await betterreadsAxios.get<BookListDto[]>(`/books/latest`);
+    const response = await betterreadsAxios.get<SmallBookDto[]>(`/books/latest`);
     return response.data;
   }
 

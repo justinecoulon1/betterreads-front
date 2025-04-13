@@ -1,7 +1,7 @@
 import { AuthorDto } from './author.dto';
 import { ShelfType, SmallShelfDto } from '@/utils/dto/shelf.dto';
 
-export type BookListDto = {
+export type SmallBookDto = {
   id: number;
   title: string;
   isbn13: string;

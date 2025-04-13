@@ -2,10 +2,10 @@ import styles from './book-list-card.module.css';
 import classNames from 'classnames';
 import React from 'react';
 import CoverImage from '@/components/global/books/cover-image/cover-image';
-import { BookListDto } from '@/utils/dto/book.dto';
+import { SmallBookDto } from '@/utils/dto/book.dto';
 import { Link } from '@/i18n/routing';
 
-export default function BookListCard({ book }: { book: BookListDto }) {
+export default function BookListCard({ book }: { book: SmallBookDto }) {
   return (
     <Link href={`/books/${book.isbn13}`} className={classNames(styles.bookListCardContainer, 'nbShadow')}>
       <div className={styles.coverImageContainer}>
