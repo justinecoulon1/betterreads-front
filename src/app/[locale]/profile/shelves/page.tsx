@@ -7,7 +7,7 @@ import { getSessionUser } from '@/utils/action/auth/get-session-user.action';
 
 export default async function ShelvesPage() {
   const user = await getSessionUser();
-  const shelves = await ShelfService.getByUserId(user.id);
+  const shelves = await ShelfService.getByUserId();
   return (
     <div className={styles.shelvesPage}>
       <ShelvesPageContainer shelves={shelves} user={user} />

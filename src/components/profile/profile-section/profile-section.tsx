@@ -5,8 +5,8 @@ import ShelvesContainer from '@/components/profile/profile-section/shelves/shelv
 import ShelfService from '@/utils/api/shelf.service';
 
 export default async function ProfileSection({ user }: { user: UserDto }) {
-  const shelves = await ShelfService.getLastByUserId(user.id);
-  const readingStatusShelves = await ShelfService.getUserReadingStatusShelves(user.id);
+  const shelves = await ShelfService.getLastByUserId();
+  const readingStatusShelves = await ShelfService.getUserReadingStatusShelves();
 
   return (
     <>

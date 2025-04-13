@@ -1,5 +1,5 @@
 import { AuthorDto } from './author.dto';
-import { ShelfType } from '@/utils/dto/shelf.dto';
+import { ShelfType, SmallShelfDto } from '@/utils/dto/shelf.dto';
 
 export type BookListDto = {
   id: number;
@@ -44,9 +44,16 @@ export type PreloadedBookInfoDto = {
   editor?: string;
 };
 
-export type AddBookToShelvesRequestDto = {
+export type UpdateBookInShelvesRequestDto = {
+  bookId: number;
+  shelvesToAddIds: number[];
+  shelvesToDeleteIds: number[];
+};
+
+export type UpdateBookInShelvesResponseDto = {
   isbn: string;
-  shelvesId: number[];
+  addedShelves: SmallShelfDto[];
+  removedShelves: SmallShelfDto[];
 };
 
 export type UpdateBookReadingStatusRequestDto = {

@@ -32,5 +32,11 @@
         font-size: 1rem;
         font-weight: bold;
         width: 30%;
+
+        cursor: pointer;
+
+        .loginButtons {
+            cursor: pointer;
+        }
     }
 }
