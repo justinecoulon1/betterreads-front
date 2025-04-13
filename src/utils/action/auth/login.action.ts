@@ -27,7 +27,7 @@ export async function login(loginStateForm: LoginStateForm, data: FormData): Pro
     };
   }
 
-  const { user, accessToken }: LoginResponseDto = await UserService.login(formEmail, formPassword);
+  const { user, accessToken, refreshToken }: LoginResponseDto = await UserService.login(formEmail, formPassword);
 
   if (!user) {
     return { error: { credentials: 'wrong-credentials' } };
@@ -35,6 +35,7 @@ export async function login(loginStateForm: LoginStateForm, data: FormData): Pro
 
   session.user = user;
   session.accessToken = accessToken;
+  session.refreshToken = refreshToken;
 
   await session.save();
   return {};

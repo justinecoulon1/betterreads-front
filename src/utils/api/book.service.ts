@@ -50,12 +50,12 @@ class BookService {
     return response.data;
   }
 
-  async addBookToShelves(userId: number, isbn: string, shelvesId: number[]) {
+  async addBookToShelves(isbn: string, shelvesId: number[]) {
     const body: AddBookToShelvesRequestDto = {
       isbn,
       shelvesId,
     };
-    const response = await betterreadsAxios.post<BookDto>(`/books/add/${userId}`, body);
+    const response = await betterreadsAxios.post<BookDto>(`/books/add`, body);
     return response.data;
   }
 
