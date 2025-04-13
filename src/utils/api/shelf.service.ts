@@ -2,37 +2,47 @@ import { betterreadsAxios } from '@/utils/api/betterreads-axios';
 import { CreateShelfRequestDto, ShelfDto, ShelfWithLastBookDto, SmallShelfDto } from '@/utils/dto/shelf.dto';
 
 class ShelfService {
-  async getByUserId(userId: number) {
-    const response = await betterreadsAxios.get<ShelfWithLastBookDto[]>(`/shelves/${userId}`);
+  async getByUserId() {
+    const response = await betterreadsAxios.get<ShelfWithLastBookDto[]>(`/shelves`);
     return response.data;
   }
 
-  async getLastByUserId(userId: number) {
-    const response = await betterreadsAxios.get<ShelfWithLastBookDto[]>(`/shelves/latest/${userId}`);
+  async getLastByUserId() {
+    const response = await betterreadsAxios.get<ShelfWithLastBookDto[]>(`/shelves/latest`);
     return response.data;
   }
 
-  async getShelfById(shelfId: number, userId: number) {
-    const response = await betterreadsAxios.get<ShelfDto>(`/shelves/${userId}/${shelfId}`);
+  async getShelfById(shelfId: number) {
+    const response = await betterreadsAxios.get<ShelfDto>(`/shelves/${shelfId}`);
     return response.data;
   }
 
-  async createShelf(userId: number, name: string) {
+  async createShelf(name: string) {
     const body: CreateShelfRequestDto = {
       name,
     };
 
-    const response = await betterreadsAxios.post<ShelfWithLastBookDto[]>(`/shelves/${userId}`, body);
+    const response = await betterreadsAxios.post<ShelfWithLastBookDto[]>(`/shelves`, body);
     return response.data;
   }
 
-  async getUserReadingStatusShelves(userId: number) {
-    const response = await betterreadsAxios.get<ShelfWithLastBookDto[]>(`/shelves/status-shelves/${userId}`);
+  async getUserReadingStatusShelves() {
+    const response = await betterreadsAxios.get<ShelfWithLastBookDto[]>(`/shelves/status-shelves`);
     return response.data;
   }
 
-  async deleteShelf(userId: number, shelfId: number) {
-    const response = await betterreadsAxios.delete<SmallShelfDto>(`/shelves/${userId}/${shelfId}`);
+  async deleteShelf(shelfId: number) {
+    const response = await betterreadsAxios.delete<SmallShelfDto>(`/shelves/${shelfId}`);
+    return response.data;
+  }
+
+  async getUserShelves() {
+    const response = await betterreadsAxios.get<SmallShelfDto[]>(`/shelves`);
+    return response.data;
+  }
+
+  async getUserShelvesContainingBook(bookId: number) {
+    const response = await betterreadsAxios.get<SmallShelfDto[]>(`/shelves/containing-book/${bookId}`);
     return response.data;
   }
 }

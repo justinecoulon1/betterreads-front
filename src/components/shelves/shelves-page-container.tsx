@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import React, { useEffect, useRef, useState } from 'react';
 import { Check, X } from 'lucide-react';
 import { UserDto } from '@/utils/dto/user.dto';
-import shelfService from '@/utils/api/shelf.service';
+import ShelfService from '@/utils/api/shelf.service';
 import ShelfCard from '@/components/profile/profile-section/shelves/shelf-card';
 import Image from 'next/image';
 
@@ -25,7 +25,7 @@ export default function ShelvesPageContainer({ shelves, user }: { shelves: Shelf
           <h2>{t('title')}</h2>
           <div className={styles.newShelfButtonContainer}>
             <AddShelfButton
-              onShelfCreation={async (shelfName) => setUserShelves(await shelfService.createShelf(user.id, shelfName))}
+              onShelfCreation={async (shelfName) => setUserShelves(await ShelfService.createShelf(shelfName))}
             />
           </div>
         </div>

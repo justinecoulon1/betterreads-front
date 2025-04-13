@@ -24,6 +24,6 @@ export type BookIsbnStateForm = {
 };
 
 export type AddBookToShelvesStateForm = {
-  isbn?: string;
-  error?: object;
+  bookId?: number;
+  error?: unknown;
 };

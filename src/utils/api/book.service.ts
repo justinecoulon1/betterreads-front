@@ -1,9 +1,10 @@
 import {
-  AddBookToShelvesRequestDto,
   BookDto,
   BookListDto,
   CreateBookRequestDto,
   PreloadedBookInfoDto,
+  UpdateBookInShelvesRequestDto,
+  UpdateBookInShelvesResponseDto,
   UpdateBookReadingStatusRequestDto,
 } from '@/utils/dto/book.dto';
 import { betterreadsAxios } from '@/utils/api/betterreads-axios';
@@ -50,26 +51,27 @@ class BookService {
     return response.data;
   }
 
-  async addBookToShelves(isbn: string, shelvesId: number[]) {
-    const body: AddBookToShelvesRequestDto = {
-      isbn,
-      shelvesId,
-    };
-    const response = await betterreadsAxios.post<BookDto>(`/books/add`, body);
+  async getBookReadingStatus(bookId: number) {
+    const response = await betterreadsAxios.get<ShelfType | undefined>(`/books/status/${bookId}`);
     return response.data;
   }
 
-  async getBookReadingStatus(userId: number, bookId: number) {
-    const response = await betterreadsAxios.get<ShelfType | undefined>(`/books/status/${userId}/${bookId}`);
-    return response.data;
-  }
-
-  async updateBookReadingStatus(userId: number, bookId: number, shelfType: ShelfType | undefined) {
+  async updateBookReadingStatus(bookId: number, shelfType: ShelfType | undefined) {
     const body: UpdateBookReadingStatusRequestDto = {
       bookId,
       statusType: shelfType,
     };
-    const response = await betterreadsAxios.post<ShelfType | undefined>(`/books/update-reading-status/${userId}`, body);
+    const response = await betterreadsAxios.post<ShelfType | undefined>(`/books/update-reading-status`, body);
+    return response.data;
+  }
+
+  async updateBookInShelves(bookId: number, shelvesToAddIds: number[], shelvesToDeleteIds: number[]) {
+    const body: UpdateBookInShelvesRequestDto = {
+      bookId,
+      shelvesToAddIds,
+      shelvesToDeleteIds,
+    };
+    const response = await betterreadsAxios.post<UpdateBookInShelvesResponseDto>(`/books/update-shelves`, body);
     return response.data;
   }
 }

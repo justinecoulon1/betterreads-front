@@ -28,7 +28,7 @@ export default function ShelfCard({
           className={classNames(styles.shelfDeleteButton, 'nbShadow')}
           onClick={async () => {
             if (user) {
-              await ShelfService.deleteShelf(user.id, shelf.id);
+              await ShelfService.deleteShelf(shelf.id);
               onShelfDelete(shelf);
             }
           }}

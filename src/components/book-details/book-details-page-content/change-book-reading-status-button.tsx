@@ -24,11 +24,7 @@ export default function ChangeBookReadingStatusButton({
       onClick={async () => {
         if (userId) {
           changeReadingStatus(
-            await BookService.updateBookReadingStatus(
-              userId,
-              bookId,
-              bookStatus === buttonType ? undefined : buttonType,
-            ),
+            await BookService.updateBookReadingStatus(bookId, bookStatus === buttonType ? undefined : buttonType),
           );
         } else {
           await redirectToLogin();
