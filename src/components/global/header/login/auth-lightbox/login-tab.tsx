@@ -6,7 +6,7 @@ import InputField from '@/components/global/inputs/input-field';
 import { LoginStateForm } from '@/utils/action/auth/types';
 import { login } from '@/utils/action/auth/login.action';
 
-export function LoginTab({ closeLightbox }: { closeLightbox: () => void }) {
+export function LoginTab({ onLoginSuccessful = () => {} }: { onLoginSuccessful?: () => void }) {
   const t = useTranslations('login-form');
 
   const handleSend = async (state: LoginStateForm, data: FormData): Promise<LoginStateForm> => {
@@ -15,7 +15,7 @@ export function LoginTab({ closeLightbox }: { closeLightbox: () => void }) {
       return { error: loginResult.error };
     }
 
-    closeLightbox();
+    onLoginSuccessful();
     return {};
   };
 

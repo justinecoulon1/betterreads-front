@@ -22,7 +22,8 @@ export default function AuthLightbox({
         loginTab={loginTab}
         setLoginTab={setLoginTab}
         setRegisterTab={setRegisterTab}
-        closeLightbox={closeLightbox}
+        onLoginSuccessful={closeLightbox}
+        onRegisterSuccessful={setLoginTab}
       />
     </GenericLightbox>
   );
