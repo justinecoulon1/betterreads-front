@@ -6,12 +6,12 @@
         gap: 2rem;
 
         .profilePageTabButton {
-            font-size: 1rem;
             background-color: var(--tertiary);
             padding: 0.5rem 3rem;
             min-width: fit-content;
 
             cursor: pointer;
+            font-size: 1.1rem;
         }
     }
 }

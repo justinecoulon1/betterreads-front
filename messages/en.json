@@ -116,7 +116,8 @@
     "shelf-text": "<link>My shelves</link>",
     "READ": "<link>Read</link>",
     "TO_READ": "<link>To read</link>",
-    "READING": "<link>Reading</link>"
+    "READING": "<link>Reading</link>",
+    "shelf-create": "<link>Create a new shelf</link>"
   },
   "search-results": {
     "book-release-date": "Release date: ",

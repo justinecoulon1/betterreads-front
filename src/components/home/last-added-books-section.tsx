@@ -14,7 +14,7 @@ export default function LastAddedBooksSection({ lastAddedBooks }: { lastAddedBoo
       </div>
       <div className={styles.lastAddedBookSectionContent}>
         {lastAddedBooks.map((book) => (
-          <BookListCard key={`${book.id}-bookListCard`} book={book} />
+          <BookListCard key={`${book.id}-bookListCard`} book={book} hasButton={false} onBookRemoved={() => {}} />
         ))}
       </div>
     </div>
