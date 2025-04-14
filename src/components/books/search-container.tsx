@@ -20,7 +20,11 @@ export default async function SearchContainer({ searchText, page }: { searchText
       {searchResult && searchResult.items.length !== 0 && (
         <div className={styles.resultsContainer}>
           <SearchResultsContainer items={searchResult.items} />
-          <PageSelectionContainer currentPage={page} totalPages={totalPages} searchText={searchText} />
+          <PageSelectionContainer
+            currentPage={page}
+            totalPages={totalPages}
+            getPageHref={(p) => `/books?q=${encodeURIComponent(searchText)}&page=${p}`}
+          />
         </div>
       )}
       {searchResult && searchResult.items.length === 0 && (

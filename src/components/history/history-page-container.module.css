@@ -1,0 +1,22 @@
+.historyPageContainer {
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+
+    gap: 0.5rem;
+    padding: 0.5rem;
+
+    background-color: var(--primary);
+
+    .historyCard {
+        display: flex;
+        flex-direction: column;
+
+        gap: 0.5rem;
+        padding: 0.5rem;
+
+        background-color: var(--primary-vibrant);
+        border: 1px solid var(--secondary-vibrant);
+    }
+}

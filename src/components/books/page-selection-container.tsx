@@ -7,11 +7,11 @@ type PageComponent = number | 'blank';
 export default function PageSelectionContainer({
   currentPage,
   totalPages,
-  searchText,
+  getPageHref,
 }: {
   currentPage: number;
   totalPages: number;
-  searchText: string;
+  getPageHref: (page: number) => string;
 }) {
   const accessiblePages = Array.from(
     new Set(
@@ -38,7 +38,7 @@ export default function PageSelectionContainer({
             <Link
               className={classNames('nbShadow', styles.pageLink)}
               key={`${index}-${pageComponent}`}
-              href={`/books?q=${encodeURIComponent(searchText)}&page=${pageComponent}`}
+              href={getPageHref(pageComponent)}
             >
               {pageComponent}
             </Link>
