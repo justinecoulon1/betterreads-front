@@ -10,16 +10,20 @@ export default function AuthLightboxContent({
   loginTab,
   setLoginTab,
   setRegisterTab,
-  closeLightbox,
+  className,
+  onLoginSuccessful,
+  onRegisterSuccessful,
 }: {
   loginTab: LightboxTabs;
   setLoginTab: () => void;
   setRegisterTab: () => void;
-  closeLightbox: () => void;
+  onLoginSuccessful?: () => void;
+  onRegisterSuccessful?: () => void;
+  className?: string;
 }) {
   const t = useTranslations('auth-lightbox');
   return (
-    <div className={styles.lightboxContainer} onMouseDown={(e) => e.stopPropagation()}>
+    <div className={classNames(styles.lightboxContainer, className)} onMouseDown={(e) => e.stopPropagation()}>
       <div className={styles.titleDiv}>
         <div
           className={classNames(styles.loginTab, styles.loginButtons, {
@@ -38,8 +42,8 @@ export default function AuthLightboxContent({
           <p>{t('register')}</p>
         </div>
       </div>
-      {loginTab === LightboxTabs.LOGIN && <LoginTab closeLightbox={closeLightbox} />}
-      {loginTab === LightboxTabs.REGISTER && <RegisterTab closeLightbox={closeLightbox} />}
+      {loginTab === LightboxTabs.LOGIN && <LoginTab onLoginSuccessful={onLoginSuccessful} />}
+      {loginTab === LightboxTabs.REGISTER && <RegisterTab onRegisterSuccessful={onRegisterSuccessful} />}
     </div>
   );
 }

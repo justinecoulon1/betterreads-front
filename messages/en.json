@@ -117,5 +117,11 @@
     "READ": "<link>Read</link>",
     "TO_READ": "<link>To read</link>",
     "READING": "<link>Reading</link>"
+  },
+  "search-results": {
+    "book-release-date": "Release date: ",
+    "book-genres": "Genres: ",
+    "author-title": "Author: ",
+    "no-result-found": "No result found"
   }
 }

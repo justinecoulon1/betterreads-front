@@ -13,11 +13,13 @@ export default function ShelfCard({
   hasButton,
   user,
   onShelfDelete,
+  className,
 }: {
   shelf: ShelfWithLastBookDto;
   hasButton: boolean;
   user?: UserDto;
   onShelfDelete: (shelf: SmallShelfDto) => void;
+  className: string;
 }) {
   const isDeletable =
     hasButton && shelf.type !== ShelfType.READ && shelf.type !== ShelfType.READING && shelf.type !== ShelfType.TO_READ;
@@ -36,7 +38,10 @@ export default function ShelfCard({
           <X className={styles.shelfDeleteButtonImage} />
         </button>
       )}
-      <Link href={`/profile/shelves/${shelf.id}`} className={classNames(styles.shelfCardContainer, 'nbShadow')}>
+      <Link
+        href={`/profile/shelves/${shelf.id}`}
+        className={classNames(styles.shelfCardContainer, 'nbShadow', className)}
+      >
         <div className={styles.shelfImageContainer}>
           {shelf.books.length !== 0 ? (
             shelf.books.map((book) => (

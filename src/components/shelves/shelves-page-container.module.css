@@ -32,6 +32,10 @@
         margin-top: 3rem;
 
         gap: 2rem;
+
+        .allShelvesPageCard {
+            background-color: var(--primary-vibrant);
+        }
     }
 
     .shelvesInnerContainer {

@@ -13,7 +13,7 @@ type RegisterInputInfo = {
   default?: string | undefined;
 };
 
-export function RegisterTab({ closeLightbox }: { closeLightbox: () => void }) {
+export function RegisterTab({ onRegisterSuccessful = () => {} }: { onRegisterSuccessful?: () => void }) {
   const t = useTranslations('register-form');
 
   const handleSend = async (state: RegisterStateForm, data: FormData): Promise<RegisterStateForm> => {
@@ -22,7 +22,7 @@ export function RegisterTab({ closeLightbox }: { closeLightbox: () => void }) {
       return registerResult;
     }
 
-    closeLightbox();
+    onRegisterSuccessful();
     return {};
   };
 

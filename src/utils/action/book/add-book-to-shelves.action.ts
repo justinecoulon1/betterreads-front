@@ -15,15 +15,15 @@ export async function addBookToShelves(
   const dataEntries = Object.fromEntries(data.entries());
   const checkedShelvesIds = Object.keys(dataEntries).map((key) => parseInt(key));
 
-  if (checkedShelvesIds.length === 0) {
-    return { bookId };
-  }
-
   const previouslyChecked = shelvesContainingBook.map((shelf) => shelf.id);
   const currentlyChecked = checkedShelvesIds;
 
   const shelvesToAddIds = checkedShelvesIds.filter((id) => !previouslyChecked.includes(id));
   const shelvesToRemoveIds = previouslyChecked.filter((id) => !currentlyChecked.includes(id));
+
+  if (shelvesToAddIds.length === 0 && shelvesToRemoveIds.length === 0) {
+    return { bookId };
+  }
 
   try {
     await BookService.updateBookInShelves(bookId, shelvesToAddIds, shelvesToRemoveIds);
