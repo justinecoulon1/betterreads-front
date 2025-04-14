@@ -12,7 +12,7 @@ export function LoginTab({ onLoginSuccessful = () => {} }: { onLoginSuccessful?:
   const handleSend = async (state: LoginStateForm, data: FormData): Promise<LoginStateForm> => {
     const loginResult = await login(state, data);
     if (loginResult.error) {
-      return { error: loginResult.error };
+      return { error: loginResult.error, email: loginResult.email };
     }
 
     onLoginSuccessful();
@@ -41,6 +41,9 @@ export function LoginTab({ onLoginSuccessful = () => {} }: { onLoginSuccessful?:
           placeholder={t('password-input-placeholder')}
           errors={formState.error?.password && t(formState.error?.password)}
         />
+        <div className={styles.inputErrorDiv}>
+          <span>{formState.error?.err}</span>
+        </div>
       </div>
 
       <button type="submit" disabled={isPending} className={classNames(styles.submitLoginButton, 'nbShadow')}>

@@ -12,7 +12,7 @@ export type LoginStateForm = {
   error?: {
     email?: string;
     password?: string;
-    credentials?: string;
+    err?: string;
   };
   email?: string;
 };

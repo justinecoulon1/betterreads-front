@@ -43,7 +43,7 @@ export default function LeftSideBar({ userStatusShelves }: { userStatusShelves: 
   return (
     <div className={styles.leftSideBarContainer}>
       {leftSideBarSectionInfo.map((info) => (
-        <LeftSideBarSection key={`left-side-bar-${info.titleKey}`} leftSideBarSectionInfo={info} />
+        <LeftSideBarSection key={`left-side-bar-${info.content}`} leftSideBarSectionInfo={info} />
       ))}
     </div>
   );
@@ -55,7 +55,7 @@ function LeftSideBarSection({ leftSideBarSectionInfo }: { leftSideBarSectionInfo
     <div className={styles.leftSideBarContainerSection}>
       <h3>{t(leftSideBarSectionInfo.titleKey)}</h3>
       {leftSideBarSectionInfo.content.map((content) => (
-        <p key={`left-side-bar-section-${content.link}`}>
+        <p key={`left-side-bar-section-${content.textKey}`}>
           {t.rich(`${content.textKey}`, {
             link: (chunks) => (
               <Link className={styles.link} href={content.link}>

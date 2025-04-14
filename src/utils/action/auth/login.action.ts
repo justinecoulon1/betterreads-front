@@ -4,6 +4,7 @@ import { LoginResponseDto } from '@/utils/dto/user.dto';
 import UserService from '@/utils/api/user.service';
 import { LoginStateForm } from '@/utils/action/auth/types';
 import { getSession } from '@/utils/action/auth/get-session.action';
+import { getServerErrorCode } from '@/utils/errors/error-utils';
 
 export async function login(loginStateForm: LoginStateForm, data: FormData): Promise<LoginStateForm> {
   const session = await getSession();
@@ -27,10 +28,17 @@ export async function login(loginStateForm: LoginStateForm, data: FormData): Pro
     };
   }
 
-  const { user, accessToken, refreshToken }: LoginResponseDto = await UserService.login(formEmail, formPassword);
+  let user;
+  let accessToken;
+  let refreshToken;
 
-  if (!user) {
-    return { error: { credentials: 'wrong-credentials' } };
+  try {
+    const loginResponse: LoginResponseDto = await UserService.login(formEmail, formPassword);
+    user = loginResponse.user;
+    accessToken = loginResponse.accessToken;
+    refreshToken = loginResponse.refreshToken;
+  } catch (err) {
+    return { error: { err: getServerErrorCode(err) }, email: formEmail };
   }
 
   session.user = user;
