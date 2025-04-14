@@ -19,7 +19,7 @@ export default function ShelfCard({
   hasButton: boolean;
   user?: UserDto;
   onShelfDelete: (shelf: SmallShelfDto) => void;
-  className: string;
+  className?: string;
 }) {
   const isDeletable =
     hasButton && shelf.type !== ShelfType.READ && shelf.type !== ShelfType.READING && shelf.type !== ShelfType.TO_READ;

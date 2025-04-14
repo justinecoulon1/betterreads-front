@@ -26,6 +26,10 @@ export default function LeftSideBar({ userStatusShelves }: { userStatusShelves: 
       titleKey: 'shelf-title',
       content: [
         {
+          textKey: 'shelf-create',
+          link: '/profile/shelves',
+        },
+        {
           textKey: 'shelf-text',
           link: '/profile/shelves',
         },
