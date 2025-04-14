@@ -27,6 +27,12 @@ export default function BookInfoForm({
   const tError = useTranslations('book-errors');
 
   const [formState, formAction, isPending] = useActionState(addBook, { isbn });
+  const prefilledEditionLanguage = preloadedBookInfo?.editionLanguage
+    ? new Intl.DisplayNames([preloadedBookInfo.editionLanguage], { type: 'language' }).of(
+        preloadedBookInfo.editionLanguage,
+      )
+    : '';
+  console.log(preloadedBookInfo?.editionLanguage, prefilledEditionLanguage);
   const inputInfos: AddBookInputInfo[] = [
     { fieldName: 'title', translationKey: 'title', type: 'text', prefilledValue: preloadedBookInfo?.title },
     {
@@ -35,12 +41,18 @@ export default function BookInfoForm({
       type: 'date',
       prefilledValue: preloadedBookInfo?.releaseDate,
     },
-    { fieldName: 'genres', translationKey: 'genres', type: 'text' },
+    {
+      fieldName: 'genres',
+      translationKey: 'genres',
+      type: 'text',
+      prefilledValue: preloadedBookInfo?.genres?.join(', '),
+    },
     { fieldName: 'editor', translationKey: 'editor', type: 'text', prefilledValue: preloadedBookInfo?.editor },
     {
       fieldName: 'editionLanguage',
       translationKey: 'edition-language',
       type: 'text',
+      prefilledValue: prefilledEditionLanguage,
     },
     {
       fieldName: 'authorsName',

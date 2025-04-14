@@ -39,6 +39,7 @@ export type PreloadedBookInfoDto = {
   pages?: number;
   releaseDate?: string;
   authorNames?: string[];
+  genres?: string[];
   title?: string;
   editionLanguage?: string;
   editor?: string;
