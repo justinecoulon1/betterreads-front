@@ -122,6 +122,18 @@
                         padding: 0.5rem 1rem;
                         background-color: var(--tertiary);
                     }
+
+                    .bookAuthorPagesLinks {
+                        display: flex;
+                        flex-direction: column;
+                        width: 70%;
+
+                        & li {
+                            & a {
+                                font-size: 1.1rem;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -169,6 +181,8 @@
 
                     gap: 3rem;
 
+                    font-size: 1.1rem;
+
                     .bookDescContainer {
                         display: flex;
                         flex-direction: column;
@@ -194,6 +208,10 @@
                             min-width: fit-content;
                             background-color: var(--tertiary);
                             cursor: pointer;
+
+                            padding: 0.2rem 0.5rem;
+
+                            font-size: 1rem;
                         }
                     }
                 }

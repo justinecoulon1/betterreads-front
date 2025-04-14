@@ -8,6 +8,7 @@ import AddToShelveButton from '@/components/book-details/book-details-page-conte
 import BookService from '@/utils/api/book.service';
 import ChangeBookReadingStatusButtonContainer from '@/components/book-details/book-details-page-content/change-book-reading-status-button-container';
 import { getSession } from '@/utils/action/auth/get-session.action';
+import BookAuthorsPagesLinks from '@/components/book-details/book-details-page-content/book-authors-pages-links';
 
 export default async function BookDetailsLeftPart({ book }: { book: BookDto }) {
   const session = await getSession();
@@ -25,6 +26,8 @@ export default async function BookDetailsLeftPart({ book }: { book: BookDto }) {
         </div>
 
         <AddToShelveButton isLoggedIn={!!user} bookId={book.id} />
+
+        <BookAuthorsPagesLinks authors={book.authors} />
       </div>
     </div>
   );

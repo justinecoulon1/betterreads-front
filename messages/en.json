@@ -92,7 +92,8 @@
     "ISBN10": "ISBN10: ",
     "genres": "Genres: ",
     "add-to-shelf": "Add to a shelf",
-    "show-more": "Show more"
+    "show-more": "Show more",
+    "authors-links-title": "Authors pages: "
   },
   "search-bar": {
     "search-book-input-placeholder": "Look up a book!"
