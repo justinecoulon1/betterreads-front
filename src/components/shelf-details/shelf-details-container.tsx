@@ -1,13 +1,15 @@
 'use client';
 
 import BookListCard from '@/components/global/books/book-list-card';
-import { ShelfDto } from '@/utils/dto/shelf.dto';
+import { ShelfDto, ShelfType } from '@/utils/dto/shelf.dto';
 import styles from './shelf-details-container.module.css';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
 export default function ShelfDetailsContainer({ shelf }: { shelf: ShelfDto }) {
   const [shelfBooks, setShelfBooks] = useState(shelf.books);
+  const hasButton =
+    shelf.type !== ShelfType.READ && shelf.type !== ShelfType.READING && shelf.type !== ShelfType.TO_READ;
   return (
     <div className={styles.shelfDetailsContainer}>
       <div className={styles.bannerContainer}>
@@ -22,11 +24,15 @@ export default function ShelfDetailsContainer({ shelf }: { shelf: ShelfDto }) {
             <BookListCard
               key={`shelf-book-list-card-${book.id}}`}
               book={book}
-              hasButton={true}
+              hasButton={hasButton}
               shelf={shelf}
-              onBookRemoved={(bookRemoved) => {
-                setShelfBooks((books) => books.filter((book) => book.id !== bookRemoved.id));
-              }}
+              onBookRemoved={
+                hasButton
+                  ? (bookRemoved) => {
+                      setShelfBooks((books) => books.filter((book) => book.id !== bookRemoved.id));
+                    }
+                  : () => {}
+              }
             />
           ))}
         </div>
