@@ -39,6 +39,7 @@ export default function ShelvesPageContainer({ shelves, user }: { shelves: Shelf
               onShelfDelete={(deletedShelf) => {
                 setUserShelves((shelves) => shelves.filter((shelf) => shelf.id !== deletedShelf.id));
               }}
+              className={styles.allShelvesPageCard}
             />
           ))}
         </div>
