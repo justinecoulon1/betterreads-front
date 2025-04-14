@@ -32,6 +32,11 @@
         }
     }
 
+    .disabled {
+        pointer-events: none;
+        background-color: var(--tertiary-grayed);
+    }
+
     .inputDisabled {
         background-color: var(--primary-grayed);
         pointer-events: none;

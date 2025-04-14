@@ -1,16 +1,18 @@
-import SearchBar from '@/components/books/search-bar/search-bar';
-import AddBookLink from '@/components/books/add-book-button/add-book-link';
 import styles from './books-page.module.css';
+import SearchContainer from '@/components/books/search-container';
 
-export default async function BooksPage() {
+type SearchParams = {
+  q: string;
+  page: string;
+};
+
+export default async function BooksPage({ searchParams }: { searchParams: Promise<SearchParams> }) {
+  const { q, page: pageStr } = await searchParams;
+  const page = parseInt(pageStr ?? 1);
+
   return (
     <div className={styles.searchBookPage}>
-      <div className={styles.searchBookPageContent}>
-        <div className={styles.searchBookPageHeader}>
-          <SearchBar className={styles.searchBookPageSearchBar} />
-          <AddBookLink />
-        </div>
-      </div>
+      <SearchContainer searchText={q ?? ''} page={page} />
     </div>
   );
 }

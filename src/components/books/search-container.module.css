@@ -1,0 +1,36 @@
+.searchBookPageContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 80%;
+    height: 100%;
+
+    gap: 3rem;
+
+    .searchBookPageHeader {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+
+        gap: 3rem;
+
+        .searchBookPageSearchBar {
+            display: flex;
+            width: 50%;
+
+        }
+    }
+
+    .resultsContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        height: 100%;
+        width: 100%;
+
+        gap: 3rem;
+    }
+}

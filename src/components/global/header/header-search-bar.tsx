@@ -10,5 +10,11 @@ export default function HeaderSearchBar() {
   if (activePage === '/books') {
     return null;
   }
-  return <SearchBar className={styles.headerSearchBar} />;
+  return (
+    <SearchBar
+      className={styles.headerSearchBar}
+      getSearchHref={(searchText) => `/books?q=${encodeURIComponent(searchText)}`}
+      initialText={''}
+    />
+  );
 }
