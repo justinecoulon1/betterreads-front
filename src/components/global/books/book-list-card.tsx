@@ -17,11 +17,11 @@ export default function BookListCard({
   book: SmallBookDto;
   hasButton?: boolean;
   onBookRemoved: (book: SmallBookDto) => void;
-  shelf: SmallShelfDto;
+  shelf?: SmallShelfDto;
 }) {
   return (
     <div className={styles.buttonContainer}>
-      {hasButton && (
+      {hasButton && shelf && (
         <button
           className={classNames(styles.bookDeleteButton, 'nbShadow')}
           onClick={async () => {

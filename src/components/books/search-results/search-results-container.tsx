@@ -52,11 +52,11 @@ function SearchResultsBookCard({ book }: { book: BookDto }) {
 function SearchResultsAuthorCard({ author }: { author: AuthorDto }) {
   const t = useTranslations('search-results');
   return (
-    <div className={classNames(styles.searchResultsAuthorCard, 'nbShadow')}>
+    <Link href={`/author/${author.slug}`} className={classNames(styles.searchResultsAuthorCard, 'nbShadow')}>
       <div>
         <h2>{t('author-title')}</h2>
         <p>{author.name}</p>
       </div>
-    </div>
+    </Link>
   );
 }
