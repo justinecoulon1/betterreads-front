@@ -10,7 +10,9 @@ export default function BookAuthorsPagesLinks({ authors }: { authors: AuthorDto[
       <h4>{t('authors-links-title')}</h4>
       {authors.map((a) => (
         <li key={`book-details-page-${a.id}`}>
-          <Link href={`/author/${a.slug}`}>{a.name}</Link>
+          <Link className={'link'} href={`/author/${a.slug}`}>
+            {a.name}
+          </Link>
         </li>
       ))}
     </div>

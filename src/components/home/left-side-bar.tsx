@@ -58,7 +58,7 @@ function LeftSideBarSection({ leftSideBarSectionInfo }: { leftSideBarSectionInfo
         <p key={`left-side-bar-section-${content.textKey}`}>
           {t.rich(`${content.textKey}`, {
             link: (chunks) => (
-              <Link className={styles.link} href={content.link}>
+              <Link className={'link'} href={content.link}>
                 {chunks}
               </Link>
             ),

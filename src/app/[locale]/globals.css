@@ -96,3 +96,11 @@ a {
     background-color: var(--tertiary);
     border: 3px solid var(--tertiary);
 }
+
+.link {
+    color: #0202b6;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

@@ -21,13 +21,5 @@
         width: 100%;
 
         gap: 0.5rem;
-
-        .link {
-            color: #0202b6;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
     }
 }
