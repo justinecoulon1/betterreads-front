@@ -13,6 +13,7 @@ export type BookAddFormFields = {
 export type BookAddStateForm = BookAddFormFields & {
   isbn?: string;
   errors?: BookAddFormFields & { createBookError?: string };
+  shouldStay?: boolean;
 };
 
 export type BookIsbnStateForm = {

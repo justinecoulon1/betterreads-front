@@ -9,6 +9,7 @@ import { redirect } from 'next/navigation';
 
 export async function addBook(state: BookAddStateForm, data: FormData): Promise<BookAddStateForm> {
   const isbn = state.isbn as string;
+  const shouldStay = state.shouldStay as boolean;
   const title = data.get('title') as string;
   const releaseDateStr = data.get('releaseDate') as string;
   const releaseDate = new Date(releaseDateStr);
@@ -87,6 +88,11 @@ export async function addBook(state: BookAddStateForm, data: FormData): Promise<
       editionLanguage,
       editor,
       errors: { createBookError: errorCode },
+    };
+  }
+  if (createdBook && shouldStay) {
+    return {
+      shouldStay,
     };
   }
   if (createdBook) {

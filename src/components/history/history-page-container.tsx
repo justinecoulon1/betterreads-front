@@ -25,7 +25,7 @@ export default async function HistoryPageContainer({ page }: { page: number }) {
               <span className={styles.bookStatusChange}>
                 {h.oldStatus === HistoryStatus.READING && <BookOpen />}
                 {h.oldStatus === HistoryStatus.TO_READ && <BookPlus />}
-                {h.oldStatus === HistoryStatus.READ && <BookCheck />} → {h.newStatus === undefined && <X />}
+                {h.oldStatus === HistoryStatus.READ && <BookCheck />}→{h.newStatus === null && <X />}
                 {h.newStatus === HistoryStatus.READING && <BookOpen />}
                 {h.newStatus === HistoryStatus.TO_READ && <BookPlus />}
                 {h.newStatus === HistoryStatus.READ && <BookCheck />}

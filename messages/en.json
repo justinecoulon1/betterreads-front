@@ -53,7 +53,8 @@
     "isbn": "ISBN:",
     "submitting": "...",
     "submit-button": "Search",
-    "isbn-input-placeholder": "Please enter a valid ISBN"
+    "isbn-input-placeholder": "Please enter a valid ISBN",
+    "should-stay": "Stay on this page after saving"
   },
   "book-info-form": {
     "title": "Title:",

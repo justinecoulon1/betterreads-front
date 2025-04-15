@@ -4,7 +4,7 @@ import React, { useActionState } from 'react';
 import { useTranslations } from 'next-intl';
 import InputField from '@/components/global/inputs/input-field';
 import { addBook } from '@/utils/action/book/add-book.action';
-import { BookAddFormFields } from '@/utils/action/book/types';
+import { BookAddFormFields, BookIsbnStateForm } from '@/utils/action/book/types';
 import { PreloadedBookInfoDto } from '@/utils/dto/book.dto';
 import TextArea from '@/components/global/inputs/text-area';
 import CoverImage from '@/components/global/books/cover-image/cover-image';
@@ -19,20 +19,33 @@ type AddBookInputInfo = {
 export default function BookInfoForm({
   isbn,
   preloadedBookInfo,
+  shouldStay,
+  onBookAdd = () => {},
 }: {
   isbn: string;
   preloadedBookInfo?: PreloadedBookInfoDto;
+  shouldStay: boolean;
+  onBookAdd?: (newIsbn: string, newShouldStay: boolean) => void;
 }) {
   const t = useTranslations('book-info-form');
   const tError = useTranslations('book-errors');
 
-  const [formState, formAction, isPending] = useActionState(addBook, { isbn });
+  const handleSubmit = async (state: BookIsbnStateForm, data: FormData) => {
+    const stateForm = await addBook(state, data);
+    if (!stateForm.errors) {
+      onBookAdd('', shouldStay);
+    }
+    return stateForm;
+  };
+
+  const [formState, formAction, isPending] = useActionState(handleSubmit, { isbn, shouldStay });
+
   const prefilledEditionLanguage = preloadedBookInfo?.editionLanguage
     ? new Intl.DisplayNames([preloadedBookInfo.editionLanguage], { type: 'language' }).of(
         preloadedBookInfo.editionLanguage,
       )
     : '';
-  console.log(preloadedBookInfo?.editionLanguage, prefilledEditionLanguage);
+
   const inputInfos: AddBookInputInfo[] = [
     { fieldName: 'title', translationKey: 'title', type: 'text', prefilledValue: preloadedBookInfo?.title },
     {
