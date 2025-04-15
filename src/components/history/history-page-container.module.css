@@ -9,14 +9,51 @@
 
     background-color: var(--primary);
 
-    .historyCard {
+    .historyPageContainerHeader {
         display: flex;
-        flex-direction: column;
+        padding: 2rem;
+    }
 
-        gap: 0.5rem;
-        padding: 0.5rem;
+    .historyPageContainerContent {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 
-        background-color: var(--primary-vibrant);
-        border: 1px solid var(--secondary-vibrant);
+        gap: 2rem;
+
+        .historyCard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            height: fit-content;
+            width: 30%;
+
+            gap: 1rem;
+            padding: 1rem;
+
+            background-color: var(--primary-vibrant);
+            border: 1px solid var(--secondary-vibrant);
+
+            .historyCardHistoryInfo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+
+                gap: 0.5rem;
+
+                .bookStatusChange {
+                    display: flex;
+                    gap: 0.3rem;
+                    padding: 0.3rem;
+
+                    border: 1px solid var(--secondary-vibrant);
+
+                    background-color: var(--tertiary);
+                    user-select: none;
+                }
+            }
+        }
     }
 }

@@ -8,10 +8,25 @@ export default function AuthorDetailsContent({ author }: { author: AuthorWithBoo
   return (
     <div className={styles.authorDetailsContentContainer}>
       <div className={styles.bannerContainer}>
-        <Image className={styles.bannerImage} src="/library6.png" alt="library banner" width={3024} height={4032} />
+        <Image
+          className={styles.bannerImage}
+          src="/author-page-banner3.jpg"
+          alt="library banner"
+          width={3024}
+          height={4032}
+        />
       </div>
       <div className={styles.authorDetailsContentInnerContainer}>
         <div className={styles.authorHeaderContainer}>
+          <div className={styles.authorHeaderImageContainer}>
+            <Image
+              className={styles.authorHeaderImage}
+              src={'/icons/author_icon_light.png'}
+              height={512}
+              width={512}
+              alt={'author icon'}
+            />
+          </div>
           <h2>{author.name}</h2>
         </div>
         <div className={styles.authorDetailsContainer}>

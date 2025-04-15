@@ -6,6 +6,7 @@ import { Link } from '@/i18n/routing';
 import { BookDto } from '@/utils/dto/book.dto';
 import { useTranslations } from 'next-intl';
 import { AuthorDto } from '@/utils/dto/author.dto';
+import Image from 'next/image';
 
 export default function SearchResultsContainer({ items }: { items: SearchDto[] }) {
   return (
@@ -53,9 +54,17 @@ function SearchResultsAuthorCard({ author }: { author: AuthorDto }) {
   const t = useTranslations('search-results');
   return (
     <Link href={`/author/${author.slug}`} className={classNames(styles.searchResultsAuthorCard, 'nbShadow')}>
-      <div>
-        <h2>{t('author-title')}</h2>
-        <p>{author.name}</p>
+      <div className={styles.searchResultsAuthorCardImageContainer}>
+        <Image
+          className={styles.searchResultsAuthorCardImage}
+          src={'/icons/author_icon_dark.png'}
+          height={512}
+          width={512}
+          alt={'author icon'}
+        />
+      </div>
+      <div className={styles.searchResultsAuthorCardInfoContainer}>
+        <p className={styles.searchResultsAuthorCardAuthorName}>{author.name}</p>
       </div>
     </Link>
   );

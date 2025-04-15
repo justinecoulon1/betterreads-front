@@ -117,10 +117,15 @@
                     .addToShelveButton {
                         cursor: pointer;
                         font-size: 1rem;
+
                         width: 20%;
                         min-width: fit-content;
+
                         padding: 0.5rem 1rem;
+
                         background-color: var(--tertiary);
+
+                        user-select: none;
                     }
 
                     .bookAuthorPagesLinks {
@@ -211,11 +216,13 @@
                             width: 20%;
                             min-width: fit-content;
                             background-color: var(--tertiary);
-                            cursor: pointer;
 
                             padding: 0.2rem 0.5rem;
 
                             font-size: 1rem;
+                            
+                            cursor: pointer;
+                            user-select: none;
                         }
                     }
                 }

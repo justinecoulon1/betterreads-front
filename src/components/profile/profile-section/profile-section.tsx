@@ -9,7 +9,7 @@ import HistoryService from '@/utils/api/history.service';
 export default async function ProfileSection({ user }: { user: UserDto }) {
   const shelves = await ShelfService.getLastByUserId();
   const readingStatusShelves = await ShelfService.getUserReadingStatusShelves();
-  const history = await HistoryService.getUserReadingHistory(10, 0);
+  const history = await HistoryService.getUserReadingHistory(5, 0);
 
   return (
     <>
