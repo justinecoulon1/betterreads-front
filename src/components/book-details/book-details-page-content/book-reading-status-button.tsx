@@ -5,7 +5,7 @@ import BookService from '@/utils/api/book.service';
 import { BookCheck, BookOpen, BookPlus } from 'lucide-react';
 import { redirectToLogin } from '@/utils/action/auth/redirect-to-login.action';
 
-export default function ChangeBookReadingStatusButton({
+export default function BookReadingStatusButton({
   bookStatus,
   buttonType,
   userId,

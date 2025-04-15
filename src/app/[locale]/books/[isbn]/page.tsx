@@ -1,3 +1,5 @@
+'use server';
+
 import BookService from '@/utils/api/book.service';
 import styles from './book-details-page.module.css';
 import BookDetailsContent from '@/components/book-details/book-details-content';

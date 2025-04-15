@@ -1,6 +1,7 @@
 import { HistoryDto } from '@/utils/dto/history.dto';
 import SeeMoreLink from '@/components/generic/see-more-button/see-more-link';
 import styles from './history-container.module.css';
+import LongHistoryCard from '@/components/profile/profile-section/history/long-history-card';
 
 export default function HistoryContainer({
   history,
@@ -21,12 +22,7 @@ export default function HistoryContainer({
       </div>
       <div className={styles.historyListContainer}>
         {history.map((h) => (
-          <div key={`history-item-${h.id}`} className={styles.historyCard}>
-            <p>
-              {new Date(h.createdAt).toLocaleDateString()}: {h.oldStatus} → {h.newStatus}
-            </p>
-            <p>{h.book.title}</p>
-          </div>
+          <LongHistoryCard history={h} key={`history-item-${h.id}`} />
         ))}
       </div>
     </div>

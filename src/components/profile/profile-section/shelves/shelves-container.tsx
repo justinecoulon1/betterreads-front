@@ -1,7 +1,7 @@
 'use client';
 
 import { ShelfWithLastBookDto } from '@/utils/dto/shelf.dto';
-import ShelfCard from '@/components/profile/profile-section/shelves/shelf-card';
+import ShelfCard from '@/components/profile/profile-section/shelves/shelves-card/shelf-card';
 import styles from './shelves-container.module.css';
 import SeeMoreLink from '@/components/generic/see-more-button/see-more-link';
 import { UserDto } from '@/utils/dto/user.dto';

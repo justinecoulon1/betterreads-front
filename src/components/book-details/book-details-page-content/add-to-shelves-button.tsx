@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
-import AddToShelfLightbox from '@/components/book-details/add-to-shelf-lightbox/add-to-shelf-lightbox';
+import ShelfLightbox from '@/components/book-details/add-to-shelf-lightbox/shelf-lightbox';
 import classNames from 'classnames';
 import styles from '@/components/book-details/book-details-content.module.css';
 import { redirectToLogin } from '@/utils/action/auth/redirect-to-login.action';
@@ -21,7 +21,7 @@ export default function AddToShelveButton({ isLoggedIn, bookId }: { isLoggedIn: 
 
   return (
     <>
-      <AddToShelfLightbox closeLightbox={handleCloseLightbox} isLightboxOpened={isLightboxOpened} bookId={bookId} />
+      <ShelfLightbox closeLightbox={handleCloseLightbox} isLightboxOpened={isLightboxOpened} bookId={bookId} />
       <button
         onClick={async () => {
           if (isLoggedIn) {

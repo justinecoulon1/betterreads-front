@@ -8,20 +8,8 @@
     width: 100%;
     overflow-x: hidden;
 
-    .bannerContainer {
-        display: flex;
-        width: calc(100% + 10rem);
-        overflow: hidden;
-        height: 15rem;
-
-        z-index: -1;
-
-        .bannerImage {
-            height: 16rem;
-            object-fit: cover;
-            filter: blur(0.2rem);
-            width: 100%;
-        }
+    .bannerImage {
+        filter: blur(0.2rem);
     }
 
     .authorDetailsContentInnerContainer {

@@ -1,21 +1,18 @@
-import BookListCard from '@/components/global/books/book-list-card';
+import BookListCard from '@/components/global/books/book-list-card/book-list-card';
 import { AuthorWithBooksDto } from '@/utils/dto/author.dto';
 import styles from './author-details-content.module.css';
 import Image from 'next/image';
 import React from 'react';
+import BannerContainer from '@/components/global/banner/banner-container';
 
 export default function AuthorDetailsContent({ author }: { author: AuthorWithBooksDto }) {
   return (
     <div className={styles.authorDetailsContentContainer}>
-      <div className={styles.bannerContainer}>
-        <Image
-          className={styles.bannerImage}
-          src="/author-page-banner3.jpg"
-          alt="library banner"
-          width={3024}
-          height={4032}
-        />
-      </div>
+      <BannerContainer
+        path={'/author-page-banner3.jpg'}
+        imageAlt={'library banner'}
+        imageClassName={styles.bannerImage}
+      />
       <div className={styles.authorDetailsContentInnerContainer}>
         <div className={styles.authorHeaderContainer}>
           <div className={styles.authorHeaderImageContainer}>

@@ -1,5 +1,5 @@
 import { SmallBookDto } from '@/utils/dto/book.dto';
-import BookListCard from '@/components/global/books/book-list-card';
+import BookListCard from '@/components/global/books/book-list-card/book-list-card';
 import styles from './last-added-books-section.module.css';
 import { useTranslations } from 'next-intl';
 import SeeMoreLink from '@/components/generic/see-more-button/see-more-link';

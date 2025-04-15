@@ -3,9 +3,7 @@
 import HistoryService from '@/utils/api/history.service';
 import PageSelectionContainer from '@/components/books/page-selection-container';
 import styles from './history-page-container.module.css';
-import BookListCard from '@/components/global/books/book-list-card';
-import { BookCheck, BookOpen, BookPlus, X } from 'lucide-react';
-import { HistoryStatus } from '@/utils/dto/history.dto';
+import HistoryCard from '@/components/history/history-card';
 
 const pageLimit = 15;
 
@@ -19,20 +17,7 @@ export default async function HistoryPageContainer({ page }: { page: number }) {
       </div>
       <div className={styles.historyPageContainerContent}>
         {userHistory.histories.map((h) => (
-          <div key={`history-item-${h.id}`} className={styles.historyCard}>
-            <div className={styles.historyCardHistoryInfo}>
-              <p>{new Date(h.createdAt).toLocaleDateString()}:</p>
-              <span className={styles.bookStatusChange}>
-                {h.oldStatus === HistoryStatus.READING && <BookOpen />}
-                {h.oldStatus === HistoryStatus.TO_READ && <BookPlus />}
-                {h.oldStatus === HistoryStatus.READ && <BookCheck />}→{h.newStatus === null && <X />}
-                {h.newStatus === HistoryStatus.READING && <BookOpen />}
-                {h.newStatus === HistoryStatus.TO_READ && <BookPlus />}
-                {h.newStatus === HistoryStatus.READ && <BookCheck />}
-              </span>
-            </div>
-            <BookListCard book={h.book} onBookRemoved={() => {}} hasButton={false} />
-          </div>
+          <HistoryCard history={h} key={`history-item-${h.id}`} />
         ))}
         <PageSelectionContainer
           currentPage={page}

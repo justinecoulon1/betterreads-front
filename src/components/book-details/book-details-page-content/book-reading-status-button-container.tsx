@@ -1,10 +1,10 @@
 'use client';
 
-import ChangeBookReadingStatusButton from '@/components/book-details/book-details-page-content/change-book-reading-status-button';
+import BookReadingStatusButton from '@/components/book-details/book-details-page-content/book-reading-status-button';
 import { ShelfType } from '@/utils/dto/shelf.dto';
 import { useState } from 'react';
 
-export default function ChangeBookReadingStatusButtonContainer({
+export default function BookReadingStatusButtonContainer({
   bookStatus,
   userId,
   bookId,
@@ -21,21 +21,21 @@ export default function ChangeBookReadingStatusButtonContainer({
 
   return (
     <>
-      <ChangeBookReadingStatusButton
+      <BookReadingStatusButton
         bookStatus={bookReadingStatus}
         changeReadingStatus={changeReadingStatus}
         buttonType={ShelfType.TO_READ}
         userId={userId}
         bookId={bookId}
       />
-      <ChangeBookReadingStatusButton
+      <BookReadingStatusButton
         bookStatus={bookReadingStatus}
         changeReadingStatus={changeReadingStatus}
         buttonType={ShelfType.READING}
         userId={userId}
         bookId={bookId}
       />
-      <ChangeBookReadingStatusButton
+      <BookReadingStatusButton
         bookStatus={bookReadingStatus}
         changeReadingStatus={changeReadingStatus}
         buttonType={ShelfType.READ}

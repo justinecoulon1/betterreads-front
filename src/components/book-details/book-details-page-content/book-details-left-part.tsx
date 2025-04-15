@@ -6,7 +6,7 @@ import CoverImage from '@/components/global/books/cover-image/cover-image';
 import classNames from 'classnames';
 import AddToShelveButton from '@/components/book-details/book-details-page-content/add-to-shelves-button';
 import BookService from '@/utils/api/book.service';
-import ChangeBookReadingStatusButtonContainer from '@/components/book-details/book-details-page-content/change-book-reading-status-button-container';
+import BookReadingStatusButtonContainer from '@/components/book-details/book-details-page-content/book-reading-status-button-container';
 import { getSession } from '@/utils/action/auth/get-session.action';
 import BookAuthorsPagesLinks from '@/components/book-details/book-details-page-content/book-authors-pages-links';
 
@@ -22,7 +22,7 @@ export default async function BookDetailsLeftPart({ book }: { book: BookDto }) {
       </div>
       <div className={styles.buttonsContainer}>
         <div className={classNames(styles.readingStatusButtonsContainer, 'nbShadow')}>
-          <ChangeBookReadingStatusButtonContainer bookStatus={bookStatus} userId={user?.id} bookId={book.id} />
+          <BookReadingStatusButtonContainer bookStatus={bookStatus} userId={user?.id} bookId={book.id} />
         </div>
 
         <AddToShelveButton isLoggedIn={!!user} bookId={book.id} />

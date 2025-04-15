@@ -1,12 +1,7 @@
 import { SearchDto } from '@/utils/dto/search.dto';
 import styles from './search-result-container.module.css';
-import CoverImage from '@/components/global/books/cover-image/cover-image';
-import classNames from 'classnames';
-import { Link } from '@/i18n/routing';
-import { BookDto } from '@/utils/dto/book.dto';
-import { useTranslations } from 'next-intl';
-import { AuthorDto } from '@/utils/dto/author.dto';
-import Image from 'next/image';
+import SearchResultsBookCard from '@/components/books/search-results/search-results-book-card/search-results-book-card';
+import SearchResultsAuthorCard from '@/components/books/search-results/search-results-author-card/search-results-author-card';
 
 export default function SearchResultsContainer({ items }: { items: SearchDto[] }) {
   return (
@@ -18,54 +13,5 @@ export default function SearchResultsContainer({ items }: { items: SearchDto[] }
         </div>
       ))}
     </div>
-  );
-}
-
-function SearchResultsBookCard({ book }: { book: BookDto }) {
-  const t = useTranslations('search-results');
-  return (
-    <Link href={`/books/${book.isbn13}`} className={classNames(styles.searchResultsBookCard, 'nbShadow')}>
-      <div className={styles.searchResultsCoverImageContainer}>
-        <CoverImage className={styles.searchResultsCoverImage} isbn={book.isbn13} />
-      </div>
-      <div className={styles.searchResultsBookInfoScrollableContainer}>
-        <div className={styles.searchResultsBookInfo}>
-          <div className={styles.searchResultsBasicBookInfo}>
-            <h3 className={styles.searchResultsBookTitle}>{book.title}</h3>
-            <p className={styles.searchResultsBookAuthor}>{book.authors.map((a) => a.name).join(', ')}</p>
-          </div>
-          <div className={styles.searchResultsExtendedBookInfo}>
-            <p>
-              <b>{t('book-release-date')}</b>
-              {new Date(book.releaseDate).toLocaleDateString()}
-            </p>
-            <p>
-              <b>{t('book-genres')}</b>
-              {book.genres.join(', ')}
-            </p>
-          </div>
-        </div>
-      </div>
-    </Link>
-  );
-}
-
-function SearchResultsAuthorCard({ author }: { author: AuthorDto }) {
-  const t = useTranslations('search-results');
-  return (
-    <Link href={`/author/${author.slug}`} className={classNames(styles.searchResultsAuthorCard, 'nbShadow')}>
-      <div className={styles.searchResultsAuthorCardImageContainer}>
-        <Image
-          className={styles.searchResultsAuthorCardImage}
-          src={'/icons/author_icon_dark.png'}
-          height={512}
-          width={512}
-          alt={'author icon'}
-        />
-      </div>
-      <div className={styles.searchResultsAuthorCardInfoContainer}>
-        <p className={styles.searchResultsAuthorCardAuthorName}>{author.name}</p>
-      </div>
-    </Link>
   );
 }

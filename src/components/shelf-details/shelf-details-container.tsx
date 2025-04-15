@@ -1,10 +1,10 @@
 'use client';
 
-import BookListCard from '@/components/global/books/book-list-card';
+import BookListCard from '@/components/global/books/book-list-card/book-list-card';
 import { ShelfDto, ShelfType } from '@/utils/dto/shelf.dto';
 import styles from './shelf-details-container.module.css';
-import Image from 'next/image';
 import React, { useState } from 'react';
+import BannerContainer from '@/components/global/banner/banner-container';
 
 export default function ShelfDetailsContainer({ shelf }: { shelf: ShelfDto }) {
   const [shelfBooks, setShelfBooks] = useState(shelf.books);
@@ -12,9 +12,7 @@ export default function ShelfDetailsContainer({ shelf }: { shelf: ShelfDto }) {
     shelf.type !== ShelfType.READ && shelf.type !== ShelfType.READING && shelf.type !== ShelfType.TO_READ;
   return (
     <div className={styles.shelfDetailsContainer}>
-      <div className={styles.bannerContainer}>
-        <Image className={styles.bannerImage} src="/library6.png" alt="library banner" width={3024} height={4032} />
-      </div>
+      <BannerContainer path={'/library6.png'} imageAlt={'library banner'} imageClassName={styles.bannerImage} />
       <div className={styles.shelvesDetailsInnerContainer}>
         <div className={styles.shelfDetailsContainerHeader}>
           <h2>{shelf.name}</h2>

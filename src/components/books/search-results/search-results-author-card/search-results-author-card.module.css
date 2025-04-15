@@ -1,0 +1,45 @@
+.searchResultsAuthorCard {
+    display: flex;
+    justify-content: space-between;
+
+    width: 30%;
+    height: 7rem;
+
+    cursor: pointer;
+
+    gap: 1rem;
+    padding: 1rem;
+
+    background-color: var(--primary-vibrant);
+
+    .searchResultsAuthorCardImageContainer {
+        display: flex;
+        width: 30%;
+
+        .searchResultsAuthorCardImage {
+            height: 100%;
+            width: auto;
+        }
+    }
+
+    .searchResultsAuthorCardInfoContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+
+        width: 70%;
+        height: 100%;
+
+        .searchResultsAuthorCardAuthorName {
+            font-weight: bold;
+            font-size: 1.2rem;
+            -webkit-line-clamp: 2;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+}
