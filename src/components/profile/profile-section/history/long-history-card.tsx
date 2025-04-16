@@ -1,12 +1,6 @@
-import { HistoryDto, HistoryStatus } from '@/utils/dto/history.dto';
-import { BookCheck, BookOpen, BookPlus } from 'lucide-react';
+import { HistoryDto } from '@/utils/dto/history.dto';
 import styles from '@/components/profile/profile-section/history/history-container.module.css';
-
-const statusIconMap = {
-  [HistoryStatus.READING]: <BookOpen />,
-  [HistoryStatus.TO_READ]: <BookPlus />,
-  [HistoryStatus.READ]: <BookCheck />,
-};
+import { getHistoryStatusIcon } from '@/utils/history/history.utils';
 
 export default function LongHistoryCard({ history }: { history: HistoryDto }) {
   const formattedDate = new Date(history.createdAt).toLocaleDateString();
@@ -16,7 +10,7 @@ export default function LongHistoryCard({ history }: { history: HistoryDto }) {
       <div className={styles.historyInfo}>
         <p>{formattedDate}:</p>
         <span className={styles.bookStatusChange}>
-          {statusIconMap[history.oldStatus]} → {statusIconMap[history.newStatus]}
+          {getHistoryStatusIcon(history.oldStatus, false)} → {getHistoryStatusIcon(history.newStatus, true)}
         </span>
       </div>
       <div className={styles.historyBookInfo}>
