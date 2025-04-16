@@ -12,7 +12,7 @@ export default async function SearchContainer({ searchText, page }: { searchText
   const searchResult = searchText
     ? await SearchService.getPaginatedSearchData(searchText, pageLimit, (page - 1) * pageLimit)
     : undefined;
-  const totalPages = searchResult ? 1 + Math.floor(searchResult.count / pageLimit) : 0;
+  const totalPages = searchResult ? 1 + Math.floor((searchResult.count - 1) / pageLimit) : 0;
 
   return (
     <div className={styles.searchBookPageContent}>

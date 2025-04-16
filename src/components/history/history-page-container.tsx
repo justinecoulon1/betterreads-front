@@ -9,7 +9,7 @@ const pageLimit = 15;
 
 export default async function HistoryPageContainer({ page }: { page: number }) {
   const userHistory = await HistoryService.getUserReadingHistory(pageLimit, (page - 1) * pageLimit);
-  const totalPages = userHistory ? 1 + Math.floor(userHistory.totalCount / pageLimit) : 0;
+  const totalPages = userHistory ? 1 + Math.floor((userHistory.totalCount - 1) / pageLimit) : 0;
   return (
     <div className={styles.historyPageContainer}>
       <div className={styles.historyPageContainerHeader}>
