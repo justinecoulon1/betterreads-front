@@ -65,6 +65,9 @@ export function RegisterTab({ onRegisterSuccessful = () => {} }: { onRegisterSuc
             />
           );
         })}
+        <div className={styles.inputErrorDiv}>
+          <span>{formState.error?.serverError}</span>
+        </div>
       </div>
 
       <button type="submit" disabled={isPending} className={classNames(styles.submitLoginButton, 'nbShadow')}>

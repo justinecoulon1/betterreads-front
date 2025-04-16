@@ -1,9 +1,9 @@
 'use server';
 
 import UserService from '@/utils/api/user.service';
-import { UserDto } from '@/utils/dto/user.dto';
 import { registerFormSchema } from '@/utils/validation/auth';
 import { RegisterStateForm } from '@/utils/action/auth/types';
+import { getServerErrorCode } from '@/utils/errors/error-utils';
 
 export async function register(registerStateForm: RegisterStateForm, data: FormData): Promise<RegisterStateForm> {
   const formattedData = {
@@ -25,7 +25,11 @@ export async function register(registerStateForm: RegisterStateForm, data: FormD
     };
   }
 
-  const user: UserDto = await UserService.register(name, email, password);
+  try {
+    await UserService.register(name, email, password);
+  } catch (err) {
+    return { error: { serverError: getServerErrorCode(err) }, email, name };
+  }
 
   return {};
 }

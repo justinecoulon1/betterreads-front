@@ -3,6 +3,7 @@ export type RegisterStateForm = {
     name?: string[];
     email?: string[];
     passwordForm?: string[];
+    serverError?: string;
   };
   name?: string;
   email?: string;
