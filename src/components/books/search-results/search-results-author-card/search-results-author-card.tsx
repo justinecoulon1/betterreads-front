@@ -1,7 +1,7 @@
 import { AuthorDto } from '@/utils/dto/author.dto';
 import { Link } from '@/i18n/routing';
 import classNames from 'classnames';
-import styles from '@/components/books/search-results/search-result-container.module.css';
+import styles from './search-results-author-card.module.css';
 import Image from 'next/image';
 
 export default function SearchResultsAuthorCard({ author }: { author: AuthorDto }) {

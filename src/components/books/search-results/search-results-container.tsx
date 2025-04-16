@@ -1,9 +1,9 @@
-import { SearchDto } from '@/utils/dto/search.dto';
+import { SearchItemDto } from '@/utils/dto/searchItemDto';
 import styles from './search-result-container.module.css';
 import SearchResultsBookCard from '@/components/books/search-results/search-results-book-card/search-results-book-card';
 import SearchResultsAuthorCard from '@/components/books/search-results/search-results-author-card/search-results-author-card';
 
-export default function SearchResultsContainer({ items }: { items: SearchDto[] }) {
+export default function SearchResultsContainer({ items }: { items: SearchItemDto[] }) {
   return (
     <div className={styles.searchResultsContainer}>
       {items.map((item, index) => (
