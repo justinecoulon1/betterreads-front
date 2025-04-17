@@ -4,19 +4,16 @@ import classNames from 'classnames';
 import React from 'react';
 import { X } from 'lucide-react';
 import ShelfService from '@/utils/api/shelf.service';
-import { UserDto } from '@/utils/dto/user.dto';
 import ShelfLink from '@/components/profile/profile-section/shelves/shelves-card/shelf-link';
 
 export default function ShelfCard({
   shelf,
   hasButton,
-  user,
   onShelfDelete,
   className,
 }: {
   shelf: ShelfWithLastBookDto;
   hasButton: boolean;
-  user?: UserDto;
   onShelfDelete: (shelf: SmallShelfDto) => void;
   className?: string;
 }) {
@@ -28,10 +25,8 @@ export default function ShelfCard({
         <button
           className={classNames(styles.shelfDeleteButton, 'nbShadow')}
           onClick={async () => {
-            if (user) {
-              await ShelfService.deleteShelf(shelf.id);
-              onShelfDelete(shelf);
-            }
+            await ShelfService.deleteShelf(shelf.id);
+            onShelfDelete(shelf);
           }}
         >
           <X className={styles.shelfDeleteButtonImage} />

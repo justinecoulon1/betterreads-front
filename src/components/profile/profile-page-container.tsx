@@ -10,7 +10,7 @@ export default async function ProfilePageContainer({ profilePageTab }: { profile
   const user = await getSessionUser();
   return (
     <div className={styles.pageContentContainer}>
-      {profilePageTab === ProfilePageTab.PROFILE && <ProfileSection user={user} />}
+      {profilePageTab === ProfilePageTab.PROFILE && <ProfileSection />}
       {profilePageTab === ProfilePageTab.ACCOUNT && <AccountSection user={user} />}
     </div>
   );

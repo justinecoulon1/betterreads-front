@@ -10,7 +10,7 @@ export default function HistoryContainer({
   seeMoreButton,
   seeMoreLink,
 }: {
-  history: HistoryDto[];
+  history?: HistoryDto[];
   containerTitle: string;
   seeMoreButton: boolean;
   seeMoreLink?: string;
@@ -23,9 +23,15 @@ export default function HistoryContainer({
         {seeMoreButton && seeMoreLink && <SeeMoreLink path={seeMoreLink} />}
       </div>
       <div className={styles.historyListContainer}>
-        {history.map((h) => (
-          <LongHistoryCard history={h} key={`history-item-${h.id}`} />
-        ))}
+        {history ? (
+          <>
+            {history.map((h) => (
+              <LongHistoryCard history={h} key={`history-item-${h.id}`} />
+            ))}
+          </>
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
     </div>
   );
