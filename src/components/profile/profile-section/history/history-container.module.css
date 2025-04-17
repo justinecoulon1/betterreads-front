@@ -29,7 +29,6 @@
 
         .longHistoryCard {
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
 
             padding: 0.5rem;
@@ -55,8 +54,15 @@
             }
 
             .historyBookInfo {
-                display: flex;
-                align-items: center;
+                display:flex;
+
+                .bookTitle{
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
             }
         }
     }
