@@ -34,7 +34,7 @@ export default function ShelfLightboxContent({ closeLightbox, bookId }: { closeL
     return { bookId: result.bookId };
   };
 
-  const [formState, formAction, isPending] = useActionState(handleSubmit, { bookId });
+  const [, formAction, isPending] = useActionState(handleSubmit, { bookId });
   return (
     <div className={styles.lightboxContainer} onMouseDown={(e) => e.stopPropagation()}>
       <ShelfLightboxHeader closeLightbox={closeLightbox} />

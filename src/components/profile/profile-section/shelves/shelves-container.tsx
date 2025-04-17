@@ -6,6 +6,7 @@ import styles from './shelves-container.module.css';
 import SeeMoreLink from '@/components/generic/see-more-button/see-more-link';
 import { UserDto } from '@/utils/dto/user.dto';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 export default function ShelvesContainer({
   initialShelves,
@@ -21,10 +22,11 @@ export default function ShelvesContainer({
   user?: UserDto;
 }) {
   const [userShelves, setUserShelves] = useState(initialShelves);
+  const t = useTranslations('shelves-containers');
   return (
     <div className={styles.shelvesContainer}>
       <div className={styles.shelvesHeaderContainer}>
-        <h2>{containerTitle}</h2>
+        <h2>{t(containerTitle)}</h2>
         {seeMoreButton && seeMoreLink && <SeeMoreLink path={seeMoreLink} />}
       </div>
       <div className={styles.shelveCardsListContainer}>

@@ -83,7 +83,7 @@
     "book-exists": "Book already exists"
   },
   "book-details": {
-    "description": "description",
+    "description": "Description",
     "add-to-shelve": "Add to shelve",
     "book-info": "Book Information",
     "editor": "Editor: ",
@@ -126,5 +126,10 @@
     "book-genres": "Genres: ",
     "author-title": "Author: ",
     "no-result-found": "No result found"
+  },
+  "shelves-containers": {
+    "reading-status-shelves-container": "My reading status shelves",
+    "personal-shelves-container": "My shelves",
+    "reading-history": "My reading history"
   }
 }

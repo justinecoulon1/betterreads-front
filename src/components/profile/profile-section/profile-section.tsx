@@ -16,7 +16,7 @@ export default async function ProfileSection({ user }: { user: UserDto }) {
       {readingStatusShelves ? (
         <ShelvesContainer
           initialShelves={readingStatusShelves}
-          containerTitle={'My reading status shelves'}
+          containerTitle={'reading-status-shelves-container'}
           seeMoreButton={false}
         />
       ) : (
@@ -25,7 +25,7 @@ export default async function ProfileSection({ user }: { user: UserDto }) {
       {shelves ? (
         <ShelvesContainer
           initialShelves={shelves}
-          containerTitle={'My shelves'}
+          containerTitle={'personal-shelves-container'}
           seeMoreButton={true}
           seeMoreLink={'/profile/shelves'}
           user={user}
@@ -36,7 +36,7 @@ export default async function ProfileSection({ user }: { user: UserDto }) {
       {history ? (
         <HistoryContainer
           history={history.histories}
-          containerTitle={'My Reading History'}
+          containerTitle={'reading-history'}
           seeMoreButton={true}
           seeMoreLink={'/profile/history'}
         />
