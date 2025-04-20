@@ -40,6 +40,7 @@
 
     .logoDiv {
         display: flex;
+        align-items: center;
         font-family: Mixal;
         font-size: 3rem;
 
@@ -47,7 +48,7 @@
 
         .logo {
             width: auto;
-            height: 3rem;
+            height: 4rem;
         }
     }
 
