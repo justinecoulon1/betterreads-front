@@ -25,3 +25,7 @@ export type ShelfWithLastBookDto = SmallShelfDto & {
 export type CreateShelfRequestDto = {
   name: string;
 };
+
+export type UpdateShelfNameRequestDto = {
+  name: string;
+};

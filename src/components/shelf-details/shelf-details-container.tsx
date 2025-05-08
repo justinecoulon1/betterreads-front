@@ -7,8 +7,12 @@ import React, { useEffect, useState } from 'react';
 import BannerContainer from '@/components/global/banner/banner-container';
 import { BookDto } from '@/utils/dto/book.dto';
 import shelfService from '@/utils/api/shelf.service';
+import ShelfService from '@/utils/api/shelf.service';
+import DoubleButtonInput from '@/components/global/inputs/input-button/double-button-input';
+import { useTranslations } from 'next-intl';
 
 export default function ShelfDetailsContainer({ shelfId }: { shelfId: number }) {
+  const t = useTranslations('shelf-details');
   const [shelf, setShelf] = useState<ShelfDto | undefined>();
   const [shelfBooks, setShelfBooks] = useState<BookDto[] | undefined>();
 
@@ -29,6 +33,16 @@ export default function ShelfDetailsContainer({ shelfId }: { shelfId: number }) 
       <div className={styles.shelvesDetailsInnerContainer}>
         <div className={styles.shelfDetailsContainerHeader}>
           <h2>{shelf ? shelf.name : 'Loading...'}</h2>
+          <div className={styles.newShelfButtonContainer}>
+            <DoubleButtonInput
+              onValidating={async (updatedShelfName) => {
+                const updatedShelf = await ShelfService.updateShelfName(shelfId, updatedShelfName);
+                console.log(updatedShelf);
+                setShelf(updatedShelf);
+              }}
+              buttonText={t('update-shelf-name')}
+            />
+          </div>
         </div>
         {shelf && shelfBooks && (
           <>

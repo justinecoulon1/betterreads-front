@@ -7,10 +7,11 @@ import React, { useEffect, useState } from 'react';
 import ShelfService from '@/utils/api/shelf.service';
 import ShelfCard from '@/components/profile/profile-section/shelves/shelves-card/shelf-card';
 import BannerContainer from '@/components/global/banner/banner-container';
-import AddShelfButton from '@/components/shelves/add-shelf-button';
+import DoubleButtonInput from '@/components/global/inputs/input-button/double-button-input';
 
 export default function ShelvesPageContainer() {
   const t = useTranslations('my-shelves');
+  const tShelf = useTranslations('my-shelves');
   const [userShelves, setUserShelves] = useState<ShelfWithLastBookDto[] | undefined>();
 
   useEffect(() => {
@@ -27,8 +28,9 @@ export default function ShelvesPageContainer() {
         <div className={styles.shelvesHeaderContainer}>
           <h2>{t('title')}</h2>
           <div className={styles.newShelfButtonContainer}>
-            <AddShelfButton
-              onShelfCreation={async (shelfName) => setUserShelves(await ShelfService.createShelf(shelfName))}
+            <DoubleButtonInput
+              onValidating={async (shelfName) => setUserShelves(await ShelfService.createShelf(shelfName))}
+              buttonText={tShelf('add-shelf')}
             />
           </div>
         </div>

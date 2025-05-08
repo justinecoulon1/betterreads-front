@@ -131,5 +131,8 @@
     "reading-status-shelves-container": "My reading status shelves",
     "personal-shelves-container": "My shelves",
     "reading-history": "My reading history"
+  },
+  "shelf-details": {
+    "update-shelf-name": "Update shelf name"
   }
 }
