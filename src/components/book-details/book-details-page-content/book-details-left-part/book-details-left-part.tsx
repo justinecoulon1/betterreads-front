@@ -1,16 +1,16 @@
 'use server';
 
-import { BookDto } from '@/utils/dto/book.dto';
+import { CompleteBookDto } from '@/utils/dto/book.dto';
 import styles from '@/components/book-details/book-details-content.module.css';
 import CoverImage from '@/components/global/books/cover-image/cover-image';
 import classNames from 'classnames';
-import AddToShelveButton from '@/components/book-details/book-details-page-content/add-to-shelves-button';
+import AddToShelvesButton from '@/components/book-details/book-details-page-content/buttons/add-to-shelves-button/add-to-shelves-button';
 import BookService from '@/utils/api/book.service';
-import BookReadingStatusButtonContainer from '@/components/book-details/book-details-page-content/book-reading-status-button-container';
+import BookReadingStatusButtonContainer from '@/components/book-details/book-details-page-content/buttons/book-reading-status-buttons/book-reading-status-button-container';
 import { getSession } from '@/utils/action/auth/get-session.action';
 import BookAuthorsPagesLinks from '@/components/book-details/book-details-page-content/book-authors-pages-links';
 
-export default async function BookDetailsLeftPart({ book }: { book: BookDto }) {
+export default async function BookDetailsLeftPart({ book }: { book: CompleteBookDto }) {
   const session = await getSession();
   const user = session?.user;
   const bookStatus = user ? await BookService.getBookReadingStatus(book.id) : undefined;
@@ -25,7 +25,7 @@ export default async function BookDetailsLeftPart({ book }: { book: BookDto }) {
           <BookReadingStatusButtonContainer bookStatus={bookStatus} userId={user?.id} bookId={book.id} />
         </div>
 
-        <AddToShelveButton isLoggedIn={!!user} bookId={book.id} />
+        <AddToShelvesButton isLoggedIn={!!user} bookId={book.id} />
 
         <BookAuthorsPagesLinks authors={book.authors} />
       </div>

@@ -1,0 +1,107 @@
+.reviewSectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    padding-top: 6rem;
+    gap: 2rem;
+
+    .reviewSectionHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        padding: 0.3rem 1rem;
+
+        border: 1px solid var(--secondary-vibrant);
+        background-color: var(--primary-vibrant);
+        font-size: 1rem;
+
+    }
+
+    .reviewCardsContainer {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+
+        gap: 0.5rem;
+
+        .emptyReviewSectionContainer {
+            display: flex;
+            flex-direction: column;
+
+            width: 100%;
+
+            padding: 0.5rem;
+            gap: 0.5rem;
+
+            border: 1px solid var(--secondary-vibrant);
+            background-color: var(--primary-vibrant);
+
+            .scoreSelectContainerDiv {
+                display: flex;
+                align-items: center;
+
+                gap: 0.5rem;
+
+                & label {
+                    font-size: 1rem;
+                }
+
+                .select {
+                    display: flex;
+                    width: 12rem;
+                    font-size: 1rem;
+                    padding: 0.2rem;
+
+                    background-color: var(--primary);
+
+                    & option {
+                        font-size: 1rem;
+                        color: var(--secondary-vibrant)
+                    }
+                }
+            }
+
+            .textarea {
+                resize: none;
+                height: 8rem;
+                padding: 0.2rem;
+                font-size: 1rem;
+                background-color: var(--primary);
+            }
+
+            .addReviewButton {
+                display: flex;
+                justify-self: flex-end;
+                font-size: 1rem;
+                background-color: var(--tertiary);
+                padding: 0.5rem;
+            }
+        }
+
+        .errorDiv {
+            display: flex;
+            height: 1rem;
+
+            & span {
+                color: red;
+            }
+        }
+
+        .reviewCard {
+            display: flex;
+            flex-direction: column;
+
+            width: 100%;
+
+            padding: 0.5rem;
+
+            border: 1px solid var(--secondary-vibrant);
+            background-color: var(--primary-vibrant);
+        }
+    }
+}

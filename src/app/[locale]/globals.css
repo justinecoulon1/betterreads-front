@@ -104,3 +104,12 @@ a {
         text-decoration: underline;
     }
 }
+
+button {
+    cursor: pointer;
+    background-color: var(--tertiary);
+}
+
+select {
+    cursor: pointer;
+}

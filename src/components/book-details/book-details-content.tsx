@@ -2,11 +2,11 @@
 
 import styles from './book-details-content.module.css';
 import CoverImage from '@/components/global/books/cover-image/cover-image';
-import { BookDto } from '@/utils/dto/book.dto';
-import BookDetailsLeftPart from '@/components/book-details/book-details-page-content/book-details-left-part';
-import BookDetailsRightPart from '@/components/book-details/book-details-page-content/book-details-right-part';
+import { CompleteBookDto } from '@/utils/dto/book.dto';
+import BookDetailsLeftPart from '@/components/book-details/book-details-page-content/book-details-left-part/book-details-left-part';
+import BookDetailsRightPart from '@/components/book-details/book-details-page-content/book-details-right-part/book-details-right-part';
 
-export default async function BookDetailsContent({ book }: { book: BookDto }) {
+export default async function BookDetailsContent({ book }: { book: CompleteBookDto }) {
   return (
     <div className={styles.bookDetailsContentContainer}>
       <div className={styles.bannerContainer}>

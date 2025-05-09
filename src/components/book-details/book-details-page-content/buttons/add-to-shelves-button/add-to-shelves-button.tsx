@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import styles from '@/components/book-details/book-details-content.module.css';
 import { redirectToLogin } from '@/utils/action/auth/redirect-to-login.action';
 
-export default function AddToShelveButton({ isLoggedIn, bookId }: { isLoggedIn: boolean; bookId: number }) {
+export default function AddToShelvesButton({ isLoggedIn, bookId }: { isLoggedIn: boolean; bookId: number }) {
   const t = useTranslations('book-details');
   const [isLightboxOpened, setLightboxOpened] = useState(false);
 

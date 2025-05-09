@@ -1,6 +1,6 @@
 'use client';
 
-import BookReadingStatusButton from '@/components/book-details/book-details-page-content/book-reading-status-button';
+import BookReadingStatusButton from '@/components/book-details/book-details-page-content/buttons/book-reading-status-buttons/book-reading-status-button';
 import { ShelfType } from '@/utils/dto/shelf.dto';
 import { useState } from 'react';
 

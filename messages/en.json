@@ -133,6 +133,14 @@
     "reading-history": "My reading history"
   },
   "shelf-details": {
-    "update-shelf-name": "Update shelf name"
+    "update-shelf-name": "Update name"
+  },
+  "reviews": {
+    "review-section-header": "Reviews",
+    "add-review": "Write a review",
+    "commentary-textarea-placeholder": "(Optional) Write your review",
+    "select-default-value": "--Choose an option--",
+    "no-score": "Please enter a score",
+    "commentary-too-long": "Commentary must be 5000 characters max"
   }
 }

@@ -30,7 +30,7 @@ export default function ShelvesPageContainer() {
           <div className={styles.newShelfButtonContainer}>
             <DoubleButtonInput
               onValidating={async (shelfName) => setUserShelves(await ShelfService.createShelf(shelfName))}
-              buttonText={tShelf('add-shelf')}
+              buttonText={tShelf('add-shelf').toUpperCase()}
             />
           </div>
         </div>

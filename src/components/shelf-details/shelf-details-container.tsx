@@ -40,7 +40,7 @@ export default function ShelfDetailsContainer({ shelfId }: { shelfId: number }) 
                 console.log(updatedShelf);
                 setShelf(updatedShelf);
               }}
-              buttonText={t('update-shelf-name')}
+              buttonText={t('update-shelf-name').toUpperCase()}
             />
           </div>
         </div>
