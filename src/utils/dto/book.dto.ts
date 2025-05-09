@@ -1,6 +1,5 @@
 import { AuthorDto } from './author.dto';
 import { ShelfType, SmallShelfDto } from '@/utils/dto/shelf.dto';
-import { ReviewDto } from '@/utils/dto/review.dto';
 
 export type SmallBookDto = {
   id: number;
@@ -21,11 +20,6 @@ export type BookDto = {
   editor: string;
   editionLanguage: string;
   description?: string;
-};
-
-export type CompleteBookDto = BookDto & {
-  reviews: ReviewDto[];
-  averageScore: number;
 };
 
 export type CreateBookRequestDto = {

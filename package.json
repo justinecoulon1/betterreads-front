@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.75.6",
     "axios": "^1.8.4",
     "classnames": "^2.5.1",
     "iron-session": "^8.0.4",

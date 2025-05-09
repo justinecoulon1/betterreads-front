@@ -1,8 +1,8 @@
-import { CompleteBookDto } from '@/utils/dto/book.dto';
+import { BookDto } from '@/utils/dto/book.dto';
 import { useTranslations } from 'next-intl';
 import styles from '@/components/book-details/book-details-content.module.css';
 
-export default function BookInfoSection({ book }: { book: CompleteBookDto }) {
+export default function BookInfoSection({ book }: { book: BookDto }) {
   const t = useTranslations('book-details');
   const bookInfo = [
     { translationKey: 'editor', value: book.editor },

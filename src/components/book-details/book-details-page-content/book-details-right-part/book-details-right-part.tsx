@@ -1,6 +1,6 @@
 'use client';
 
-import { CompleteBookDto } from '@/utils/dto/book.dto';
+import { BookDto } from '@/utils/dto/book.dto';
 import { useState } from 'react';
 import styles from '@/components/book-details/book-details-content.module.css';
 import classNames from 'classnames';
@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl';
 import BookInfoSection from '@/components/book-details/book-details-page-content/book-details-right-part/book-info-section';
 import ReviewSection from '@/components/book-details/book-details-page-content/book-details-right-part/review-section';
 
-export default function BookDetailsRightPart({ book }: { book: CompleteBookDto }) {
+export default function BookDetailsRightPart({ book }: { book: BookDto }) {
   const t = useTranslations('book-details');
   const descriptionLength = book?.description?.length ?? 0;
   const [descriptionCropped, setDescriptionCropped] = useState(descriptionLength > 1230);

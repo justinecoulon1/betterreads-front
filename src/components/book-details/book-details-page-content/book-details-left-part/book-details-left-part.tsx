@@ -1,6 +1,6 @@
 'use server';
 
-import { CompleteBookDto } from '@/utils/dto/book.dto';
+import { BookDto } from '@/utils/dto/book.dto';
 import styles from '@/components/book-details/book-details-content.module.css';
 import CoverImage from '@/components/global/books/cover-image/cover-image';
 import classNames from 'classnames';
@@ -10,7 +10,7 @@ import BookReadingStatusButtonContainer from '@/components/book-details/book-det
 import { getSession } from '@/utils/action/auth/get-session.action';
 import BookAuthorsPagesLinks from '@/components/book-details/book-details-page-content/book-authors-pages-links';
 
-export default async function BookDetailsLeftPart({ book }: { book: CompleteBookDto }) {
+export default async function BookDetailsLeftPart({ book }: { book: BookDto }) {
   const session = await getSession();
   const user = session?.user;
   const bookStatus = user ? await BookService.getBookReadingStatus(book.id) : undefined;

@@ -1,16 +1,26 @@
-import { CompleteBookDto } from '@/utils/dto/book.dto';
 import { useTranslations } from 'next-intl';
 import styles from '@/components/book-details/book-details-page-content/book-details-right-part/review-section.module.css';
 import classNames from 'classnames';
 import { useActionState } from 'react';
 import { addReview } from '@/utils/action/review/add-review.action';
+import { ReviewAddStateForm } from '@/utils/action/review/types';
+import { BookDto } from '@/utils/dto/book.dto';
 
 const scoreSelectOptions = ['0.5', '1', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5'];
 
-export default function EmptyReviewCard({ book }: { book: CompleteBookDto }) {
+export default function EmptyReviewCard({ book, onReviewCreated }: { book: BookDto; onReviewCreated: () => void }) {
   const t = useTranslations('reviews');
 
-  const [formState, formAction, isPending] = useActionState(addReview, { bookId: book.id });
+  const handleSubmit = async (state: ReviewAddStateForm, data: FormData) => {
+    const result = await addReview(state, data);
+    if (!result.errors) {
+      onReviewCreated();
+    }
+
+    return result;
+  };
+
+  const [formState, formAction, isPending] = useActionState(handleSubmit, { bookId: book.id });
 
   return (
     <form action={formAction}>

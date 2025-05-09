@@ -1,8 +1,13 @@
 import { betterreadsAxios } from '@/utils/api/betterreads-axios';
-import { CreateReviewRequestDto, ReviewDto } from '@/utils/dto/review.dto';
+import { BookReviewInfoDto, CreateReviewRequestDto, ReviewDto } from '@/utils/dto/review.dto';
 
 class ReviewService {
-  async createReview(score: number, commentary: string, bookId: number) {
+  async getBookReviewInfo(bookId: number): Promise<BookReviewInfoDto> {
+    const response = await betterreadsAxios.get<BookReviewInfoDto>(`/reviews/${bookId}`);
+    return response.data;
+  }
+
+  async createReview(score: number, commentary: string, bookId: number): Promise<ReviewDto> {
     const body: CreateReviewRequestDto = {
       score,
       commentary,

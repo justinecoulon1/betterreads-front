@@ -1,6 +1,5 @@
 import {
   BookDto,
-  CompleteBookDto,
   CreateBookRequestDto,
   PreloadedBookInfoDto,
   SmallBookDto,
@@ -47,8 +46,8 @@ class BookService {
     return response.data;
   }
 
-  async getBookByIsbn(isbn: string): Promise<CompleteBookDto> {
-    const response = await betterreadsAxios.get<CompleteBookDto>(`/books/isbn/${isbn}`);
+  async getBookByIsbn(isbn: string): Promise<BookDto> {
+    const response = await betterreadsAxios.get<BookDto>(`/books/isbn/${isbn}`);
     return response.data;
   }
 
