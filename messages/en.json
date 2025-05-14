@@ -142,5 +142,8 @@
     "select-default-value": "--Choose an option--",
     "no-score": "Please enter a score",
     "commentary-too-long": "Commentary must be 5000 characters max"
+  },
+  "review-containers": {
+    "review-container-title": "My reviews"
   }
 }
