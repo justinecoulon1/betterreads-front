@@ -1,5 +1,11 @@
 import { betterreadsAxios } from '@/utils/api/betterreads-axios';
-import { BookReviewInfoDto, CreateReviewRequestDto, ReviewDto, UserReviewDto } from '@/utils/dto/review.dto';
+import {
+  BookReviewInfoDto,
+  CreateReviewRequestDto,
+  PaginatedReviewDto,
+  ReviewDto,
+  UserReviewDto,
+} from '@/utils/dto/review.dto';
 
 class ReviewService {
   async getBookReviewInfo(bookId: number): Promise<BookReviewInfoDto> {
@@ -19,6 +25,11 @@ class ReviewService {
       bookId,
     };
     const response = await betterreadsAxios.post<ReviewDto>(`/reviews`, body);
+    return response.data;
+  }
+
+  async getUserReviews(limit: number, offset: number) {
+    const response = await betterreadsAxios.get<PaginatedReviewDto>(`/reviews`, { params: { limit, offset } });
     return response.data;
   }
 }

@@ -7,7 +7,7 @@ import HistoryService from '@/utils/api/history.service';
 import { useEffect, useState } from 'react';
 import { ShelfWithLastBookDto } from '@/utils/dto/shelf.dto';
 import { PaginatedHistoryDto } from '@/utils/dto/history.dto';
-import { ReviewDto } from '@/utils/dto/review.dto';
+import { UserReviewDto } from '@/utils/dto/review.dto';
 import ReviewService from '@/utils/api/review.service';
 import ReviewContainer from '@/components/profile/profile-section/reviews/review-container';
 
@@ -15,7 +15,7 @@ export default function ProfileSection() {
   const [userShelves, setUserShelves] = useState<ShelfWithLastBookDto[] | undefined>();
   const [readingStatusShelves, setReadingStatusShelves] = useState<ShelfWithLastBookDto[] | undefined>();
   const [history, setHistory] = useState<PaginatedHistoryDto | undefined>();
-  const [reviews, setReviews] = useState<ReviewDto[] | undefined>();
+  const [reviews, setReviews] = useState<UserReviewDto[] | undefined>();
 
   useEffect(() => {
     const fetchServerData = async () => {

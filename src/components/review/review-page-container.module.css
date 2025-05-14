@@ -1,0 +1,53 @@
+.reviewPageContainer {
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+
+    gap: 0.5rem;
+    padding: 0.5rem;
+
+    background-color: var(--primary);
+
+    .reviewPageContainerHeader {
+        display: flex;
+        padding: 2rem;
+    }
+
+    .reviewPageContainerContent {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        gap: 2rem;
+
+        .reviewCard {
+            display: flex;
+
+            height: fit-content;
+            width: 100%;
+
+            gap: 1rem;
+            padding: 1rem 1rem 1rem 0;
+
+            background-color: var(--primary-vibrant);
+            border: 1px solid var(--secondary-vibrant);
+
+            .reviewCardBookCardContainer {
+                display: flex;
+                align-items: center;
+                padding: 1rem;
+                border-right: 1px var(--secondary-vibrant) solid;
+            }
+
+            .reviewCardInfo {
+                display: flex;
+                flex-direction: column;
+
+                & p {
+                    text-align: justify;
+                }
+            }
+        }
+    }
+}

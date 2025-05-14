@@ -122,6 +122,7 @@
     "shelf-create": "<link>Create a new shelf</link>"
   },
   "search-results": {
+    "search-result-count": "Results count:",
     "book-release-date": "Release date: ",
     "book-genres": "Genres: ",
     "author-title": "Author: ",

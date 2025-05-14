@@ -19,7 +19,7 @@ export default async function SearchContainer({ searchText, page }: { searchText
       <SearchContainerHeader searchText={searchText} />
       {searchResult && searchResult.items.length !== 0 && (
         <div className={styles.resultsContainer}>
-          <SearchResultsContainer items={searchResult.items} />
+          <SearchResultsContainer items={searchResult.items} count={searchResult.count} />
           <PageSelectionContainer
             currentPage={page}
             totalPages={totalPages}
