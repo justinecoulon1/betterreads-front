@@ -9,10 +9,6 @@
 
     padding: 1rem;
     gap: 2rem;
-
-    background-color: var(--primary-vibrant);
-
-    border: 1px solid var(--secondary-vibrant);
     font-size: 1.1rem;
 
     .leftSideBarContainerSection {
