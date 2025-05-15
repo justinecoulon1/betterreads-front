@@ -1,0 +1,45 @@
+
+.carouselWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.carouselContainer {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carouselTrack {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 1rem;
+}
+
+.cardWrapper {
+    flex: 0 0 var(--card-width);
+}
+
+.carouselButton {
+    background-color: var(--tertiary);
+    color: var(--secondary-vibrant);
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.carouselButton:disabled {
+    background-color: var(--tertiary-grayed);
+    color: var(--secondary);
+    cursor: not-allowed;
+}
+
+.carouselButton.left {
+    margin-right: 0.5rem;
+}
+
+.carouselButton.right {
+    margin-left: 0.5rem;
+}

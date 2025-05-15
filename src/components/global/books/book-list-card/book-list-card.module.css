@@ -44,6 +44,7 @@
 
         cursor: pointer;
 
+        background-color: var(--primary-vibrant);
 
         &:hover {
             background-color: var(--secondary);

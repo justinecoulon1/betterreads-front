@@ -3,6 +3,10 @@
     "main-title": "Home",
     "books": "Books",
     "profile": "Profile",
+    "shelves": "Shelves",
+    "history": "History",
+    "reviews": "Reviews",
+    "add-book": "Add a book",
     "login": "Login",
     "logout": "Logout",
     "register": "Register"

@@ -3,21 +3,16 @@
     flex-direction: column;
     align-items: center;
 
-    width: 70rem;
-    max-width: 70rem;
     min-height: fit-content;
     height: fit-content;
+    width: 100%;
 
     gap: 1rem;
     padding: 1rem;
 
-    background-color: var(--primary-vibrant);
-    border: 1px solid var(--secondary-vibrant);
-
     .lastAddedBookSectionHeader {
         display: flex;
         justify-content: space-between;
-
         width: 100%;
     }
 
@@ -25,6 +20,7 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        width: 100%;
 
         gap: 1rem;
     }

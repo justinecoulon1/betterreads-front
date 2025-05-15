@@ -1,13 +1,12 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import classNames from 'classnames';
 import React from 'react';
 import styles from './auth-button.module.css';
 import { logout } from '@/utils/action/auth/logout.action';
+import { Power } from 'lucide-react';
 
 export default function LogoutButton() {
-  const t = useTranslations('header');
   return (
     <button
       className={classNames(styles.authButton, 'nbShadow')}
@@ -20,7 +19,7 @@ export default function LogoutButton() {
         }
       }}
     >
-      {t('logout').toUpperCase()}
+      {<Power />}
     </button>
   );
 }

@@ -1,13 +1,12 @@
 .header {
     display: flex;
+    flex-direction: column;
     width: 100vw;
     height: var(--header-height);
 
     position: fixed;
     top: 0;
     left: 0;
-
-    padding: 0 3rem 0 3rem;
 
     font-size: 1.3rem;
     user-select: none;
@@ -16,26 +15,35 @@
 
     z-index: 15;
 
-    .headerDiv {
+    .firstBar {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         width: 100%;
-        height: 100%;
-        border-bottom: 1px solid var(--text-primary);
+        height: 4rem;
 
-        .searchBarAndAuthButtonContainer {
-            display: flex;
-            justify-content: flex-end;
-            gap: 2rem;
+        padding: 0 8rem 0 8rem;
 
-            width: 30%;
+        border-bottom: 1px solid var(--secondary);
 
-            .headerSearchBar {
-                width: 70%;
-                min-width: 10rem;
-            }
+        .headerSearchBar {
+            width: 30rem;
+            min-width: 10rem;
         }
+    }
+
+    .secondBar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 100%;
+        height: 4rem;
+
+        padding: 0 8rem 0 8rem;
+
+        border-bottom: 1px solid var(--secondary);
     }
 
     .logoDiv {
@@ -45,11 +53,6 @@
         font-size: 3rem;
 
         gap: 1rem;
-
-        .logo {
-            width: auto;
-            height: 4rem;
-        }
     }
 
 }
