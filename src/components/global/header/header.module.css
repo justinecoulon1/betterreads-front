@@ -1,6 +1,7 @@
 .header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     width: 100vw;
     height: var(--header-height);
 
@@ -10,22 +11,24 @@
 
     font-size: 1.3rem;
     user-select: none;
+    padding: 0 8rem 0 8rem;
 
     background-color: var(--primary-transparent);
+    border-bottom: 1px solid var(--secondary);
 
     z-index: 15;
 
-    .firstBar {
+    .leftSide {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        gap: 1rem;
 
-        width: 100%;
-        height: 4rem;
+    }
 
-        padding: 0 8rem 0 8rem;
-
-        border-bottom: 1px solid var(--secondary);
+    .rightSide {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
 
         .headerSearchBar {
             width: 30rem;
@@ -33,18 +36,6 @@
         }
     }
 
-    .secondBar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        width: 100%;
-        height: 4rem;
-
-        padding: 0 8rem 0 8rem;
-
-        border-bottom: 1px solid var(--secondary);
-    }
 
     .logoDiv {
         display: flex;
@@ -54,5 +45,4 @@
 
         gap: 1rem;
     }
-
 }

@@ -1,11 +1,8 @@
-.authButton {
+.headerBurgerMenu {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    font-size: inherit;
-    padding: 0.4rem 1rem 0.4rem 1rem;
     background-color: var(--tertiary);
-
-    cursor: pointer;
+    height: fit-content;
+    padding: 0.4rem;
 }

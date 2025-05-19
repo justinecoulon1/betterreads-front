@@ -1,17 +1,21 @@
 .nav {
     display: flex;
+    flex-direction: column;
     width: 100%;
 
     & ul {
         display: flex;
-        gap: 2.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
 
         & li {
             display: flex;
-            width: 10rem;
+            width: 100%;
             list-style-type: none;
             transition: transform 0.3s ease;
             font-size: 1.3rem;
+            cursor: pointer;
 
             & a {
                 display: inline-block;
@@ -40,6 +44,10 @@
                     opacity: 1;
                 }
             }
+        }
+
+        .subMenu {
+            padding-left: 2rem;
         }
     }
 }
